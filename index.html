@@ -1,0 +1,894 @@
+<!DOCTYPE html>
+<html lang="mr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>गाव कुटुंब व बाल सर्वेक्षण नोंदवही | निर्माता: श्री गणेश विलास पष्टे</title>
+  
+  <!-- FontAwesome Icons & Google Fonts -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Mukta:wght@400;500;600;700;800&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Custom Stylesheet -->
+  <link rel="stylesheet" href="css/style.css">
+
+  <!-- SheetJS Library for offline Excel Import/Export -->
+  <script src="lib/xlsx.full.min.js"></script>
+</head>
+<body>
+
+  <!-- ====================================================
+       Header & Creator Banner
+       ==================================================== -->
+  <header class="app-header">
+    <!-- Top Creator Strip -->
+    <div class="creator-top-strip">
+      <i class="fa-solid fa-award"></i>
+      <span>सॉफ्टवेअर व नोंदवही रचना निर्माता:</span>
+      <span class="creator-name">श्री गणेश विलास पष्टे</span>
+    </div>
+
+    <!-- Main Header Bar -->
+    <div class="header-main">
+      <div class="header-brand">
+        <div class="header-icon">
+          <i class="fa-solid fa-school-flag"></i>
+        </div>
+        <div class="header-titles">
+          <h1 id="header-school-name">रायगड जिल्हा परिषद शाळा मोहपाडा</h1>
+          <p id="header-sub-details">गाव: मोहपाडा | केंद्र: नांदगाव | ता. कर्जत (जि. रायगड)</p>
+        </div>
+      </div>
+
+      <div class="header-actions no-print">
+        <button id="btn-export-excel" class="header-btn" title="एक्सेल फॉरमॅटमध्ये नोंदवही डाउनलोड करा">
+          <i class="fa-solid fa-file-excel"></i>
+          <span>Excel नोंदवही</span>
+        </button>
+        <button class="header-btn" onclick="switchTab('tab-print'); window.print();" title="नोंदवही प्रिंट करा">
+          <i class="fa-solid fa-print"></i>
+          <span>प्रिंट</span>
+        </button>
+        <button class="header-btn" onclick="openAboutModal()" title="सॉफ्टवेअर व निर्माता माहिती">
+          <i class="fa-solid fa-circle-info"></i>
+          <span>निर्माता</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ====================================================
+       Top Desktop Navigation Tabs
+       ==================================================== -->
+  <nav class="desktop-nav no-print">
+    <div class="nav-container">
+      <button class="nav-tab-btn active" data-tab="tab-dashboard">
+        <i class="fa-solid fa-chart-pie"></i>
+        <span>डॅशबोर्ड (सांख्यिकी)</span>
+      </button>
+      <button class="nav-tab-btn" data-tab="tab-feeding">
+        <i class="fa-solid fa-user-plus"></i>
+        <span>डेटा फीडिंग (नोंदणी)</span>
+      </button>
+      <button class="nav-tab-btn" data-tab="tab-register">
+        <i class="fa-solid fa-address-book"></i>
+        <span>सर्वेक्षण नोंदवही (पेज व्ह्यू)</span>
+      </button>
+      <button class="nav-tab-btn" data-tab="tab-print">
+        <i class="fa-solid fa-print"></i>
+        <span>अहवाल व A4 प्रिंट</span>
+      </button>
+      <button class="nav-tab-btn" data-tab="tab-settings">
+        <i class="fa-solid fa-sliders"></i>
+        <span>शाळा व गाव सेटिंग्स</span>
+      </button>
+      <button class="nav-tab-btn" data-tab="tab-help">
+        <i class="fa-solid fa-circle-question"></i>
+        <span>मार्गदर्शक सूचना</span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- ====================================================
+       Main Content Panes
+       ==================================================== -->
+  <main class="main-content">
+
+    <!-- ================================================
+         TAB 1: डॅशबोर्ड (Analytics Dashboard)
+         ================================================ -->
+    <section id="tab-dashboard" class="tab-pane active">
+      <!-- Welcome Banner -->
+      <div class="panel-card" style="background: linear-gradient(135deg, #1e3a8a 0%, #2563eb 100%); color: #fff; border: none;">
+        <div class="panel-body" style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px;">
+          <div>
+            <h2 style="font-size: 1.3rem; font-weight: 800; color: #fff; margin-bottom: 4px;">
+              गाव कुटुंब व बाल सर्वेक्षण डॅशबोर्ड
+            </h2>
+            <p style="font-size: 0.88rem; opacity: 0.95;">
+              शाळा व गाव पातळीवरील सर्व कुटुंब व शालेय बालकांचे परिपूर्ण वास्तवदर्शी विश्लेषण
+            </p>
+          </div>
+          <button class="btn btn-success btn-sm" onclick="switchTab('tab-feeding'); startNewFamily();">
+            <i class="fa-solid fa-plus"></i> नवीन कुटुंब नोंदणी सुरू करा
+          </button>
+        </div>
+      </div>
+
+      <!-- Quick Stat Boxes Grid -->
+      <div class="stats-grid">
+        <div class="stat-box blue">
+          <div class="stat-icon"><i class="fa-solid fa-house-chimney-user"></i></div>
+          <div class="stat-details">
+            <div id="stat-total-families" class="stat-number">0</div>
+            <div class="stat-label">एकूण कुटुंबे</div>
+          </div>
+        </div>
+
+        <div class="stat-box green">
+          <div class="stat-icon"><i class="fa-solid fa-users"></i></div>
+          <div class="stat-details">
+            <div id="stat-total-population" class="stat-number">0</div>
+            <div class="stat-label">एकूण लोकसंख्या</div>
+          </div>
+        </div>
+
+        <div class="stat-box indigo">
+          <div class="stat-icon"><i class="fa-solid fa-mars"></i></div>
+          <div class="stat-details">
+            <div id="stat-males" class="stat-number">0</div>
+            <div class="stat-label">पुरुष लोकसंख्या</div>
+          </div>
+        </div>
+
+        <div class="stat-box rose">
+          <div class="stat-icon"><i class="fa-solid fa-venus"></i></div>
+          <div class="stat-details">
+            <div id="stat-females" class="stat-number">0</div>
+            <div class="stat-label">स्त्री लोकसंख्या</div>
+          </div>
+        </div>
+
+        <div class="stat-box purple">
+          <div class="stat-icon"><i class="fa-solid fa-baby"></i></div>
+          <div class="stat-details">
+            <div id="stat-balwadi" class="stat-number">0</div>
+            <div class="stat-label">० ते ६ वर्षे (बालवाडी)</div>
+          </div>
+        </div>
+
+        <div class="stat-box teal">
+          <div class="stat-icon"><i class="fa-solid fa-graduation-cap"></i></div>
+          <div class="stat-details">
+            <div id="stat-school-age" class="stat-number">0</div>
+            <div class="stat-label">६ ते १४ वर्षे (शालेय)</div>
+          </div>
+        </div>
+
+        <div class="stat-box red">
+          <div class="stat-icon"><i class="fa-solid fa-triangle-exclamation"></i></div>
+          <div class="stat-details">
+            <div id="stat-out-school" class="stat-number">0</div>
+            <div class="stat-label">शाळाबाह्य बालके</div>
+          </div>
+        </div>
+
+        <div class="stat-box amber">
+          <div class="stat-icon"><i class="fa-solid fa-check-to-slot"></i></div>
+          <div class="stat-details">
+            <div id="stat-voters" class="stat-number">0</div>
+            <div class="stat-label">१८+ मतदार नागरिक</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Demographic Breakdown Grid -->
+      <div class="analytics-grid">
+        <!-- Category breakdown -->
+        <div class="panel-card">
+          <div class="panel-header">
+            <h2><i class="fa-solid fa-layer-group" style="color: var(--primary);"></i> सामाजिक / जात प्रवर्ग निहाय वितरण</h2>
+          </div>
+          <div class="panel-body" id="dash-category-bars">
+            <!-- Populated via JS -->
+          </div>
+        </div>
+
+        <!-- Age breakdown -->
+        <div class="panel-card">
+          <div class="panel-header">
+            <h2><i class="fa-solid fa-chart-column" style="color: var(--secondary);"></i> वयोगट निहाय वर्गीकरण</h2>
+          </div>
+          <div class="panel-body" id="dash-age-bars">
+            <!-- Populated via JS -->
+          </div>
+        </div>
+
+        <!-- School Attendance -->
+        <div class="panel-card">
+          <div class="panel-header">
+            <h2><i class="fa-solid fa-school" style="color: var(--warning);"></i> शिक्षण व शालेय उपस्थिती</h2>
+          </div>
+          <div class="panel-body" id="dash-school-bars">
+            <!-- Populated via JS -->
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================================================
+         TAB 2: डेटा फीडिंग (Mobile-Friendly Data Feeding)
+         ================================================ -->
+    <section id="tab-feeding" class="tab-pane">
+      <div class="panel-card">
+        <div class="panel-header">
+          <h2 id="feeding-form-title"><i class="fa-solid fa-user-plus" style="color: var(--primary);"></i> कुटुंब व सदस्य सर्वेक्षण डेटा नोंदणी</h2>
+          <div style="display: flex; gap: 8px;">
+            <button type="button" class="btn btn-outline btn-sm" onclick="startNewFamily()">
+              <i class="fa-solid fa-plus"></i> नवीन कुटुंब सुरू करा
+            </button>
+            <button type="button" id="btn-cancel-edit" class="btn btn-danger btn-sm" style="display: none;">
+              <i class="fa-solid fa-xmark"></i> रद्द करा
+            </button>
+          </div>
+        </div>
+
+        <div class="panel-body">
+          <!-- Active Family Context Banner (Rapid multi-member entry) -->
+          <div id="feed-family-context-banner" class="family-context-banner" style="display: none;">
+            <div class="family-context-info">
+              <span class="family-context-badge" id="context-family-id">FAM-001</span>
+              <div>
+                <strong style="font-size: 0.92rem; color: #065f46;">या कुटुंबातील पुढील सदस्यांची नोंदणी सुरू आहे</strong>
+                <div style="font-size: 0.78rem; color: #047857;" id="context-member-count">२ सदस्य नोंदवले</div>
+              </div>
+            </div>
+            <button type="button" class="btn btn-outline btn-sm" onclick="startNewFamily()">
+              <i class="fa-solid fa-check-double"></i> कुटुंब पूर्ण झाले (नवीन सुरू करा)
+            </button>
+          </div>
+
+          <form id="feed-form" onsubmit="event.preventDefault();">
+            <div class="form-grid">
+
+              <!-- 1. कुटुंब प्रमुख आहे का? -->
+              <div class="form-group">
+                <label class="form-label">
+                  <span>कुटुंब प्रमुख (होय / नाही)</span>
+                  <span class="req">*</span>
+                </label>
+                <select id="feed-is-head" class="form-control">
+                  <option value="होय">होय (कुटुंब प्रमुख)</option>
+                  <option value="नाही">नाही (कुटुंबातील सदस्य)</option>
+                </select>
+              </div>
+
+              <!-- 2. विद्यमान कुटुंब निवड (नाही असल्यास) -->
+              <div class="form-group" id="feed-existing-family-wrap">
+                <label class="form-label">
+                  <span>विद्यमान कुटुंब निवडा</span>
+                  <span class="field-badge-hint">पर्यायी</span>
+                </label>
+                <select id="feed-existing-family-select" class="form-control" style="display: none;">
+                  <option value="">-- कुटुंब निवडा --</option>
+                </select>
+              </div>
+
+              <!-- 3. कुटुंब क्रमांक -->
+              <div class="form-group">
+                <label class="form-label">
+                  <span>कुटुंब क्रमांक (Family ID)</span>
+                  <span class="req">*</span>
+                </label>
+                <input type="text" id="feed-family-id" class="form-control" placeholder="उदा. FAM-001" required>
+              </div>
+
+              <!-- 4. सदस्याचे पूर्ण नाव -->
+              <div class="form-group col-span-2">
+                <label class="form-label">
+                  <span>सदस्याचे पूर्ण नाव (स्वतःचे नाव वडिलांचे/पतीचे नाव आडनाव)</span>
+                  <span class="req">*</span>
+                </label>
+                <input type="text" id="feed-fullname" class="form-control" placeholder="उदा. रमेश तानाजी पाटील" required>
+              </div>
+
+              <!-- 5. कुटुंब प्रमुखांशी नाते संबंध -->
+              <div class="form-group">
+                <label class="form-label">
+                  <span>कुटुंब प्रमुखांशी नाते</span>
+                  <span class="req">*</span>
+                </label>
+                <select id="feed-relation" class="form-control" required></select>
+              </div>
+
+              <!-- 6. लिंग -->
+              <div class="form-group">
+                <label class="form-label">
+                  <span>लिंग</span>
+                  <span class="req">*</span>
+                </label>
+                <select id="feed-gender" class="form-control" required></select>
+              </div>
+
+              <!-- 7. जन्म तारीख (DOB) -->
+              <div class="form-group">
+                <label class="form-label">
+                  <span>जन्म तारीख (DOB)</span>
+                </label>
+                <input type="date" id="feed-dob" class="form-control">
+              </div>
+
+              <!-- 8. वय (वर्षे) -->
+              <div class="form-group">
+                <label class="form-label">
+                  <span>वय (वर्षे)</span>
+                  <span class="field-badge-hint">DOB वरून आपोआप</span>
+                </label>
+                <input type="number" id="feed-age" class="form-control" placeholder="वय" min="0" max="120">
+              </div>
+
+              <!-- 9. जात / सामाजिक प्रवर्ग -->
+              <div class="form-group">
+                <label class="form-label">
+                  <span>जात / सामाजिक प्रवर्ग</span>
+                  <span class="req">*</span>
+                </label>
+                <select id="feed-category" class="form-control" required></select>
+              </div>
+
+              <!-- 10. आधार क्रमांक -->
+              <div class="form-group">
+                <label class="form-label">
+                  <span>आधार क्रमांक (१२ अंकी)</span>
+                  <span class="field-badge-hint">गोपनीय</span>
+                </label>
+                <input type="text" id="feed-aadhaar" class="form-control" placeholder="उदा. 1234 5678 9012" maxlength="14">
+              </div>
+
+              <!-- 11. मोबाईल क्रमांक -->
+              <div class="form-group">
+                <label class="form-label">
+                  <span>मोबाईल क्रमांक (१० अंकी)</span>
+                </label>
+                <input type="tel" id="feed-mobile" class="form-control" placeholder="उदा. 9876543210" maxlength="10">
+              </div>
+
+              <!-- 12. शिक्षण पात्रता -->
+              <div class="form-group">
+                <label class="form-label">
+                  <span>शिक्षण पात्रता</span>
+                </label>
+                <select id="feed-education" class="form-control"></select>
+              </div>
+
+              <!-- 13. शाळेत जातो का? -->
+              <div class="form-group">
+                <label class="form-label">
+                  <span>शाळेत जातो का?</span>
+                </label>
+                <select id="feed-school-going" class="form-control"></select>
+              </div>
+
+              <!-- 14. शिकत असलेली इयत्ता -->
+              <div class="form-group">
+                <label class="form-label">
+                  <span>शिकत असलेली इयत्ता</span>
+                </label>
+                <select id="feed-class" class="form-control"></select>
+              </div>
+
+              <!-- 15. सध्याची शाळा -->
+              <div class="form-group">
+                <label class="form-label">
+                  <span>सध्याची शाळा</span>
+                </label>
+                <select id="feed-school" class="form-control"></select>
+              </div>
+
+              <!-- 16. शेरा (व्यवसाय/शाळाबाह्य/इतर) -->
+              <div class="form-group">
+                <label class="form-label">
+                  <span>शेरा (व्यवसाय / शाळाबाह्य / दिव्यांग / शेती)</span>
+                </label>
+                <input type="text" id="feed-remark" class="form-control" placeholder="उदा. शेतकरी / नियमित उपस्थित / शाळाबाह्य">
+              </div>
+
+              <!-- 17. शिधापत्रिका प्रकार (गाव सर्वे वाढीव तपशील) -->
+              <div class="form-group">
+                <label class="form-label">
+                  <span>शिधापत्रिका (रेशन कार्ड) प्रकार</span>
+                </label>
+                <select id="feed-ration-card" class="form-control"></select>
+              </div>
+
+              <!-- 18. घराचा प्रकार -->
+              <div class="form-group">
+                <label class="form-label">
+                  <span>घराचा प्रकार</span>
+                </label>
+                <select id="feed-house-type" class="form-control"></select>
+              </div>
+
+              <!-- 19. शौचालय सुविधा -->
+              <div class="form-group">
+                <label class="form-label">
+                  <span>शौचालय सुविधा</span>
+                </label>
+                <select id="feed-toilet" class="form-control">
+                  <option value="होय">होय (उपलब्ध आहे)</option>
+                  <option value="नाही">नाही (नाही)</option>
+                </select>
+              </div>
+
+              <!-- 20. पिण्याचे पाणी -->
+              <div class="form-group">
+                <label class="form-label">
+                  <span>पिण्याचे पाणी स्रोत</span>
+                </label>
+                <select id="feed-water" class="form-control">
+                  <option value="नळ पाणीपुरवठा">नळ पाणीपुरवठा</option>
+                  <option value="विहीर">विहीर</option>
+                  <option value="कूपनलिका (बोअरवेल)">कूपनलिका (बोअरवेल)</option>
+                  <option value="इतर">इतर</option>
+                </select>
+              </div>
+
+              <!-- 21. दिव्यांगत्व -->
+              <div class="form-group">
+                <label class="form-label">
+                  <span>दिव्यांगत्व</span>
+                </label>
+                <select id="feed-disability" class="form-control">
+                  <option value="नाही">नाही</option>
+                  <option value="अस्थिव्यंग">अस्थिव्यंग</option>
+                  <option value="दृष्टिहीन / अल्पदृष्टी">दृष्टिहीन / अल्पदृष्टी</option>
+                  <option value="कर्णबधिर">कर्णबधिर</option>
+                  <option value="मतिमंद / बौद्धिक अक्षमता">मतिमंद / बौद्धिक अक्षमता</option>
+                  <option value="इतर दिव्यांग">इतर दिव्यांग</option>
+                </select>
+              </div>
+
+            </div>
+
+            <!-- Sticky Actions for Mobile & Desktop -->
+            <div class="form-actions-sticky">
+              <button type="button" id="btn-save-next" class="btn btn-success">
+                <i class="fa-solid fa-user-plus"></i> जतन करा व पुढील सदस्य जोडा
+              </button>
+              <button type="button" id="btn-save-finish" class="btn btn-primary">
+                <i class="fa-solid fa-check"></i> जतन करा व पूर्ण करा
+              </button>
+              <button type="button" class="btn btn-outline" onclick="resetFeedingForm()">
+                <i class="fa-solid fa-rotate-left"></i> फॉर्म साफ करा
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================================================
+         TAB 3: सर्वेक्षण नोंदवही (Mobile Page View & Table)
+         ================================================ -->
+    <section id="tab-register" class="tab-pane">
+      <!-- Search and View Controls Bar -->
+      <div class="view-controls-bar no-print">
+        <!-- Live Search -->
+        <div class="search-input-wrap">
+          <i class="fa-solid fa-magnifying-glass search-icon"></i>
+          <input type="text" id="search-input" placeholder="नावाने, कुटुंब आयडीने, आधारने किंवा मोबाईलने शोधा...">
+        </div>
+
+        <!-- Filter Pills -->
+        <div class="filter-pills-row">
+          <button class="filter-pill active" data-filter="all">सर्व नोंदी</button>
+          <button class="filter-pill" data-filter="head">कुटुंब प्रमुख</button>
+          <button class="filter-pill" data-filter="balwadi">० ते ६ वर्षे (बालवाडी)</button>
+          <button class="filter-pill" data-filter="school_age">६ ते १४ वर्षे (शालेय)</button>
+          <button class="filter-pill" data-filter="out_school" style="color: #dc2626; border-color: #fecaca;">⚠️ शाळाबाह्य मुले</button>
+          <button class="filter-pill" data-filter="voters">१८+ मतदार</button>
+          <button class="filter-pill" data-filter="seniors">६०+ ज्येष्ठ नागरिक</button>
+        </div>
+
+        <!-- Category Filter & View Toggle Row -->
+        <div class="view-toggle-row">
+          <div style="display: flex; gap: 8px; align-items: center;">
+            <select id="filter-category-select" class="form-control" style="width: auto; height: 38px; font-size: 0.82rem; padding: 4px 10px;">
+              <!-- Populated via JS -->
+            </select>
+            <span id="filtered-count-badge" style="font-size: 0.8rem; font-weight: 700; color: #64748b;">
+              एकूण ५ नोंदी
+            </span>
+          </div>
+
+          <div style="display: flex; gap: 8px; align-items: center;">
+            <div class="view-mode-btns">
+              <button id="btn-view-cards" class="view-mode-btn active" title="मोबाईल कार्ड व्ह्यू">
+                <i class="fa-solid fa-address-card"></i> कार्ड व्ह्यू
+              </button>
+              <button id="btn-view-table" class="view-mode-btn" title="शासकीय नोंदवही टेबल व्ह्यू">
+                <i class="fa-solid fa-table"></i> टेबल व्ह्यू
+              </button>
+            </div>
+            <button class="btn btn-outline btn-sm" onclick="switchTab('tab-feeding'); startNewFamily();">
+              <i class="fa-solid fa-plus"></i> नवीन नोंद
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Container where Cards or Table is injected -->
+      <div id="register-container">
+        <!-- Populated via JS -->
+      </div>
+    </section>
+
+    <!-- ================================================
+         TAB 4: अहवाल व A4 प्रिंट (Official Print Sheet)
+         ================================================ -->
+    <section id="tab-print" class="tab-pane">
+      <div class="no-print" style="background: #eff6ff; border: 1px solid #bfdbfe; padding: 12px 16px; border-radius: var(--radius-md); margin-bottom: 16px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px;">
+        <div>
+          <strong style="color: #1e40af; font-size: 0.95rem;">शासकीय A4 लँडस्केप प्रिंट व PDF अहवाल</strong>
+          <p style="font-size: 0.8rem; color: #3b82f6;">खालील नोंदवही मूळ शासकीय रजिस्टर फॉरमॅटमध्ये स्वाक्षरी ब्लॉकसह थेट प्रिंट काढण्यासाठी सज्ज आहे.</p>
+        </div>
+        <div style="display: flex; gap: 8px;">
+          <button class="btn btn-primary btn-sm" onclick="window.print()">
+            <i class="fa-solid fa-print"></i> आताच प्रिंट काढा / PDF सेव्ह करा
+          </button>
+          <button class="btn btn-success btn-sm" onclick="ExcelHandler.exportToExcel(AppState.records, AppState.config)">
+            <i class="fa-solid fa-file-excel"></i> Excel डाउनलोड
+          </button>
+        </div>
+      </div>
+
+      <!-- Official Print Preview Sheet -->
+      <div class="print-preview-container">
+        <!-- Official Govt Header -->
+        <div class="print-gov-header">
+          <h2>गाव कुटुंब व बाल सर्वेक्षण नोंदवही (Village Household & School Survey Register)</h2>
+          <div class="print-meta-grid">
+            <div><b>शाळेचे नाव:</b> <span id="print-school-name">रायगड जिल्हा परिषद शाळा मोहपाडा</span></div>
+            <div><b>केंद्र:</b> <span id="print-center">नांदगाव</span> | <b>बीट:</b> <span id="print-beat">कर्जत</span></div>
+            <div><b>तालुका:</b> <span id="print-taluka">कर्जत</span> | <b>जिल्हा:</b> <span id="print-district">रायगड</span></div>
+            <div><b>UDISE कोड:</b> <span id="print-udise">27240304501</span></div>
+            <div><b>गावाचे नाव:</b> <span id="print-village">मोहपाडा</span></div>
+            <div><b>ग्रामपंचायत:</b> <span id="print-gp">मोहपाडा</span></div>
+            <div><b>वार्ड / प्रभाग क्र.:</b> <span id="print-ward">प्रभाग क्र. १</span></div>
+            <div><b>सर्वेक्षक शिक्षक:</b> <span id="print-surveyor">श्री गणेश विलास पष्टे</span></div>
+          </div>
+        </div>
+
+        <!-- Official Register Table -->
+        <table class="official-table">
+          <thead>
+            <tr>
+              <th style="width: 35px;">अ.क्र.</th>
+              <th>कुटुंब क्र.</th>
+              <th>कुटुंब प्रमुख</th>
+              <th>सदस्याचे पूर्ण नाव</th>
+              <th>नाते</th>
+              <th>लिंग</th>
+              <th>जन्म तारीख</th>
+              <th>वय</th>
+              <th>जात / प्रवर्ग</th>
+              <th>आधार क्रमांक</th>
+              <th>मोबाईल क्रमांक</th>
+              <th>शिक्षण</th>
+              <th>शाळेत जातो का?</th>
+              <th>इयत्ता</th>
+              <th>सध्याची शाळा</th>
+              <th>शेरा</th>
+            </tr>
+          </thead>
+          <tbody id="print-table-rows">
+            <!-- Populated via JS -->
+          </tbody>
+        </table>
+
+        <!-- Official Signatures Row -->
+        <div class="print-signatures-row">
+          <div class="sign-box">
+            <div class="sign-line"></div>
+            <div>सर्वेक्षक शिक्षक स्वाक्षरी</div>
+            <div style="font-size: 0.76rem; color: #475569; margin-top: 2px;">नाव: <span id="print-sign-surveyor">श्री गणेश विलास पष्टे</span></div>
+          </div>
+          <div class="sign-box">
+            <div class="sign-line"></div>
+            <div>मुख्याध्यापक स्वाक्षरी व शिक्का</div>
+            <div style="font-size: 0.76rem; color: #475569; margin-top: 2px;">रा.जि.प. शाळा मोहपाडा</div>
+          </div>
+          <div class="sign-box">
+            <div class="sign-line"></div>
+            <div>ग्रामसेवक / सरपंच स्वाक्षरी व शिक्का</div>
+            <div style="font-size: 0.76rem; color: #475569; margin-top: 2px;">ग्रामपंचायत कार्यालय</div>
+          </div>
+        </div>
+
+        <!-- Creator Credit on Print Footer -->
+        <div style="margin-top: 20px; font-size: 0.75rem; text-align: center; color: #64748b; border-top: 1px solid #e2e8f0; padding-top: 6px;">
+          नोंदवही रचना व सॉफ्टवेअर निर्माता: <b>श्री गणेश विलास पष्टे</b> | गाव कुटुंब व शाळा सर्वेक्षण प्रणाली
+        </div>
+      </div>
+    </section>
+
+    <!-- ================================================
+         TAB 5: शाळा व गाव सेटिंग्स (Settings & Backup)
+         ================================================ -->
+    <section id="tab-settings" class="tab-pane">
+      <div class="analytics-grid">
+        <!-- School & Village Details Form -->
+        <div class="panel-card">
+          <div class="panel-header">
+            <h2><i class="fa-solid fa-sliders" style="color: var(--primary);"></i> शाळा व गाव प्राथमिक माहिती</h2>
+          </div>
+          <div class="panel-body">
+            <form id="settings-form">
+              <div class="form-grid">
+                <div class="form-group col-span-2">
+                  <label class="form-label">शाळेचे नाव</label>
+                  <input type="text" id="setting-school-name" class="form-control" required>
+                </div>
+                <div class="form-group">
+                  <label class="form-label">UDISE कोड</label>
+                  <input type="text" id="setting-udise" class="form-control">
+                </div>
+                <div class="form-group">
+                  <label class="form-label">केंद्र (Center)</label>
+                  <input type="text" id="setting-center" class="form-control" required>
+                </div>
+                <div class="form-group">
+                  <label class="form-label">बीट (Beat)</label>
+                  <input type="text" id="setting-beat" class="form-control">
+                </div>
+                <div class="form-group">
+                  <label class="form-label">तालुका</label>
+                  <input type="text" id="setting-taluka" class="form-control" required>
+                </div>
+                <div class="form-group">
+                  <label class="form-label">जिल्हा</label>
+                  <input type="text" id="setting-district" class="form-control" required>
+                </div>
+                <div class="form-group">
+                  <label class="form-label">गावाचे / पाड्याचे नाव</label>
+                  <input type="text" id="setting-village" class="form-control" required>
+                </div>
+                <div class="form-group">
+                  <label class="form-label">ग्रामपंचायत</label>
+                  <input type="text" id="setting-gp" class="form-control">
+                </div>
+                <div class="form-group">
+                  <label class="form-label">वार्ड / प्रभाग क्र.</label>
+                  <input type="text" id="setting-ward" class="form-control">
+                </div>
+                <div class="form-group">
+                  <label class="form-label">सर्वेक्षक शिक्षक / अधिकारी</label>
+                  <input type="text" id="setting-surveyor-name" class="form-control" required>
+                </div>
+                <div class="form-group">
+                  <label class="form-label">सर्वेक्षक मोबाईल क्र.</label>
+                  <input type="tel" id="setting-surveyor-mobile" class="form-control">
+                </div>
+                <div class="form-group">
+                  <label class="form-label">सर्वेक्षण वर्ष</label>
+                  <input type="text" id="setting-year" class="form-control" placeholder="२०२६-२०२७">
+                </div>
+              </div>
+
+              <div style="margin-top: 16px; display: flex; justify-content: flex-end;">
+                <button type="submit" class="btn btn-primary">
+                  <i class="fa-solid fa-floppy-disk"></i> बदल जतन करा
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+
+        <!-- Data Import / Export / Backup Panel -->
+        <div class="panel-card">
+          <div class="panel-header">
+            <h2><i class="fa-solid fa-database" style="color: var(--secondary);"></i> डेटा आयात, निर्यात व बॅकअप</h2>
+          </div>
+          <div class="panel-body">
+            <div style="display: flex; flex-direction: column; gap: 14px;">
+              <!-- Excel Export -->
+              <div style="background: #f8fafc; padding: 12px; border-radius: var(--radius-sm); border: 1px solid var(--border);">
+                <strong style="font-size: 0.9rem; color: #1e293b;">1. अधिकृत Excel (.xlsx) निर्यात</strong>
+                <p style="font-size: 0.78rem; color: #64748b; margin: 4px 0 8px 0;">मूळ <code>Gav_Ani_Shala_Survey_Nondvahi.xlsx</code> च्या फॉरमॅटमध्ये संपूर्ण रजिस्टर एक्सेल फाईल डाउनलोड करा.</p>
+                <button class="btn btn-success btn-sm btn-block" onclick="ExcelHandler.exportToExcel(AppState.records, AppState.config)">
+                  <i class="fa-solid fa-file-excel"></i> Excel फाईल डाउनलोड करा
+                </button>
+              </div>
+
+              <!-- Excel Import -->
+              <div style="background: #f8fafc; padding: 12px; border-radius: var(--radius-sm); border: 1px solid var(--border);">
+                <strong style="font-size: 0.9rem; color: #1e293b;">2. Excel फाईल अपलोड (Import)</strong>
+                <p style="font-size: 0.78rem; color: #64748b; margin: 4px 0 8px 0;">आधीची एक्सेल नोंदवही फाईल निवडून त्यातील डेटा थेट सॉफ्टवेअरमध्ये आणा.</p>
+                <label class="btn btn-outline btn-sm btn-block" style="cursor: pointer;">
+                  <i class="fa-solid fa-file-arrow-up"></i> Excel फाईल निवडा (.xlsx)
+                  <input type="file" id="excel-file-input" accept=".xlsx, .xls" style="display: none;">
+                </label>
+              </div>
+
+              <!-- JSON Backup -->
+              <div style="background: #f8fafc; padding: 12px; border-radius: var(--radius-sm); border: 1px solid var(--border);">
+                <strong style="font-size: 0.9rem; color: #1e293b;">3. सुरक्षित संपूर्ण बॅकअप (JSON)</strong>
+                <p style="font-size: 0.78rem; color: #64748b; margin: 4px 0 8px 0;">डेटा सुरक्षित ठेवण्यासाठी किंवा दुसऱ्या मोबाईल/कॉम्प्युटरवर नेण्यासाठी बॅकअप घ्या.</p>
+                <div style="display: flex; gap: 8px;">
+                  <button class="btn btn-outline btn-sm" style="flex: 1;" onclick="exportJsonBackup()">
+                    <i class="fa-solid fa-download"></i> बॅकअप डाऊनलोड
+                  </button>
+                  <label class="btn btn-outline btn-sm" style="flex: 1; cursor: pointer;">
+                    <i class="fa-solid fa-upload"></i> रिस्टोर
+                    <input type="file" accept=".json" style="display: none;" onchange="importJsonBackup(this)">
+                  </label>
+                </div>
+              </div>
+
+              <!-- Reset to Default -->
+              <button class="btn btn-outline btn-sm" style="color: var(--danger); border-color: #fca5a5;" onclick="resetToDefaultRecords()">
+                <i class="fa-solid fa-trash-can"></i> मूळ नमुना डेटा लोड करा (Reset)
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================================================
+         TAB 6: मार्गदर्शक सूचना (Guidelines from Sheet 3)
+         ================================================ -->
+    <section id="tab-help" class="tab-pane">
+      <div class="panel-card">
+        <div class="panel-header">
+          <h2><i class="fa-solid fa-circle-question" style="color: var(--primary);"></i> गाव सर्वेक्षण नोंदवही - शाळा व गाव तपशील सूचना</h2>
+        </div>
+        <div class="panel-body">
+          <div class="table-responsive">
+            <table class="official-table">
+              <thead>
+                <tr>
+                  <th style="width: 50px;">क्र.</th>
+                  <th style="width: 200px;">स्तंभ / घटक</th>
+                  <th>तपशील व अधिकृत मार्गदर्शन</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr><td>1</td><td><b>शाळेचे नाव व केंद्र</b></td><td>वर हेडरमध्ये शाळेचे नाव, केंद्र, बीट, तालुका व जिल्हा समाविष्ट केले आहेत. सेटिंग्जमधून बदलता येतात.</td></tr>
+                <tr><td>2</td><td><b>कुटुंब क्रमांक</b></td><td>प्रत्येक कुटुंबासाठी एक विशिष्ट क्रमांक (उदा. FAM-001, FAM-002) नोंदवावा. सॉफ्टवेअरमध्ये आपोआप पुढील क्रमांक तयार होतो.</td></tr>
+                <tr><td>3</td><td><b>कुटुंब प्रमुख</b></td><td>तो सदस्य कुटुंबाचा प्रमुख असल्यास 'होय' निवडा, अन्यथा 'नाही' निवडा. एका कुटुंबात एकच प्रमुख असावा.</td></tr>
+                <tr><td>4</td><td><b>सदस्यांची नावे</b></td><td>कुटुंबातील सदस्याचे पूर्ण नाव (स्वतःचे नाव वडिलांचे/पतीचे नाव आडनाव) लिहावे.</td></tr>
+                <tr><td>5</td><td><b>कुटुंब प्रमुखांशी नाते</b></td><td>स्वतः (प्रमुख), पती, पत्नी, मुलगा, मुलगी, वडील, आई, भाऊ, बहीण इत्यादी अधिकृत पर्याय निवडा.</td></tr>
+                <tr><td>6</td><td><b>लिंग</b></td><td>पुरुष, स्त्री किंवा इतर निवडा.</td></tr>
+                <tr><td>7</td><td><b>जन्म तारीख (DOB)</b></td><td>YYYY-MM-DD फॉरमॅटमध्ये कॅलेंडरमधून निवडावी.</td></tr>
+                <tr><td>8</td><td><b>वय (वर्षे)</b></td><td>जन्म तारीख निवडताच चालू वय आपोआप अचूक मोजले जाते.</td></tr>
+                <tr><td>9</td><td><b>जात / सामाजिक प्रवर्ग</b></td><td>खुला (General), OBC, VJNT, SBC, SC, ST, EWS यापैकी निवडा.</td></tr>
+                <tr><td>10</td><td><b>आधार क्रमांक</b></td><td>१२ अंकी वैध आधार क्रमांक नोंदवावा.</td></tr>
+                <tr><td>11</td><td><b>मोबाईल क्रमांक</b></td><td>कुटुंबातील चालू १० अंकी संपर्क क्रमांक. कार्ड व्ह्यूमध्ये थेट फोन लावण्याची सोय आहे.</td></tr>
+                <tr><td>12</td><td><b>शिक्षण पात्रता</b></td><td>निरक्षर, प्राथमिक, माध्यमिक, पदवी, पदव्युत्तर इत्यादी शैक्षणिक पात्रता निवडा.</td></tr>
+                <tr><td>13</td><td><b>शाळेत जातो का?</b></td><td>होय, नाही, शिक्षण पूर्ण किंवा लागू नाही निवडा.</td></tr>
+                <tr><td>14</td><td><b>शिकत असलेली इयत्ता</b></td><td>बालवाडी/अंगणवाडी, १ ली ते १२ वी किंवा उच्च शिक्षण निवडा.</td></tr>
+                <tr><td>15</td><td><b>सध्याची शाळा</b></td><td>स्थानिक जि.प. शाळा किंवा परिसरातील शाळा थेट ड्रॉपडाउनमधून निवडा.</td></tr>
+                <tr><td>16</td><td><b>शेरा</b></td><td>शाळाबाह्य बालके, दिव्यांग, स्थलांतरित किंवा व्यवसाय शेरा लिहावा.</td></tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div style="margin-top: 20px; padding: 14px; background: #fffbeb; border: 1px solid #fde68a; border-radius: var(--radius-sm); font-size: 0.88rem; color: #92400e;">
+            <i class="fa-solid fa-lightbulb"></i> <b>महत्त्वाची टीप:</b> हे सॉफ्टवेअर पूर्णपणे ऑफलाइन कार्यक्षम आहे. सर्वेक्षणादरम्यान इंटरनेट नसले तरी मोबाईलवर संपूर्ण डेटा जतन राहतो. नेटवर्क उपलब्ध झाल्यावर तुम्ही एक्सेल फाइल डाउनलोड करू शकता.
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ====================================================
+       Floating Action Button (+) on Mobile
+       ==================================================== -->
+  <button class="mobile-fab" onclick="switchTab('tab-feeding'); startNewFamily();" title="नवीन नोंदणी करा">
+    <i class="fa-solid fa-plus"></i>
+  </button>
+
+  <!-- ====================================================
+       Mobile Bottom Navigation Bar
+       ==================================================== -->
+  <nav class="mobile-bottom-nav no-print">
+    <button class="bottom-nav-item active" data-tab="tab-dashboard">
+      <span class="icon"><i class="fa-solid fa-chart-pie"></i></span>
+      <span>डॅशबोर्ड</span>
+    </button>
+    <button class="bottom-nav-item" data-tab="tab-register">
+      <span class="icon"><i class="fa-solid fa-address-book"></i></span>
+      <span>नोंदवही</span>
+    </button>
+    <button class="bottom-nav-item highlight" data-tab="tab-feeding" onclick="startNewFamily();">
+      <div class="icon-circle">
+        <i class="fa-solid fa-plus"></i>
+      </div>
+      <span style="margin-top: 4px;">नवीन नोंद</span>
+    </button>
+    <button class="bottom-nav-item" data-tab="tab-print">
+      <span class="icon"><i class="fa-solid fa-print"></i></span>
+      <span>प्रिंट / PDF</span>
+    </button>
+    <button class="bottom-nav-item" data-tab="tab-settings">
+      <span class="icon"><i class="fa-solid fa-sliders"></i></span>
+      <span>सेटिंग्ज</span>
+    </button>
+  </nav>
+
+  <!-- ====================================================
+       Footer with Prominent Nirmata Credit
+       ==================================================== -->
+  <footer class="app-footer no-print">
+    <div style="max-width: 1200px; margin: 0 auto;">
+      <div class="footer-creator-highlight">
+        <i class="fa-solid fa-award"></i> सॉफ्टवेअर निर्माता: श्री गणेश विलास पष्टे
+      </div>
+      <p style="font-size: 0.8rem; color: #64748b;">
+        गाव कुटुंब व बाल सर्वेक्षण नोंदवही सॉफ्टवेअर प्रणाली | महाराष्ट्र शासन व स्थानिक स्वराज्य संस्था शाळा व गाव सर्वेक्षणासाठी उपयुक्त
+      </p>
+      <div style="margin-top: 10px; font-size: 0.75rem; color: #475569;">
+        मोबाईल फ्रेंडली पेज व्ह्यू • जलद डेटा फीडिंग • ऑफलाइन ऑटो-सेव्ह • Excel व A4 प्रिंट सुविधा
+      </div>
+    </div>
+  </footer>
+
+  <!-- ====================================================
+       About / Creator Modal
+       ==================================================== -->
+  <div id="about-modal" class="modal-overlay" onclick="if(event.target === this) closeAboutModal()">
+    <div class="modal-card">
+      <div class="modal-header">
+        <h3><i class="fa-solid fa-circle-info" style="color: var(--primary);"></i> सॉफ्टवेअर व निर्माता माहिती</h3>
+        <button type="button" class="btn btn-outline btn-sm" onclick="closeAboutModal()" style="border: none; font-size: 1.2rem;">&times;</button>
+      </div>
+      <div class="modal-body" style="text-align: center;">
+        <div style="width: 70px; height: 70px; background: #eff6ff; color: var(--primary); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 32px; margin: 0 auto 12px auto; border: 2px solid #bfdbfe;">
+          <i class="fa-solid fa-user-tie"></i>
+        </div>
+        <h3 style="font-size: 1.25rem; font-weight: 800; color: #1e3a8a;">
+          श्री गणेश विलास पष्टे
+        </h3>
+        <p style="color: #d97706; font-weight: 700; font-size: 0.92rem; margin-top: 2px;">
+          मुख्य रचनाकार व सॉफ्टवेअर निर्माता
+        </p>
+
+        <div style="text-align: left; background: #f8fafc; border: 1px solid #e2e8f0; border-radius: var(--radius-sm); padding: 14px; margin-top: 16px; font-size: 0.85rem; line-height: 1.6;">
+          <p><b>प्रकल्प:</b> गाव कुटुंब व बाल सर्वेक्षण नोंदवही सॉफ्टवेअर (Gav Sarve Software)</p>
+          <p><b>वैशिष्ट्ये:</b></p>
+          <ul style="padding-left: 18px; margin-top: 4px; color: #475569;">
+            <li>मोबाईल-फ्रेंडली रिस्पॉन्सिव्ह पेज व्ह्यू (कार्ड व्ह्यू व शासकीय टेबल व्ह्यू)</li>
+            <li>एकाच वेळी कुटुंबातील सदस्यांची जलद नोंदणी (स्मार्ट डेटा फीडिंग)</li>
+            <li>जन्मतारखेवरून वयाची स्वयंचलित अचूक गणना</li>
+            <li>शाळाबाह्य बालके, शालेय वयोगट, बालवाडी व मतदारांचे तात्काळ वर्गीकरण</li>
+            <li>मूळ <code>Gav_Ani_Shala_Survey_Nondvahi.xlsx</code> फॉरमॅटमध्ये Excel डाऊनलोड व अपलोड</li>
+            <li>स्वाक्षरी ब्लॉकसह थेट A4 लँडस्केप प्रिंट व PDF निर्मिती</li>
+            <li>100% ऑफलाइन कार्यक्षम - इंटरनेटशिवाय मोबाईलवर वापरता येणारे</li>
+          </ul>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary btn-sm" onclick="closeAboutModal()">बंद करा</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="js/survey-data.js"></script>
+  <script src="js/excel-export-import.js"></script>
+  <script src="js/app.js"></script>
+
+  <script>
+    function openAboutModal() {
+      document.getElementById('about-modal').classList.add('active');
+    }
+    function closeAboutModal() {
+      document.getElementById('about-modal').classList.remove('active');
+    }
+  </script>
+</body>
+</html>
