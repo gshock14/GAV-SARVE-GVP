@@ -12,10 +12,1080 @@
   <link href="https://fonts.googleapis.com/css2?family=Mukta:wght@400;500;600;700;800&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
 
   <!-- Custom Stylesheet -->
-  <link rel="stylesheet" href="css/style.css">
+  <style>
+/* ====================================================
+   Inlined Full Stylesheet: Ensures complete styling on GitHub Pages
+   ==================================================== */
+/* 
+ * गाव कुटुंब व बाल सर्वेक्षण प्रणाली - संपूर्ण स्टाईलशीट
+ * निर्माता: श्री गणेश विलास पष्टे
+ */
+
+:root {
+  --primary: #1e40af;
+  --primary-hover: #1d4ed8;
+  --primary-light: #eff6ff;
+  --primary-border: #bfdbfe;
+  --secondary: #0f766e;
+  --success: #059669;
+  --success-light: #ecfdf5;
+  --warning: #d97706;
+  --warning-light: #fffbeb;
+  --danger: #dc2626;
+  --danger-light: #fef2f2;
+  --bg-page: #f1f5f9;
+  --bg-card: #ffffff;
+  --text-main: #0f172a;
+  --text-muted: #64748b;
+  --border: #cbd5e1;
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --shadow-sm: 0 1px 3px rgba(0,0,0,0.08);
+  --shadow-md: 0 4px 6px -1px rgba(0,0,0,0.08), 0 2px 4px -2px rgba(0,0,0,0.06);
+  --shadow-lg: 0 10px 15px -3px rgba(0,0,0,0.1), 0 4px 6px -4px rgba(0,0,0,0.1);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  -webkit-tap-highlight-color: transparent;
+}
+
+body {
+  font-family: 'Segoe UI', system-ui, -apple-system, 'Mukta', 'Noto Sans Devanagari', sans-serif;
+  background-color: var(--bg-page);
+  color: var(--text-main);
+  line-height: 1.5;
+  font-size: 15px;
+  padding-bottom: 75px; /* space for mobile bottom nav */
+}
+
+/* Header & Creator Banner */
+.app-header {
+  background: linear-gradient(135deg, #1e3a8a 0%, #1e40af 60%, #0369a1 100%);
+  color: #ffffff;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  box-shadow: var(--shadow-md);
+}
+
+.creator-top-strip {
+  background: linear-gradient(90deg, #b45309 0%, #d97706 50%, #b45309 100%);
+  color: #ffffff;
+  text-align: center;
+  padding: 6px 12px;
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  box-shadow: inset 0 -1px 0 rgba(0,0,0,0.15);
+}
+
+.creator-top-strip .creator-name {
+  background: #ffffff;
+  color: #92400e;
+  padding: 2px 10px;
+  border-radius: 999px;
+  font-weight: 800;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+}
+
+.header-main {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 16px;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.header-brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.header-icon {
+  width: 44px;
+  height: 44px;
+  background: rgba(255, 255, 255, 0.18);
+  border-radius: var(--radius-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  flex-shrink: 0;
+  border: 1px solid rgba(255,255,255,0.3);
+}
+
+.header-titles h1 {
+  font-size: 1.15rem;
+  font-weight: 800;
+  line-height: 1.2;
+}
+
+.header-titles p {
+  font-size: 0.78rem;
+  opacity: 0.9;
+  margin-top: 2px;
+}
+
+.header-actions {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.header-btn {
+  background: rgba(255,255,255,0.15);
+  color: #fff;
+  border: 1px solid rgba(255,255,255,0.25);
+  padding: 8px 12px;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  font-size: 0.82rem;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  transition: all 0.2s;
+}
+
+.header-btn:hover, .header-btn:focus {
+  background: rgba(255,255,255,0.25);
+  outline: none;
+}
+
+/* Top Desktop Nav Tabs */
+.desktop-nav {
+  display: none;
+  background: #ffffff;
+  border-bottom: 1px solid var(--border);
+  position: sticky;
+  top: 86px;
+  z-index: 900;
+  box-shadow: var(--shadow-sm);
+}
+
+.nav-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  display: flex;
+  overflow-x: auto;
+  padding: 0 16px;
+  gap: 8px;
+}
+
+.nav-tab-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 16px;
+  font-size: 0.92rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  border-bottom: 3px solid transparent;
+  white-space: nowrap;
+  transition: all 0.2s;
+}
+
+.nav-tab-btn:hover {
+  color: var(--primary);
+  background: #f8fafc;
+}
+
+.nav-tab-btn.active {
+  color: var(--primary);
+  border-bottom-color: var(--primary);
+}
+
+/* Bottom Mobile Nav Bar */
+.mobile-bottom-nav {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 64px;
+  background: #ffffff;
+  border-top: 1px solid var(--border);
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  z-index: 1000;
+  box-shadow: 0 -4px 10px rgba(0,0,0,0.06);
+}
+
+.bottom-nav-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: none;
+  border: none;
+  color: var(--text-muted);
+  font-size: 0.68rem;
+  font-weight: 600;
+  cursor: pointer;
+  padding: 6px 8px;
+  gap: 3px;
+  flex: 1;
+  transition: all 0.2s;
+}
+
+.bottom-nav-item .icon {
+  font-size: 1.25rem;
+}
+
+.bottom-nav-item.active {
+  color: var(--primary);
+  font-weight: 800;
+}
+
+.bottom-nav-item.highlight {
+  position: relative;
+  top: -12px;
+}
+
+.bottom-nav-item.highlight .icon-circle {
+  width: 48px;
+  height: 48px;
+  background: linear-gradient(135deg, var(--primary) 0%, #2563eb 100%);
+  color: #fff;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  box-shadow: 0 4px 12px rgba(37,99,235,0.4);
+  border: 3px solid #fff;
+}
+
+/* Main Layout Container */
+.main-content {
+  max-width: 1400px;
+  margin: 16px auto;
+  padding: 0 12px;
+}
+
+.tab-pane {
+  display: none;
+}
+
+.tab-pane.active {
+  display: block;
+  animation: fadeIn 0.25s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(4px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Cards & Panels */
+.panel-card {
+  background: var(--bg-card);
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow-sm);
+  margin-bottom: 16px;
+  overflow: hidden;
+}
+
+.panel-header {
+  padding: 14px 16px;
+  background: #f8fafc;
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.panel-header h2 {
+  font-size: 1.05rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #1e293b;
+}
+
+.panel-body {
+  padding: 16px;
+}
+
+/* Stats Dashboard */
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.stat-box {
+  background: #ffffff;
+  border-radius: var(--radius-md);
+  padding: 12px 10px;
+  border: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  box-shadow: var(--shadow-sm);
+  position: relative;
+  overflow: hidden;
+}
+
+.stat-box::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 4px;
+}
+
+.stat-box.blue::before { background: #2563eb; }
+.stat-box.green::before { background: #059669; }
+.stat-box.amber::before { background: #d97706; }
+.stat-box.purple::before { background: #7c3aed; }
+.stat-box.teal::before { background: #0d9488; }
+.stat-box.red::before { background: #dc2626; }
+.stat-box.rose::before { background: #e11d48; }
+.stat-box.indigo::before { background: #4f46e5; }
+
+.stat-icon {
+  width: 38px;
+  height: 38px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  flex-shrink: 0;
+}
+
+.stat-box.blue .stat-icon { background: #eff6ff; color: #2563eb; }
+.stat-box.green .stat-icon { background: #ecfdf5; color: #059669; }
+.stat-box.amber .stat-icon { background: #fffbeb; color: #d97706; }
+.stat-box.purple .stat-icon { background: #f5f3ff; color: #7c3aed; }
+.stat-box.teal .stat-icon { background: #f0fdfa; color: #0d9488; }
+.stat-box.red .stat-icon { background: #fef2f2; color: #dc2626; }
+.stat-box.rose .stat-icon { background: #fff1f2; color: #e11d48; }
+.stat-box.indigo .stat-icon { background: #eef2ff; color: #4f46e5; }
+
+.stat-details {
+  flex: 1;
+}
+
+.stat-number {
+  font-size: 1.35rem;
+  font-weight: 800;
+  line-height: 1.1;
+  color: #0f172a;
+}
+
+.stat-label {
+  font-size: 0.74rem;
+  color: var(--text-muted);
+  font-weight: 600;
+  margin-top: 2px;
+}
+
+/* Charts & Breakdown Cards */
+.analytics-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 16px;
+}
+
+.progress-item {
+  margin-bottom: 12px;
+}
+
+.progress-label-row {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.82rem;
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+
+.progress-bar-bg {
+  background: #e2e8f0;
+  height: 9px;
+  border-radius: 999px;
+  overflow: hidden;
+}
+
+.progress-bar-fill {
+  height: 100%;
+  border-radius: 999px;
+  transition: width 0.4s ease;
+}
+
+/* Form Grid */
+.form-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 14px;
+}
+
+@media (min-width: 640px) {
+  .form-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .form-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .col-span-2 { grid-column: span 2; }
+  .col-span-3 { grid-column: span 3; }
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.form-label {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: #334155;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.form-label .req {
+  color: var(--danger);
+  margin-left: 2px;
+}
+
+.form-control {
+  width: 100%;
+  height: 46px;
+  padding: 10px 14px;
+  font-size: 0.95rem;
+  font-family: inherit;
+  color: var(--text-main);
+  background-color: #ffffff;
+  border: 1.5px solid #cbd5e1;
+  border-radius: var(--radius-sm);
+  outline: none;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.form-control:focus {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px rgba(37,99,235,0.15);
+}
+
+select.form-control {
+  appearance: auto;
+  cursor: pointer;
+}
+
+.field-badge-hint {
+  font-size: 0.75rem;
+  color: #2563eb;
+  background: #eff6ff;
+  padding: 2px 8px;
+  border-radius: 999px;
+  font-weight: 600;
+}
+
+/* Quick Mode Context Banner */
+.family-context-banner {
+  background: #ecfdf5;
+  border: 1.5px solid #a7f3d0;
+  border-radius: var(--radius-md);
+  padding: 12px 14px;
+  margin-bottom: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.family-context-info {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.family-context-badge {
+  background: #059669;
+  color: #fff;
+  padding: 4px 10px;
+  border-radius: var(--radius-sm);
+  font-weight: 800;
+  font-size: 0.85rem;
+}
+
+/* Form Actions */
+.form-actions-sticky {
+  position: sticky;
+  bottom: 64px;
+  background: #ffffff;
+  padding: 12px 16px;
+  border-top: 1px solid var(--border);
+  margin-top: 16px;
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  z-index: 100;
+  box-shadow: 0 -3px 8px rgba(0,0,0,0.06);
+  border-radius: var(--radius-sm);
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 12px 18px;
+  font-size: 0.92rem;
+  font-weight: 700;
+  border-radius: var(--radius-sm);
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s;
+  text-decoration: none;
+}
+
+.btn-primary { background: var(--primary); color: #ffffff; }
+.btn-primary:hover { background: var(--primary-hover); }
+.btn-success { background: var(--success); color: #ffffff; }
+.btn-success:hover { background: #047857; }
+.btn-outline { background: #ffffff; border: 1.5px solid var(--border); color: #334155; }
+.btn-outline:hover { background: #f8fafc; border-color: #94a3b8; }
+.btn-danger { background: var(--danger); color: #ffffff; }
+.btn-danger:hover { background: #b91c1c; }
+.btn-sm { padding: 6px 10px; font-size: 0.8rem; height: 34px; }
+.btn-block { width: 100%; }
+
+/* View Controls Bar */
+.view-controls-bar {
+  background: #ffffff;
+  border-radius: var(--radius-md);
+  padding: 12px;
+  border: 1px solid var(--border);
+  margin-bottom: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.search-input-wrap {
+  position: relative;
+  width: 100%;
+}
+
+.search-input-wrap input {
+  width: 100%;
+  height: 44px;
+  padding-left: 40px;
+  padding-right: 12px;
+  border-radius: var(--radius-sm);
+  border: 1.5px solid #cbd5e1;
+  font-size: 0.92rem;
+  font-family: inherit;
+}
+
+.search-input-wrap .search-icon {
+  position: absolute;
+  left: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #94a3b8;
+  font-size: 1.1rem;
+}
+
+.filter-pills-row {
+  display: flex;
+  gap: 6px;
+  overflow-x: auto;
+  padding-bottom: 4px;
+  scrollbar-width: thin;
+}
+
+.filter-pill {
+  padding: 6px 12px;
+  background: #f1f5f9;
+  border: 1px solid #cbd5e1;
+  border-radius: 999px;
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: #475569;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: all 0.2s;
+}
+
+.filter-pill:hover { background: #e2e8f0; }
+.filter-pill.active { background: var(--primary); color: #ffffff; border-color: var(--primary); }
+
+.view-toggle-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.view-mode-btns {
+  display: flex;
+  background: #f1f5f9;
+  border-radius: var(--radius-sm);
+  padding: 3px;
+  border: 1px solid var(--border);
+}
+
+.view-mode-btn {
+  padding: 6px 12px;
+  border: none;
+  background: transparent;
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: #64748b;
+  cursor: pointer;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.view-mode-btn.active {
+  background: #ffffff;
+  color: var(--primary);
+  font-weight: 800;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+/* Mobile Family Cards Layout */
+.family-card-group {
+  background: #ffffff;
+  border-radius: var(--radius-md);
+  border: 1.5px solid #cbd5e1;
+  margin-bottom: 14px;
+  box-shadow: var(--shadow-sm);
+  overflow: hidden;
+}
+
+.family-card-header {
+  background: linear-gradient(90deg, #f8fafc 0%, #edf2f7 100%);
+  padding: 10px 14px;
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.family-head-title {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.family-id-tag {
+  background: var(--primary);
+  color: #fff;
+  padding: 3px 8px;
+  border-radius: 6px;
+  font-weight: 800;
+  font-size: 0.8rem;
+}
+
+.family-head-name {
+  font-weight: 800;
+  font-size: 0.95rem;
+  color: #1e293b;
+}
+
+.family-members-count {
+  font-size: 0.76rem;
+  color: #64748b;
+  background: #e2e8f0;
+  padding: 2px 8px;
+  border-radius: 999px;
+  font-weight: 700;
+}
+
+.member-item-row {
+  padding: 12px 14px;
+  border-bottom: 1px solid #f1f5f9;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.member-item-row:last-child {
+  border-bottom: none;
+}
+
+.member-item-row.is-head {
+  background: #fdfbf7;
+}
+
+.member-left {
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+}
+
+.gender-avatar {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  flex-shrink: 0;
+  background: #f1f5f9;
+}
+
+.gender-avatar.male { background: #e0f2fe; }
+.gender-avatar.female { background: #fce7f3; }
+.gender-avatar.other { background: #f3e8ff; }
+
+.member-info h4 {
+  font-size: 0.92rem;
+  font-weight: 700;
+  color: #0f172a;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+
+.badge-tag {
+  font-size: 0.68rem;
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-weight: 700;
+}
+
+.badge-head { background: #fef3c7; color: #92400e; border: 1px solid #fde68a; }
+.badge-school { background: #ecfdf5; color: #065f46; border: 1px solid #a7f3d0; }
+.badge-out-school { background: #fef2f2; color: #991b1b; border: 1px solid #fecaca; }
+.badge-balwadi { background: #fdf4ff; color: #86198f; border: 1px solid #f5d0fe; }
+
+.member-meta-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 14px;
+  margin-top: 5px;
+  font-size: 0.78rem;
+  color: #475569;
+}
+
+.member-meta-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.member-actions {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex-shrink: 0;
+}
+
+.action-icon-btn {
+  width: 34px;
+  height: 34px;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  background: #ffffff;
+  color: #475569;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s;
+  text-decoration: none;
+}
+
+.action-icon-btn:hover {
+  background: #f1f5f9;
+  color: var(--primary);
+}
+
+.action-icon-btn.call-btn {
+  color: #059669;
+  border-color: #a7f3d0;
+  background: #ecfdf5;
+}
+
+.action-icon-btn.delete-btn {
+  color: #dc2626;
+  border-color: #fecaca;
+  background: #fef2f2;
+}
+
+/* Register Table View */
+.table-responsive {
+  width: 100%;
+  overflow-x: auto;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border);
+  background: #ffffff;
+  box-shadow: var(--shadow-sm);
+}
+
+.official-table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 1300px;
+  font-size: 0.85rem;
+}
+
+.official-table th {
+  background: #1e3a8a;
+  color: #ffffff;
+  font-weight: 700;
+  text-align: left;
+  padding: 10px 12px;
+  border: 1px solid #2563eb;
+  white-space: nowrap;
+  position: sticky;
+  top: 0;
+}
+
+.official-table td {
+  padding: 9px 12px;
+  border: 1px solid #e2e8f0;
+  vertical-align: middle;
+}
+
+.official-table tr:nth-child(even) { background: #f8fafc; }
+.official-table tr:hover { background: #f1f5f9; }
+.official-table .col-center { text-align: center; }
+
+/* Print Layout */
+.print-preview-container {
+  background: #ffffff;
+  padding: 24px;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow-sm);
+  max-width: 100%;
+  overflow-x: auto;
+}
+
+.print-gov-header {
+  border-bottom: 2px solid #000;
+  padding-bottom: 12px;
+  margin-bottom: 14px;
+  text-align: center;
+}
+
+.print-gov-header h2 {
+  font-size: 1.3rem;
+  font-weight: 800;
+  color: #000;
+  margin-bottom: 6px;
+}
+
+.print-meta-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 6px 12px;
+  text-align: left;
+  font-size: 0.82rem;
+  font-weight: 600;
+  margin-top: 10px;
+  background: #f8fafc;
+  padding: 10px;
+  border: 1px solid #cbd5e1;
+}
+
+.print-signatures-row {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 35px;
+  padding-top: 15px;
+  border-top: 1px dashed #94a3b8;
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-align: center;
+}
+
+.sign-box { width: 28%; }
+.sign-line { border-bottom: 1px solid #000; margin-bottom: 6px; height: 40px; }
+
+/* Footer */
+.app-footer {
+  background: #0f172a;
+  color: #94a3b8;
+  padding: 20px 16px;
+  text-align: center;
+  font-size: 0.85rem;
+  margin-top: 30px;
+}
+
+.app-footer .footer-creator-highlight {
+  color: #f59e0b;
+  font-weight: 800;
+  font-size: 0.95rem;
+  margin: 6px 0;
+}
+
+/* Modals */
+.modal-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.55);
+  backdrop-filter: blur(2px);
+  z-index: 2000;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+}
+
+.modal-overlay.active { display: flex; }
+
+.modal-card {
+  background: #ffffff;
+  border-radius: var(--radius-md);
+  width: 100%;
+  max-width: 550px;
+  max-height: 90vh;
+  overflow-y: auto;
+  box-shadow: var(--shadow-lg);
+}
+
+.modal-header {
+  padding: 14px 18px;
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.modal-header h3 { font-size: 1.1rem; font-weight: 700; }
+.modal-body { padding: 18px; }
+.modal-footer {
+  padding: 12px 18px;
+  border-top: 1px solid var(--border);
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  background: #f8fafc;
+}
+
+/* Toast */
+.toast-container {
+  position: fixed;
+  top: 80px;
+  right: 16px;
+  z-index: 3000;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  pointer-events: none;
+}
+
+.toast {
+  padding: 12px 18px;
+  border-radius: var(--radius-sm);
+  background: #0f172a;
+  color: #ffffff;
+  font-size: 0.88rem;
+  font-weight: 600;
+  box-shadow: var(--shadow-lg);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  pointer-events: auto;
+  animation: slideIn 0.3s ease;
+}
+
+.toast.success { background: #059669; }
+.toast.danger { background: #dc2626; }
+.toast.warning { background: #d97706; }
+
+@keyframes slideIn {
+  from { transform: translateX(100%); opacity: 0; }
+  to { transform: translateX(0); opacity: 1; }
+}
+
+.mobile-fab {
+  position: fixed;
+  right: 18px;
+  bottom: 80px;
+  width: 54px;
+  height: 54px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #1e40af 0%, #2563eb 100%);
+  color: #fff;
+  border: none;
+  font-size: 26px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 14px rgba(37,99,235,0.45);
+  cursor: pointer;
+  z-index: 990;
+  transition: transform 0.2s;
+}
+
+.mobile-fab:active { transform: scale(0.92); }
+
+@media (min-width: 768px) {
+  .desktop-nav { display: block; }
+  .mobile-bottom-nav { display: none; }
+  .mobile-fab { display: none; }
+  body { padding-bottom: 0; }
+  .form-actions-sticky { bottom: 0; }
+}
+
+@media print {
+  @page { size: A4 landscape; margin: 8mm; }
+  body { background: #fff !important; color: #000 !important; padding: 0 !important; font-size: 9pt !important; }
+  .app-header, .creator-top-strip, .desktop-nav, .mobile-bottom-nav, .mobile-fab, .view-controls-bar, .form-actions-sticky, .header-actions, .app-footer, .btn, .no-print { display: none !important; }
+  .main-content { margin: 0 !important; padding: 0 !important; max-width: 100% !important; }
+  .tab-pane { display: none !important; }
+  #tab-print { display: block !important; }
+  .print-preview-container { border: none !important; padding: 0 !important; box-shadow: none !important; }
+  .official-table { min-width: 100% !important; font-size: 8pt !important; border-collapse: collapse !important; }
+  .official-table th { background: #e2e8f0 !important; color: #000 !important; border: 1px solid #000 !important; padding: 4px 6px !important; -webkit-print-color-adjust: exact; }
+  .official-table td { border: 1px solid #000 !important; padding: 4px 6px !important; }
+  .print-gov-header { border-bottom: 2px solid #000 !important; }
+  .print-meta-grid { border: 1px solid #000 !important; background: #fff !important; }
+  .print-signatures-row { border-top: 1px dashed #000 !important; page-break-inside: avoid; }
+}
+
+  </style>
 
   <!-- SheetJS Library for offline Excel Import/Export -->
-  <script src="lib/xlsx.full.min.js"></script>
+  <!-- SheetJS: CDN for GitHub Pages + Local fallback for offline -->
+  <script src="https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js"></script>
+  <script>
+    if (typeof XLSX === 'undefined') {
+      document.write('<script src="lib/xlsx.full.min.js"><\/script>');
+    }
+  </script>
 </head>
 <body>
 
@@ -878,9 +1948,1922 @@
   </div>
 
   <!-- Scripts -->
-  <script src="js/survey-data.js"></script>
-  <script src="js/excel-export-import.js"></script>
-  <script src="js/app.js"></script>
+  <script>
+/* ====================================================
+   1. Master Data & Defaults
+   ==================================================== */
+/**
+ * गाव कुटुंब व बाल सर्वेक्षण प्रणाली - डेटा मॉडेल व मास्टर यादी
+ * सॉफ्टवेअर निर्माता: श्री गणेश विलास पष्टे
+ */
+
+const SURVEY_STORAGE_KEY = 'gav_sarve_data_v1';
+const SURVEY_CONFIG_KEY = 'gav_sarve_config_v1';
+
+// अधिकृत मास्टर याद्या (Excel मधील शीट २ वर आधारित)
+const MASTER_DATA = {
+    headOptions: ['होय', 'नाही'],
+    relations: [
+        'स्वतः (प्रमुख)',
+        'पती',
+        'पत्नी',
+        'मुलगा',
+        'मुलगी',
+        'वडील',
+        'आई',
+        'भाऊ',
+        'बहीण',
+        'सून',
+        'जावई',
+        'नातू',
+        'नात',
+        'काका',
+        'काकू',
+        'इतर'
+    ],
+    genders: ['पुरुष', 'स्त्री', 'इतर'],
+    categories: [
+        'खुला (General)',
+        'इ.मा.व. (OBC)',
+        'वि.जा./भ.ज. (VJNT)',
+        'वि.मा.प्र. (SBC)',
+        'अनु. जाती (SC)',
+        'अनु. जमाती (ST)',
+        'आ.दु.घ. (EWS)'
+    ],
+    educations: [
+        'निरक्षर',
+        'अंगणवाडी/बालवाडी',
+        'प्राथमिक (१ ली ते ४ थी)',
+        'उच्च प्राथमिक (५ वी ते ८ वी)',
+        'माध्यमिक (९ वी ते १० वी)',
+        'उच्च माध्यमिक (११ वी ते १२ वी)',
+        'पदविका (Diploma)',
+        'पदवी (Graduate)',
+        'पदव्युत्तर (Post Graduate)',
+        'व्यावसायिक/तांत्रिक'
+    ],
+    schoolGoingStatus: [
+        'होय',
+        'नाही',
+        'शिक्षण पूर्ण',
+        'लागू नाही'
+    ],
+    classes: [
+        'बालवाडी/अंगणवाडी',
+        '१ ली',
+        '२ री',
+        '३ री',
+        '४ थी',
+        '५ वी',
+        '६ वी',
+        '७ वी',
+        '८ वी',
+        '९ वी',
+        '१० वी',
+        '११ वी',
+        '१२ वी',
+        'पदवी',
+        'पदव्युत्तर',
+        'लागू नाही'
+    ],
+    schools: [
+        'रायगड जिल्हा परिषद शाळा मोहपाडा',
+        'रा.जि.प. शाळा चेवणे',
+        'रा.जि.प. शाळा नांदगाव',
+        'रा.जि.प. शाळा भोमलवाडी',
+        'अंगणवाडी मोहपाडा',
+        'इतर शासकीय शाळा',
+        'खाजगी अनुदानित शाळा',
+        'खाजगी विनाअनुदानित शाळा',
+        'लागू नाही'
+    ],
+    rationCardTypes: [
+        'प्राधान्य कुटुंब / केशरी (PHH)',
+        'अंत्योदय (AAY)',
+        'बीपीएल / दारिद्र्यरेषेखालील (पिवळे)',
+        'एपीएल / शुभ्र (पांढरे)',
+        'शिधापत्रिका नाही'
+    ],
+    houseTypes: [
+        'पक्के (RCC / स्लॅब)',
+        'कच्चे (कौलारू / मातीचे)',
+        'झोपडी / पत्र्याचे',
+        'इतर'
+    ]
+};
+
+// डीफॉल्ट शाळा व गाव माहिती
+const DEFAULT_CONFIG = {
+    schoolName: 'रायगड जिल्हा परिषद शाळा मोहपाडा',
+    center: 'नांदगाव',
+    beat: 'कर्जत',
+    taluka: 'कर्जत',
+    district: 'रायगड',
+    udise: '27240304501',
+    village: 'मोहपाडा',
+    gramPanchayat: 'मोहपाडा',
+    ward: 'प्रभाग क्र. १',
+    surveyorName: 'श्री गणेश विलास पष्टे',
+    surveyorMobile: '98XXXXXXXX',
+    surveyYear: '२०२६-२०२७',
+    creator: 'श्री गणेश विलास पष्टे'
+};
+
+// मूळ नमुना नोंदी (Excel मधील FAM-001 व FAM-002)
+const INITIAL_RECORDS = [
+    {
+        id: 1,
+        familyId: 'FAM-001',
+        isHead: 'होय',
+        fullName: 'रमेश तानाजी पाटील',
+        relation: 'स्वतः (प्रमुख)',
+        gender: 'पुरुष',
+        dob: '1985-06-15',
+        age: 41,
+        category: 'खुला (General)',
+        aadhaar: 'XXXXXXXX1234',
+        mobile: '9876543210',
+        education: 'उच्च माध्यमिक (११ वी ते १२ वी)',
+        isSchoolGoing: 'शिक्षण पूर्ण',
+        currentClass: 'लागू नाही',
+        currentSchool: 'लागू नाही',
+        remark: 'शेतकरी',
+        rationCard: 'प्राधान्य कुटुंब / केशरी (PHH)',
+        houseType: 'पक्के (RCC / स्लॅब)',
+        toilet: 'होय',
+        drinkingWater: 'नळ पाणीपुरवठा',
+        disability: 'नाही',
+        createdAt: '2026-09-05T10:00:00.000Z'
+    },
+    {
+        id: 2,
+        familyId: 'FAM-001',
+        isHead: 'नाही',
+        fullName: 'सुनीता रमेश पाटील',
+        relation: 'पत्नी',
+        gender: 'स्त्री',
+        dob: '1989-08-20',
+        age: 37,
+        category: 'खुला (General)',
+        aadhaar: 'XXXXXXXX5678',
+        mobile: '9876543211',
+        education: 'माध्यमिक (९ वी ते १० वी)',
+        isSchoolGoing: 'शिक्षण पूर्ण',
+        currentClass: 'लागू नाही',
+        currentSchool: 'लागू नाही',
+        remark: 'गृहिणी',
+        rationCard: 'प्राधान्य कुटुंब / केशरी (PHH)',
+        houseType: 'पक्के (RCC / स्लॅब)',
+        toilet: 'होय',
+        drinkingWater: 'नळ पाणीपुरवठा',
+        disability: 'नाही',
+        createdAt: '2026-09-05T10:05:00.000Z'
+    },
+    {
+        id: 3,
+        familyId: 'FAM-001',
+        isHead: 'नाही',
+        fullName: 'रोहित रमेश पाटील',
+        relation: 'मुलगा',
+        gender: 'पुरुष',
+        dob: '2018-04-10',
+        age: 8,
+        category: 'खुला (General)',
+        aadhaar: 'XXXXXXXX9012',
+        mobile: '-',
+        education: 'प्राथमिक (१ ली ते ४ थी)',
+        isSchoolGoing: 'होय',
+        currentClass: '३ री',
+        currentSchool: 'रायगड जिल्हा परिषद शाळा मोहपाडा',
+        remark: 'नियमित उपस्थित',
+        rationCard: 'प्राधान्य कुटुंब / केशरी (PHH)',
+        houseType: 'पक्के (RCC / स्लॅब)',
+        toilet: 'होय',
+        drinkingWater: 'नळ पाणीपुरवठा',
+        disability: 'नाही',
+        createdAt: '2026-09-05T10:10:00.000Z'
+    },
+    {
+        id: 4,
+        familyId: 'FAM-001',
+        isHead: 'नाही',
+        fullName: 'रिया रमेश पाटील',
+        relation: 'मुलगी',
+        gender: 'स्त्री',
+        dob: '2021-09-25',
+        age: 5,
+        category: 'खुला (General)',
+        aadhaar: 'XXXXXXXX3456',
+        mobile: '-',
+        education: 'अंगणवाडी/बालवाडी',
+        isSchoolGoing: 'होय',
+        currentClass: 'बालवाडी/अंगणवाडी',
+        currentSchool: 'अंगणवाडी मोहपाडा',
+        remark: 'अंगणवाडीत दाखल',
+        rationCard: 'प्राधान्य कुटुंब / केशरी (PHH)',
+        houseType: 'पक्के (RCC / स्लॅब)',
+        toilet: 'होय',
+        drinkingWater: 'नळ पाणीपुरवठा',
+        disability: 'नाही',
+        createdAt: '2026-09-05T10:15:00.000Z'
+    },
+    {
+        id: 5,
+        familyId: 'FAM-002',
+        isHead: 'होय',
+        fullName: 'संतोष विठ्ठल जाधव',
+        relation: 'स्वतः (प्रमुख)',
+        gender: 'पुरुष',
+        dob: '1988-11-04',
+        age: 38,
+        category: 'इ.मा.व. (OBC)',
+        aadhaar: 'XXXXXXXX7890',
+        mobile: '9822334455',
+        education: 'पदवी (Graduate)',
+        isSchoolGoing: 'शिक्षण पूर्ण',
+        currentClass: 'लागू नाही',
+        currentSchool: 'लागू नाही',
+        remark: 'नोकरी',
+        rationCard: 'प्राधान्य कुटुंब / केशरी (PHH)',
+        houseType: 'पक्के (RCC / स्लॅब)',
+        toilet: 'होय',
+        drinkingWater: 'नळ पाणीपुरवठा',
+        disability: 'नाही',
+        createdAt: '2026-09-05T10:20:00.000Z'
+    }
+];
+
+function calculateAge(dobStr) {
+    if (!dobStr) return '';
+    const birthDate = new Date(dobStr);
+    if (isNaN(birthDate.getTime())) return '';
+    const today = new Date();
+    let age = today.getFullYear() - birthDate.getFullYear();
+    const m = today.getMonth() - birthDate.getMonth();
+    if (m < 0 || (m === 0 && today.getDate() < birthDate.getDate())) {
+        age--;
+    }
+    return age >= 0 ? age : 0;
+}
+
+function formatDate(dateStr) {
+    if (!dateStr) return '-';
+    try {
+        const parts = dateStr.split('-');
+        if (parts.length === 3) {
+            return `${parts[2]}/${parts[1]}/${parts[0]}`;
+        }
+        return dateStr;
+    } catch(e) {
+        return dateStr;
+    }
+}
+
+  </script>
+  <script>
+/* ====================================================
+   2. Excel Export / Import Logic
+   ==================================================== */
+/**
+ * गाव कुटुंब व बाल सर्वेक्षण प्रणाली - एक्सेल एक्सपोर्ट व इम्पोर्ट मॉड्यूल
+ * निर्माता: श्री गणेश विलास पष्टे
+ */
+
+const ExcelHandler = {
+    /**
+     * सर्व नोंदी Gav_Ani_Shala_Survey_Nondvahi.xlsx च्या अधिकृत रचनेमध्ये एक्सपोर्ट करणे
+     */
+    exportToExcel: function(records, config) {
+        if (typeof XLSX === 'undefined') {
+            alert('XLSX लायब्ररी उपलब्ध नाही!');
+            return;
+        }
+
+        const wb = XLSX.utils.book_new();
+
+        // ----------------------------------------------------
+        // शीट १: गाव सर्वेक्षण नोंदवही (Sheet 1)
+        // ----------------------------------------------------
+        const ws1Data = [];
+
+        // Row 1: Title
+        ws1Data.push(['गाव कुटुंब व बाल सर्वेक्षण नोंदवही (Village Household & School Survey Register)']);
+
+        // Row 2: School & Taluka Info
+        ws1Data.push([
+            'शाळेचे नाव: ' + (config.schoolName || ''),
+            '', '', '', '',
+            'केंद्र: ' + (config.center || '') + ' | बीट: ' + (config.beat || ''),
+            '', '', '',
+            'तालुका: ' + (config.taluka || '') + ' | जिल्हा: ' + (config.district || ''),
+            '', '', '',
+            'UDISE क्र.: ' + (config.udise || ''),
+            '', ''
+        ]);
+
+        // Row 3: Village & Surveyor Info
+        ws1Data.push([
+            'गावाचे / पाड्याचे नाव: ' + (config.village || ''),
+            '', '', '', '',
+            'ग्रामपंचायत: ' + (config.gramPanchayat || ''),
+            '', '', '',
+            'वार्ड / प्रभाग क्र.: ' + (config.ward || ''),
+            '', '', '',
+            'सर्वेक्षक शिक्षक: ' + (config.surveyorName || ''),
+            '', ''
+        ]);
+
+        // Row 4: Column Headers
+        ws1Data.push([
+            'अ.क्र.',
+            'कुटुंब क्रमांक',
+            'कुटुंब प्रमुख',
+            'सदस्याचे पूर्ण नाव',
+            'कुटुंब प्रमुखांशी नाते',
+            'लिंग',
+            'जन्म तारीख\n(DD/MM/YYYY)',
+            'वय\n(वर्षे)',
+            'जात / प्रवर्ग',
+            'आधार क्रमांक',
+            'मोबाईल क्रमांक',
+            'शिक्षण',
+            'शाळेत जातो का?',
+            'शिकत असलेली इयत्ता',
+            'सध्याची शाळा',
+            'शेरा'
+        ]);
+
+        // Rows 5+: Records
+        records.forEach((r, idx) => {
+            ws1Data.push([
+                idx + 1,
+                r.familyId || '',
+                r.isHead || '',
+                r.fullName || '',
+                r.relation || '',
+                r.gender || '',
+                r.dob || '',
+                r.age !== undefined && r.age !== null ? r.age : '',
+                r.category || '',
+                r.aadhaar || '',
+                r.mobile || '',
+                r.education || '',
+                r.isSchoolGoing || '',
+                r.currentClass || '',
+                r.currentSchool || '',
+                r.remark || ''
+            ]);
+        });
+
+        // Row Footer: Nirmata Credit
+        ws1Data.push([]);
+        ws1Data.push(['नोंदणी सॉफ्टवेअर निर्माता: श्री गणेश विलास पष्टे']);
+
+        const ws1 = XLSX.utils.aoa_to_sheet(ws1Data);
+
+        // Column widths for Sheet 1
+        ws1['!cols'] = [
+            { wch: 8 },  // अ.क्र.
+            { wch: 15 }, // कुटुंब क्र.
+            { wch: 14 }, // कुटुंब प्रमुख
+            { wch: 28 }, // पूर्ण नाव
+            { wch: 20 }, // नाते
+            { wch: 12 }, // लिंग
+            { wch: 16 }, // जन्मतारीख
+            { wch: 10 }, // वय
+            { wch: 20 }, // जात प्रवर्ग
+            { wch: 20 }, // आधार
+            { wch: 16 }, // मोबाईल
+            { wch: 25 }, // शिक्षण
+            { wch: 16 }, // शाळेत जातो का
+            { wch: 20 }, // इयत्ता
+            { wch: 32 }, // सध्याची शाळा
+            { wch: 22 }  // शेरा
+        ];
+
+        // Merge headers for title & info
+        ws1['!merges'] = [
+            { s: { r: 0, c: 0 }, e: { r: 0, c: 15 } },
+            { s: { r: 1, c: 0 }, e: { r: 1, c: 4 } },
+            { s: { r: 1, c: 5 }, e: { r: 1, c: 8 } },
+            { s: { r: 1, c: 9 }, e: { r: 1, c: 12 } },
+            { s: { r: 1, c: 13 }, e: { r: 1, c: 15 } },
+            { s: { r: 2, c: 0 }, e: { r: 2, c: 4 } },
+            { s: { r: 2, c: 5 }, e: { r: 2, c: 8 } },
+            { s: { r: 2, c: 9 }, e: { r: 2, c: 12 } },
+            { s: { r: 2, c: 13 }, e: { r: 2, c: 15 } }
+        ];
+
+        XLSX.utils.book_append_sheet(wb, ws1, 'गाव सर्वेक्षण नोंदवही');
+
+        // ----------------------------------------------------
+        // शीट २: मास्टर यादी (Sheet 2)
+        // ----------------------------------------------------
+        const maxLen = Math.max(
+            MASTER_DATA.headOptions.length,
+            MASTER_DATA.relations.length,
+            MASTER_DATA.genders.length,
+            MASTER_DATA.categories.length,
+            MASTER_DATA.educations.length,
+            MASTER_DATA.schoolGoingStatus.length,
+            MASTER_DATA.classes.length,
+            MASTER_DATA.schools.length
+        );
+
+        const ws2Data = [
+            [
+                'कुटुंब प्रमुख (होय/नाही)',
+                'नाते संबंध',
+                'लिंग',
+                'सामाजिक प्रवर्ग / जात प्रवर्ग',
+                'शिक्षण पात्रता',
+                'शाळेत जातो का',
+                'शिकत असलेली इयत्ता',
+                'शाळेचे नाव (पर्याय)'
+            ]
+        ];
+
+        for (let i = 0; i < maxLen; i++) {
+            ws2Data.push([
+                MASTER_DATA.headOptions[i] || '',
+                MASTER_DATA.relations[i] || '',
+                MASTER_DATA.genders[i] || '',
+                MASTER_DATA.categories[i] || '',
+                MASTER_DATA.educations[i] || '',
+                MASTER_DATA.schoolGoingStatus[i] || '',
+                MASTER_DATA.classes[i] || '',
+                MASTER_DATA.schools[i] || ''
+            ]);
+        }
+
+        const ws2 = XLSX.utils.aoa_to_sheet(ws2Data);
+        ws2['!cols'] = Array(8).fill({ wch: 28 });
+        XLSX.utils.book_append_sheet(wb, ws2, 'मास्टर यादी');
+
+        // ----------------------------------------------------
+        // शीट ३: मार्गदर्शक सूचना (Sheet 3)
+        // ----------------------------------------------------
+        const ws3Data = [
+            ['गाव सर्वेक्षण नोंदवही - शाळा व गाव तपशील सूचना'],
+            ['क्र.', 'स्तंभ / घटक', 'तपशील व मार्गदर्शन'],
+            [1, 'शाळेचे नाव व केंद्र', (config.schoolName || '') + ', केंद्र: ' + (config.center || '') + ', तालुका: ' + (config.taluka || '')],
+            [2, 'कुटुंब क्रमांक', 'प्रत्येक कुटुंबासाठी एक विशिष्ट क्रमांक (उदा. FAM-001, FAM-002) नोंदवावा.'],
+            [3, 'कुटुंब प्रमुख', 'तो सदस्य कुटुंबाचा प्रमुख असल्यास "होय" निवडा, अन्यथा "नाही" निवडा.'],
+            [4, 'सदस्यांची नावे', 'कुटुंबातील सदस्याचे पूर्ण नाव (स्वतःचे नाव, वडिलांचे/पतीचे नाव, आडनाव) लिहावे.'],
+            [5, 'कुटुंब प्रमुखांशी नाते', 'स्वतः (प्रमुख), पती, पत्नी, मुलगा, मुलगी, वडील, आई इत्यादी पर्याय निवडा.'],
+            [6, 'लिंग', 'पुरुष, स्त्री किंवा इतर निवडा.'],
+            [7, 'जन्म तारीख (DOB)', 'YYYY-MM-DD फॉरमॅटमध्ये लिहावी.'],
+            [8, 'वय (वर्षे)', 'जन्म तारीख टाकल्यास चालू वय आपोआप मोजले जाईल.'],
+            [9, 'जात / सामाजिक प्रवर्ग', 'खुला, OBC, VJNT, SBC, SC, ST, EWS यापैकी निवडा.'],
+            [10, 'आधार क्रमांक', '१२ अंकी आधार क्रमांक नोंदवा.'],
+            [11, 'मोबाईल क्रमांक', 'कुटुंबातील चालू १० अंकी संपर्क क्रमांक.'],
+            [12, 'शिक्षण', 'प्राथमिक, माध्यमिक, पदवी, पदव्युत्तर इत्यादी शैक्षणिक पात्रता निवडा.'],
+            [13, 'शाळेत जातो का?', 'होय, नाही, शिक्षण पूर्ण किंवा लागू नाही निवडा.'],
+            [14, 'शिकत असलेली इयत्ता', 'बालवाडी/अंगणवाडी, १ ली ते १२ वी किंवा उच्च शिक्षण निवडा.'],
+            [15, 'सध्याची शाळा', 'स्थानिक जि.प. शाळा किंवा परिसरातील शाळा निवडा किंवा टाईप करा.'],
+            [16, 'शेरा', 'शाळाबाह्य बालके, दिव्यांग, स्थलांतरित किंवा व्यवसाय शेरा लिहावा.'],
+            [],
+            ['सॉफ्टवेअर व नोंदवही रचना निर्माता: श्री गणेश विलास पष्टे']
+        ];
+
+        const ws3 = XLSX.utils.aoa_to_sheet(ws3Data);
+        ws3['!cols'] = [{ wch: 6 }, { wch: 28 }, { wch: 68 }];
+        ws3['!merges'] = [
+            { s: { r: 0, c: 0 }, e: { r: 0, c: 2 } }
+        ];
+        XLSX.utils.book_append_sheet(wb, ws3, 'मार्गदर्शक सूचना');
+
+        // File name with date
+        const villageClean = (config.village || 'गाव').replace(/[^a-zA-Z0-9ऀ-ॿ]/g, '_');
+        const fileName = 'Gav_Sarve_Nondvahi_' + villageClean + '_' + new Date().toISOString().slice(0,10) + '.xlsx';
+
+        XLSX.writeFile(wb, fileName);
+    },
+
+    /**
+     * एक्सेल फाईल इम्पोर्ट करणे
+     */
+    importFromExcel: function(file, onSuccess, onError) {
+        if (typeof XLSX === 'undefined') {
+            if (onError) onError('XLSX लायब्ररी लोड झालेली नाही.');
+            return;
+        }
+
+        const reader = new FileReader();
+        reader.onload = function(e) {
+            try {
+                const data = new Uint8Array(e.target.result);
+                const wb = XLSX.read(data, { type: 'array' });
+
+                // Find main sheet
+                let sheetName = wb.SheetNames.find(n => n.includes('नोंदवही') || n.includes('सर्वेक्षण') || n.toLowerCase().includes('survey'));
+                if (!sheetName) sheetName = wb.SheetNames[0];
+
+                const ws = wb.Sheets[sheetName];
+                const rows = XLSX.utils.sheet_to_json(ws, { header: 1, defval: '' });
+
+                if (rows.length < 4) {
+                    throw new Error('एक्सेल फाईलमध्ये अपेक्षित डेटा रचना आढळली नाही.');
+                }
+
+                // Find header row (usually contains 'कुटुंब क्रमांक' or 'अ.क्र.')
+                let headerRowIdx = -1;
+                for (let r = 0; r < Math.min(10, rows.length); r++) {
+                    const rowText = rows[r].join(' ');
+                    if (rowText.includes('कुटुंब क्रमांक') || rowText.includes('सदस्याचे पूर्ण नाव') || rowText.includes('Family')) {
+                        headerRowIdx = r;
+                        break;
+                    }
+                }
+
+                if (headerRowIdx === -1) {
+                    headerRowIdx = 3; // default row 4 (index 3)
+                }
+
+                const importedRecords = [];
+                let nextId = Date.now();
+
+                for (let r = headerRowIdx + 1; r < rows.length; r++) {
+                    const row = rows[r];
+                    if (!row || row.length === 0) continue;
+                    
+                    // Column mapping:
+                    // 0: अ.क्र.
+                    // 1: कुटुंब क्रमांक
+                    // 2: कुटुंब प्रमुख
+                    // 3: सदस्याचे नाव
+                    // 4: नाते
+                    // 5: लिंग
+                    // 6: DOB
+                    // 7: वय
+                    // 8: जात / प्रवर्ग
+                    // 9: आधार
+                    // 10: मोबाईल
+                    // 11: शिक्षण
+                    // 12: शाळेत जातो का
+                    // 13: इयत्ता
+                    // 14: शाळा
+                    // 15: शेरा
+
+                    const familyId = String(row[1] || '').trim();
+                    const fullName = String(row[3] || '').trim();
+
+                    // Ignore empty or summary rows
+                    if (!fullName && !familyId) continue;
+                    if (fullName.includes('निर्माता') || familyId.includes('निर्माता')) continue;
+
+                    let dobStr = String(row[6] || '').trim();
+                    // If date is an excel serial number
+                    if (!isNaN(dobStr) && Number(dobStr) > 10000) {
+                        try {
+                            const d = XLSX.SSF.parse_date_code(Number(dobStr));
+                            dobStr = d.y + '-' + String(d.m).padStart(2, '0') + '-' + String(d.d).padStart(2, '0');
+                        } catch(err) {}
+                    }
+
+                    let ageVal = parseInt(row[7]);
+                    if (isNaN(ageVal) && dobStr) {
+                        ageVal = calculateAge(dobStr);
+                    }
+
+                    importedRecords.push({
+                        id: ++nextId,
+                        familyId: familyId || ('FAM-' + String(importedRecords.length + 1).padStart(3, '0')),
+                        isHead: String(row[2] || 'नाही').trim(),
+                        fullName: fullName,
+                        relation: String(row[4] || 'इतर').trim(),
+                        gender: String(row[5] || 'पुरुष').trim(),
+                        dob: dobStr,
+                        age: isNaN(ageVal) ? '' : ageVal,
+                        category: String(row[8] || 'खुला (General)').trim(),
+                        aadhaar: String(row[9] || '').trim(),
+                        mobile: String(row[10] || '').trim(),
+                        education: String(row[11] || '').trim(),
+                        isSchoolGoing: String(row[12] || '').trim(),
+                        currentClass: String(row[13] || '').trim(),
+                        currentSchool: String(row[14] || '').trim(),
+                        remark: String(row[15] || '').trim(),
+                        rationCard: 'प्राधान्य कुटुंब / केशरी (PHH)',
+                        houseType: 'पक्के (RCC / स्लॅब)',
+                        toilet: 'होय',
+                        drinkingWater: 'नळ पाणीपुरवठा',
+                        disability: 'नाही',
+                        createdAt: new Date().toISOString()
+                    });
+                }
+
+                if (onSuccess) onSuccess(importedRecords);
+            } catch(err) {
+                if (onError) onError(err.message || 'एक्सेल फाईल वाचताना त्रुटी आली.');
+            }
+        };
+
+        reader.onerror = function() {
+            if (onError) onError('फाईल वाचताना समस्या उद्भवली.');
+        };
+
+        reader.readAsArrayBuffer(file);
+    }
+};
+
+  </script>
+  <script>
+/* ====================================================
+   3. Main Application Logic
+   ==================================================== */
+/**
+ * गाव कुटुंब व बाल सर्वेक्षण प्रणाली - मुख्य ॲप्लिकेशन लॉजिक
+ * सॉफ्टवेअर निर्माता: श्री गणेश विलास पष्टे
+ */
+
+// ॲप्लिकेशन स्टेट
+const AppState = {
+    records: [],
+    config: {},
+    activeTab: 'tab-dashboard',
+    viewMode: 'cards', // 'cards' किंवा 'table'
+    searchQuery: '',
+    filterCategory: 'all',
+    filterGender: 'all',
+    filterAgeGroup: 'all',
+    filterSchoolStatus: 'all',
+    filterFamilyId: 'all',
+    editingId: null,
+    currentFamilyContext: null // { familyId, surname, category, rationCard, houseType, ward }
+};
+
+// ॲप सुरू झाल्यावर
+document.addEventListener('DOMContentLoaded', function() {
+    initApp();
+});
+
+function initApp() {
+    loadConfig();
+    loadRecords();
+    setupDropdowns();
+    setupEventListeners();
+    updateUI();
+    
+    // Check url hash or default tab
+    switchTab('tab-dashboard');
+}
+
+// ----------------------------------------------------
+// कॉन्फिगरेशन व डेटा स्टोरेज
+// ----------------------------------------------------
+function loadConfig() {
+    try {
+        const saved = localStorage.getItem(SURVEY_CONFIG_KEY);
+        if (saved) {
+            AppState.config = Object.assign({}, DEFAULT_CONFIG, JSON.parse(saved));
+        } else {
+            AppState.config = Object.assign({}, DEFAULT_CONFIG);
+            saveConfig();
+        }
+    } catch(e) {
+        AppState.config = Object.assign({}, DEFAULT_CONFIG);
+    }
+    renderConfigInfo();
+}
+
+function saveConfig() {
+    try {
+        localStorage.setItem(SURVEY_CONFIG_KEY, JSON.stringify(AppState.config));
+    } catch(e) {
+        console.error('कॉन्फिगरेशन जतन करण्यात त्रुटी:', e);
+    }
+}
+
+function loadRecords() {
+    try {
+        const saved = localStorage.getItem(SURVEY_STORAGE_KEY);
+        if (saved) {
+            AppState.records = JSON.parse(saved);
+        } else {
+            AppState.records = [...INITIAL_RECORDS];
+            saveRecords();
+        }
+    } catch(e) {
+        AppState.records = [...INITIAL_RECORDS];
+    }
+}
+
+function saveRecords() {
+    try {
+        localStorage.setItem(SURVEY_STORAGE_KEY, JSON.stringify(AppState.records));
+    } catch(e) {
+        console.error('डेटा जतन करण्यात त्रुटी:', e);
+        showToast('डेटा जतन करण्यात समस्या आली!', 'danger');
+    }
+}
+
+// ----------------------------------------------------
+// ड्रॉपडाउन्स भरणे
+// ----------------------------------------------------
+function setupDropdowns() {
+    populateSelect('feed-relation', MASTER_DATA.relations);
+    populateSelect('feed-gender', MASTER_DATA.genders);
+    populateSelect('feed-category', MASTER_DATA.categories);
+    populateSelect('feed-education', MASTER_DATA.educations);
+    populateSelect('feed-school-going', MASTER_DATA.schoolGoingStatus);
+    populateSelect('feed-class', MASTER_DATA.classes);
+    populateSelect('feed-school', MASTER_DATA.schools);
+    populateSelect('feed-ration-card', MASTER_DATA.rationCardTypes);
+    populateSelect('feed-house-type', MASTER_DATA.houseTypes);
+
+    // Filter dropdowns
+    populateSelect('filter-category-select', ['सर्व जात प्रवर्ग', ...MASTER_DATA.categories], true);
+}
+
+function populateSelect(elementId, options, isFilter = false) {
+    const el = document.getElementById(elementId);
+    if (!el) return;
+    el.innerHTML = '';
+    options.forEach((opt, idx) => {
+        const val = isFilter && idx === 0 ? 'all' : opt;
+        const optEl = document.createElement('option');
+        optEl.value = val;
+        optEl.textContent = opt;
+        el.appendChild(optEl);
+    });
+}
+
+function renderConfigInfo() {
+    // Top headers
+    const titleEl = document.getElementById('header-school-name');
+    if (titleEl) titleEl.textContent = AppState.config.schoolName || 'गाव सर्वेक्षण प्रणाली';
+    
+    const subEl = document.getElementById('header-sub-details');
+    if (subEl) {
+        subEl.textContent = 'गाव: ' + (AppState.config.village || '') + ' | केंद्र: ' + (AppState.config.center || '') + ' | ता. ' + (AppState.config.taluka || '') + ' (जि. ' + (AppState.config.district || '') + ')';
+    }
+
+    // Settings form inputs
+    const setSchool = document.getElementById('setting-school-name');
+    if (setSchool) setSchool.value = AppState.config.schoolName || '';
+
+    const setCenter = document.getElementById('setting-center');
+    if (setCenter) setCenter.value = AppState.config.center || '';
+
+    const setBeat = document.getElementById('setting-beat');
+    if (setBeat) setBeat.value = AppState.config.beat || '';
+
+    const setTaluka = document.getElementById('setting-taluka');
+    if (setTaluka) setTaluka.value = AppState.config.taluka || '';
+
+    const setDistrict = document.getElementById('setting-district');
+    if (setDistrict) setDistrict.value = AppState.config.district || '';
+
+    const setUdise = document.getElementById('setting-udise');
+    if (setUdise) setUdise.value = AppState.config.udise || '';
+
+    const setVillage = document.getElementById('setting-village');
+    if (setVillage) setVillage.value = AppState.config.village || '';
+
+    const setGp = document.getElementById('setting-gp');
+    if (setGp) setGp.value = AppState.config.gramPanchayat || '';
+
+    const setWard = document.getElementById('setting-ward');
+    if (setWard) setWard.value = AppState.config.ward || '';
+
+    const setSurveyor = document.getElementById('setting-surveyor-name');
+    if (setSurveyor) setSurveyor.value = AppState.config.surveyorName || '';
+
+    const setMobile = document.getElementById('setting-surveyor-mobile');
+    if (setMobile) setMobile.value = AppState.config.surveyorMobile || '';
+
+    const setYear = document.getElementById('setting-year');
+    if (setYear) setYear.value = AppState.config.surveyYear || '';
+}
+
+// ----------------------------------------------------
+// नेव्हिगेशन व टॅब्स
+// ----------------------------------------------------
+function switchTab(tabId) {
+    AppState.activeTab = tabId;
+
+    // Desktop nav buttons
+    document.querySelectorAll('.nav-tab-btn').forEach(btn => {
+        btn.classList.toggle('active', btn.getAttribute('data-tab') === tabId);
+    });
+
+    // Mobile bottom nav items
+    document.querySelectorAll('.bottom-nav-item').forEach(btn => {
+        btn.classList.toggle('active', btn.getAttribute('data-tab') === tabId);
+    });
+
+    // Tab content panes
+    document.querySelectorAll('.tab-pane').forEach(pane => {
+        pane.classList.remove('active');
+    });
+
+    const targetPane = document.getElementById(tabId);
+    if (targetPane) {
+        targetPane.classList.add('active');
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    // Specific tab updates
+    if (tabId === 'tab-dashboard') {
+        renderDashboard();
+    } else if (tabId === 'tab-register') {
+        renderRegister();
+    } else if (tabId === 'tab-print') {
+        renderPrintPreview();
+    }
+}
+
+// ----------------------------------------------------
+// डेटा फीडिंग (Data Feeding) लॉजिक
+// ----------------------------------------------------
+function getNextFamilyId() {
+    const existing = AppState.records.map(r => r.familyId || '');
+    let maxNum = 0;
+    existing.forEach(id => {
+        const m = id.match(/FAM-(\d+)/i);
+        if (m) {
+            const n = parseInt(m[1]);
+            if (n > maxNum) maxNum = n;
+        }
+    });
+    const next = maxNum + 1;
+    return 'FAM-' + String(next).padStart(3, '0');
+}
+
+function updateFamilyIdSuggestion() {
+    const isHead = document.getElementById('feed-is-head').value === 'होय';
+    const famSelect = document.getElementById('feed-existing-family-select');
+    const famInput = document.getElementById('feed-family-id');
+
+    if (isHead) {
+        if (!AppState.editingId && (!AppState.currentFamilyContext || AppState.currentFamilyContext.isNewFamily)) {
+            famInput.value = getNextFamilyId();
+        }
+        if (famSelect) famSelect.style.display = 'none';
+        famInput.readOnly = false;
+        document.getElementById('feed-relation').value = 'स्वतः (प्रमुख)';
+    } else {
+        // Not head: show dropdown of existing families
+        renderExistingFamilyOptions();
+        if (famSelect) famSelect.style.display = 'block';
+        if (document.getElementById('feed-relation').value === 'स्वतः (प्रमुख)') {
+            document.getElementById('feed-relation').value = 'पत्नी';
+        }
+    }
+}
+
+function renderExistingFamilyOptions() {
+    const sel = document.getElementById('feed-existing-family-select');
+    if (!sel) return;
+    sel.innerHTML = '<option value="">-- कुटुंब निवडा (किंवा खाली आयडी टाईप करा) --</option>';
+
+    // Distinct families
+    const map = new Map();
+    AppState.records.forEach(r => {
+        if (!map.has(r.familyId)) {
+            const head = AppState.records.find(m => m.familyId === r.familyId && m.isHead === 'होय') || r;
+            map.set(r.familyId, head.fullName);
+        }
+    });
+
+    map.forEach((headName, famId) => {
+        const opt = document.createElement('option');
+        opt.value = famId;
+        opt.textContent = famId + ' (' + headName + ')';
+        sel.appendChild(opt);
+    });
+
+    if (AppState.currentFamilyContext && AppState.currentFamilyContext.familyId) {
+        sel.value = AppState.currentFamilyContext.familyId;
+        document.getElementById('feed-family-id').value = AppState.currentFamilyContext.familyId;
+    }
+}
+
+function onExistingFamilySelected(familyId) {
+    if (!familyId) return;
+    document.getElementById('feed-family-id').value = familyId;
+
+    // Find family members to auto-fill common family properties
+    const members = AppState.records.filter(r => r.familyId === familyId);
+    if (members.length > 0) {
+        const head = members.find(m => m.isHead === 'होय') || members[0];
+        if (head.category) document.getElementById('feed-category').value = head.category;
+        if (head.rationCard) document.getElementById('feed-ration-card').value = head.rationCard;
+        if (head.houseType) document.getElementById('feed-house-type').value = head.houseType;
+        if (head.toilet) document.getElementById('feed-toilet').value = head.toilet;
+        if (head.drinkingWater) document.getElementById('feed-water').value = head.drinkingWater;
+
+        // Extract surname
+        const nameParts = head.fullName.trim().split(' ');
+        if (nameParts.length > 1) {
+            const surname = nameParts[nameParts.length - 1];
+            const nameInput = document.getElementById('feed-fullname');
+            if (!nameInput.value || nameInput.value.trim() === '') {
+                nameInput.placeholder = 'उदा. नाव वडिलांचेनाव ' + surname;
+            }
+        }
+    }
+}
+
+function onDobChanged() {
+    const dob = document.getElementById('feed-dob').value;
+    const age = calculateAge(dob);
+    const ageInput = document.getElementById('feed-age');
+    if (age !== '') {
+        ageInput.value = age;
+        recommendSchoolStatus(age);
+    }
+}
+
+function recommendSchoolStatus(age) {
+    const statusSelect = document.getElementById('feed-school-going');
+    const classSelect = document.getElementById('feed-class');
+    const schoolSelect = document.getElementById('feed-school');
+
+    if (age < 3) {
+        statusSelect.value = 'लागू नाही';
+        classSelect.value = 'लागू नाही';
+        schoolSelect.value = 'लागू नाही';
+    } else if (age >= 3 && age <= 5) {
+        statusSelect.value = 'होय';
+        classSelect.value = 'बालवाडी/अंगणवाडी';
+        schoolSelect.value = 'अंगणवाडी मोहपाडा';
+    } else if (age >= 6 && age <= 14) {
+        statusSelect.value = 'होय';
+        const std = (age - 5);
+        const classNames = ['', '१ ली', '२ री', '३ री', '४ थी', '५ वी', '६ वी', '७ वी', '८ वी'];
+        if (classNames[std]) {
+            classSelect.value = classNames[std];
+        }
+        schoolSelect.value = AppState.config.schoolName || 'रायगड जिल्हा परिषद शाळा मोहपाडा';
+    } else if (age >= 15 && age <= 18) {
+        statusSelect.value = 'होय';
+    } else if (age > 18) {
+        statusSelect.value = 'शिक्षण पूर्ण';
+        classSelect.value = 'लागू नाही';
+        schoolSelect.value = 'लागू नाही';
+    }
+}
+
+function resetFeedingForm() {
+    AppState.editingId = null;
+    document.getElementById('feeding-form-title').textContent = 'कुटुंब व सदस्य सर्वेक्षण डेटा नोंदणी';
+    document.getElementById('btn-cancel-edit').style.display = 'none';
+    document.getElementById('feed-form').reset();
+    document.getElementById('feed-is-head').value = 'होय';
+    updateFamilyIdSuggestion();
+    document.getElementById('feed-family-context-banner').style.display = 'none';
+    AppState.currentFamilyContext = null;
+}
+
+function startNewFamily() {
+    resetFeedingForm();
+    document.getElementById('feed-is-head').value = 'होय';
+    document.getElementById('feed-family-id').value = getNextFamilyId();
+    updateFamilyIdSuggestion();
+    document.getElementById('feed-fullname').focus();
+    showToast('नवीन कुटुंब नोंदणी सुरू केली!', 'success');
+}
+
+function populateFormForEdit(memberId) {
+    const rec = AppState.records.find(r => r.id === memberId);
+    if (!rec) return;
+
+    AppState.editingId = memberId;
+    switchTab('tab-feeding');
+
+    document.getElementById('feeding-form-title').textContent = 'सदस्य माहिती संपादन (ID: ' + (rec.familyId || '') + ')';
+    document.getElementById('btn-cancel-edit').style.display = 'inline-flex';
+
+    document.getElementById('feed-family-id').value = rec.familyId || '';
+    document.getElementById('feed-is-head').value = rec.isHead || 'नाही';
+    updateFamilyIdSuggestion();
+
+    document.getElementById('feed-fullname').value = rec.fullName || '';
+    document.getElementById('feed-relation').value = rec.relation || 'इतर';
+    document.getElementById('feed-gender').value = rec.gender || 'पुरुष';
+    document.getElementById('feed-dob').value = rec.dob || '';
+    document.getElementById('feed-age').value = rec.age !== undefined ? rec.age : '';
+    document.getElementById('feed-category').value = rec.category || 'खुला (General)';
+    document.getElementById('feed-aadhaar').value = rec.aadhaar || '';
+    document.getElementById('feed-mobile').value = rec.mobile || '';
+    document.getElementById('feed-education').value = rec.education || 'निरक्षर';
+    document.getElementById('feed-school-going').value = rec.isSchoolGoing || 'शिक्षण पूर्ण';
+    document.getElementById('feed-class').value = rec.currentClass || 'लागू नाही';
+    document.getElementById('feed-school').value = rec.currentSchool || 'लागू नाही';
+    document.getElementById('feed-remark').value = rec.remark || '';
+    if (rec.rationCard) document.getElementById('feed-ration-card').value = rec.rationCard;
+    if (rec.houseType) document.getElementById('feed-house-type').value = rec.houseType;
+    if (rec.toilet) document.getElementById('feed-toilet').value = rec.toilet;
+    if (rec.drinkingWater) document.getElementById('feed-water').value = rec.drinkingWater;
+    if (rec.disability) document.getElementById('feed-disability').value = rec.disability;
+
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+function handleFormSave(continueWithNextMember) {
+    const familyId = document.getElementById('feed-family-id').value.trim();
+    const fullName = document.getElementById('feed-fullname').value.trim();
+    const isHead = document.getElementById('feed-is-head').value;
+
+    if (!familyId) {
+        alert('कृपया कुटुंब क्रमांक प्रविष्ट करा.');
+        document.getElementById('feed-family-id').focus();
+        return;
+    }
+    if (!fullName) {
+        alert('कृपया सदस्याचे पूर्ण नाव प्रविष्ट करा.');
+        document.getElementById('feed-fullname').focus();
+        return;
+    }
+
+    const dob = document.getElementById('feed-dob').value;
+    let age = parseInt(document.getElementById('feed-age').value);
+    if (isNaN(age) && dob) {
+        age = calculateAge(dob);
+    }
+
+    const aadhaar = document.getElementById('feed-aadhaar').value.trim();
+    const mobile = document.getElementById('feed-mobile').value.trim();
+
+    // Check head uniqueness in this family
+    if (isHead === 'होय') {
+        const existingHead = AppState.records.find(r => r.familyId === familyId && r.isHead === 'होय' && r.id !== AppState.editingId);
+        if (existingHead) {
+            const confirmChange = confirm('या कुटुंबात (' + familyId + ') आधीच ' + existingHead.fullName + ' कुटुंब प्रमुख म्हणून नोंदवलेले आहेत.\n\nतरीही या सदस्याला प्रमुख करायचे का?');
+            if (confirmChange) {
+                existingHead.isHead = 'नाही';
+            } else {
+                return;
+            }
+        }
+    }
+
+    // Extract surname
+    const parts = fullName.split(' ');
+    const surname = parts.length > 1 ? parts[parts.length - 1] : '';
+
+    const recordData = {
+        id: AppState.editingId || Date.now(),
+        familyId: familyId,
+        isHead: isHead,
+        fullName: fullName,
+        relation: document.getElementById('feed-relation').value,
+        gender: document.getElementById('feed-gender').value,
+        dob: dob,
+        age: isNaN(age) ? '' : age,
+        category: document.getElementById('feed-category').value,
+        aadhaar: aadhaar || '-',
+        mobile: mobile || '-',
+        education: document.getElementById('feed-education').value,
+        isSchoolGoing: document.getElementById('feed-school-going').value,
+        currentClass: document.getElementById('feed-class').value,
+        currentSchool: document.getElementById('feed-school').value,
+        remark: document.getElementById('feed-remark').value.trim() || 'नियमित',
+        rationCard: document.getElementById('feed-ration-card').value,
+        houseType: document.getElementById('feed-house-type').value,
+        toilet: document.getElementById('feed-toilet').value,
+        drinkingWater: document.getElementById('feed-water').value,
+        disability: document.getElementById('feed-disability').value,
+        updatedAt: new Date().toISOString()
+    };
+
+    if (AppState.editingId) {
+        // Update existing
+        const idx = AppState.records.findIndex(r => r.id === AppState.editingId);
+        if (idx !== -1) {
+            AppState.records[idx] = Object.assign({}, AppState.records[idx], recordData);
+        }
+        showToast('सदस्य माहिती अद्ययावत केली!', 'success');
+    } else {
+        // Add new
+        recordData.createdAt = new Date().toISOString();
+        AppState.records.push(recordData);
+        showToast('नवीन नोंद यशस्वीरित्या जोडली!', 'success');
+    }
+
+    saveRecords();
+
+    // Preserve family context for next member
+    AppState.currentFamilyContext = {
+        familyId: familyId,
+        surname: surname,
+        category: recordData.category,
+        rationCard: recordData.rationCard,
+        houseType: recordData.houseType,
+        toilet: recordData.toilet,
+        drinkingWater: recordData.drinkingWater
+    };
+
+    if (continueWithNextMember) {
+        // Prepare for next family member
+        AppState.editingId = null;
+        document.getElementById('feeding-form-title').textContent = 'कुटुंब व सदस्य सर्वेक्षण डेटा नोंदणी';
+        document.getElementById('btn-cancel-edit').style.display = 'none';
+
+        // Reset individual fields
+        document.getElementById('feed-is-head').value = 'नाही';
+        updateFamilyIdSuggestion();
+        document.getElementById('feed-fullname').value = '';
+        document.getElementById('feed-dob').value = '';
+        document.getElementById('feed-age').value = '';
+        document.getElementById('feed-aadhaar').value = '';
+        document.getElementById('feed-mobile').value = '';
+        document.getElementById('feed-remark').value = '';
+
+        // Show Family Context Banner
+        const banner = document.getElementById('feed-family-context-banner');
+        banner.style.display = 'flex';
+        document.getElementById('context-family-id').textContent = familyId;
+        const count = AppState.records.filter(r => r.familyId === familyId).length;
+        document.getElementById('context-member-count').textContent = count + ' सदस्य नोंदवले';
+
+        document.getElementById('feed-fullname').placeholder = surname ? 'उदा. नाव ' + surname : 'सदस्याचे पूर्ण नाव';
+        document.getElementById('feed-fullname').focus();
+    } else {
+        resetFeedingForm();
+        switchTab('tab-register');
+    }
+}
+
+// ----------------------------------------------------
+// मोबाईल-फ्रेंडली पेज व्ह्यू व टेबल व्ह्यू (Register Views)
+// ----------------------------------------------------
+function renderRegister() {
+    const container = document.getElementById('register-container');
+    if (!container) return;
+
+    // Filter records
+    let filtered = AppState.records.filter(r => {
+        // Search text
+        if (AppState.searchQuery) {
+            const q = AppState.searchQuery.toLowerCase();
+            const matchName = (r.fullName || '').toLowerCase().includes(q);
+            const matchFam = (r.familyId || '').toLowerCase().includes(q);
+            const matchAadhaar = (r.aadhaar || '').includes(q);
+            const matchMobile = (r.mobile || '').includes(q);
+            const matchRemark = (r.remark || '').toLowerCase().includes(q);
+            if (!matchName && !matchFam && !matchAadhaar && !matchMobile && !matchRemark) {
+                return false;
+            }
+        }
+
+        // Category
+        if (AppState.filterCategory !== 'all' && r.category !== AppState.filterCategory) {
+            return false;
+        }
+
+        // Gender
+        if (AppState.filterGender !== 'all' && r.gender !== AppState.filterGender) {
+            return false;
+        }
+
+        // School Status
+        if (AppState.filterSchoolStatus !== 'all') {
+            if (AppState.filterSchoolStatus === 'in_school' && r.isSchoolGoing !== 'होय') return false;
+            if (AppState.filterSchoolStatus === 'out_of_school' && !(r.age >= 6 && r.age <= 14 && r.isSchoolGoing === 'नाही')) return false;
+            if (AppState.filterSchoolStatus === 'completed' && r.isSchoolGoing !== 'शिक्षण पूर्ण') return false;
+            if (AppState.filterSchoolStatus === 'balwadi' && !((r.currentClass || '').includes('बालवाडी') || (r.currentClass || '').includes('अंगणवाडी'))) return false;
+        }
+
+        // Age Groups
+        if (AppState.filterAgeGroup !== 'all') {
+            const age = typeof r.age === 'number' ? r.age : parseInt(r.age);
+            if (isNaN(age)) return false;
+            if (AppState.filterAgeGroup === '0-6' && !(age >= 0 && age <= 6)) return false;
+            if (AppState.filterAgeGroup === '6-14' && !(age >= 6 && age <= 14)) return false;
+            if (AppState.filterAgeGroup === '15-18' && !(age >= 15 && age <= 18)) return false;
+            if (AppState.filterAgeGroup === '18+' && age < 18) return false;
+            if (AppState.filterAgeGroup === '60+' && age < 60) return false;
+            if (AppState.filterAgeGroup === 'head' && r.isHead !== 'होय') return false;
+        }
+
+        // Family ID
+        if (AppState.filterFamilyId !== 'all' && r.familyId !== AppState.filterFamilyId) {
+            return false;
+        }
+
+        return true;
+    });
+
+    // Update count display
+    const countBadge = document.getElementById('filtered-count-badge');
+    if (countBadge) countBadge.textContent = 'एकूण ' + filtered.length + ' नोंदी आढळल्या';
+
+    if (filtered.length === 0) {
+        container.innerHTML = `
+            <div style="text-align: center; padding: 40px 16px; background: #fff; border-radius: var(--radius-md); border: 1px dashed var(--border);">
+                <div style="font-size: 3rem; color: #cbd5e1; margin-bottom: 12px;">🔍</div>
+                <h3 style="font-size: 1.1rem; font-weight: 700; color: #475569;">कोणतीही नोंद सापडली नाही</h3>
+                <p style="color: #94a3b8; font-size: 0.85rem; margin-top: 4px;">कृपया शोध शब्द किंवा फिल्टर बदलून पहा.</p>
+                <button class="btn btn-primary btn-sm" style="margin-top: 14px;" onclick="resetAllFilters()">सर्व फिल्टर्स काढा</button>
+            </div>
+        `;
+        return;
+    }
+
+    if (AppState.viewMode === 'cards') {
+        renderCardsView(filtered, container);
+    } else {
+        renderTableView(filtered, container);
+    }
+}
+
+// मोबाईल कार्ड व्ह्यू (कुटुंबानुसार समूह)
+function renderCardsView(records, container) {
+    // Group records by Family ID
+    const familyMap = new Map();
+    records.forEach(r => {
+        const famId = r.familyId || 'FAM-इतर';
+        if (!familyMap.has(famId)) {
+            familyMap.set(famId, []);
+        }
+        familyMap.get(famId).push(r);
+    });
+
+    let html = '';
+
+    familyMap.forEach((members, famId) => {
+        const head = members.find(m => m.isHead === 'होय') || members[0];
+        const headName = head ? head.fullName : 'कुटुंब प्रमुख';
+
+        html += `
+            <div class="family-card-group">
+                <div class="family-card-header">
+                    <div class="family-head-title">
+                        <span class="family-id-tag">${famId}</span>
+                        <span class="family-head-name">${headName}</span>
+                    </div>
+                    <div style="display: flex; align-items: center; gap: 8px;">
+                        <span class="family-members-count">${members.length} सदस्य</span>
+                        <button class="action-icon-btn" title="या कुटुंबात सदस्य जोडा" onclick="addMemberToFamily('${famId}')">
+                            <i class="fa-solid fa-user-plus" style="color: var(--primary);"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="family-members-list">
+        `;
+
+        members.forEach(m => {
+            const isHead = m.isHead === 'होय';
+            const genderClass = m.gender === 'स्त्री' ? 'female' : (m.gender === 'पुरुष' ? 'male' : 'other');
+            const avatarIcon = m.gender === 'स्त्री' ? '👩' : (m.gender === 'पुरुष' ? (m.age < 15 ? '👦' : '👨') : '👤');
+
+            let schoolBadge = '';
+            if (m.isSchoolGoing === 'होय') {
+                schoolBadge = `<span class="badge-tag badge-school"><i class="fa-solid fa-graduation-cap"></i> ${m.currentClass || 'शाळेत'}</span>`;
+            } else if (m.age >= 6 && m.age <= 14 && m.isSchoolGoing === 'नाही') {
+                schoolBadge = `<span class="badge-tag badge-out-school"><i class="fa-solid fa-triangle-exclamation"></i> शाळाबाह्य</span>`;
+            } else if ((m.currentClass || '').includes('बालवाडी') || (m.currentClass || '').includes('अंगणवाडी')) {
+                schoolBadge = `<span class="badge-tag badge-balwadi">अंगणवाडी/बालवाडी</span>`;
+            }
+
+            const mobileCall = (m.mobile && m.mobile !== '-' && m.mobile.length >= 10) ? `
+                <a href="tel:${m.mobile}" class="action-icon-btn call-btn" title="फोन करा: ${m.mobile}">
+                    <i class="fa-solid fa-phone"></i>
+                </a>
+            ` : '';
+
+            html += `
+                <div class="member-item-row ${isHead ? 'is-head' : ''}">
+                    <div class="member-left">
+                        <div class="gender-avatar ${genderClass}">${avatarIcon}</div>
+                        <div class="member-info">
+                            <h4>
+                                ${m.fullName}
+                                ${isHead ? '<span class="badge-tag badge-head">प्रमुख</span>' : ''}
+                                ${schoolBadge}
+                            </h4>
+                            <div class="member-meta-grid">
+                                <span class="member-meta-item"><i class="fa-solid fa-users" style="color: #64748b;"></i> ${m.relation || '-'}</span>
+                                <span class="member-meta-item"><i class="fa-solid fa-calendar-day" style="color: #64748b;"></i> वय: <b>${m.age || '-'} वर्षे</b></span>
+                                <span class="member-meta-item"><i class="fa-solid fa-tag" style="color: #64748b;"></i> ${m.category || '-'}</span>
+                                <span class="member-meta-item"><i class="fa-solid fa-book-open" style="color: #64748b;"></i> ${m.education || '-'}</span>
+                                ${m.currentSchool && m.currentSchool !== 'लागू नाही' ? `<span class="member-meta-item"><i class="fa-solid fa-school" style="color: #64748b;"></i> ${m.currentSchool}</span>` : ''}
+                                ${m.aadhaar && m.aadhaar !== '-' ? `<span class="member-meta-item"><i class="fa-solid fa-id-card" style="color: #64748b;"></i> आधार: ${m.aadhaar}</span>` : ''}
+                                ${m.mobile && m.mobile !== '-' ? `<span class="member-meta-item"><i class="fa-solid fa-phone" style="color: #64748b;"></i> ${m.mobile}</span>` : ''}
+                                ${m.remark ? `<span class="member-meta-item" style="color: #0369a1;"><i class="fa-solid fa-info-circle"></i> ${m.remark}</span>` : ''}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="member-actions">
+                        ${mobileCall}
+                        <button class="action-icon-btn" title="माहिती संपादित करा" onclick="populateFormForEdit(${m.id})">
+                            <i class="fa-solid fa-pen-to-square" style="color: var(--primary);"></i>
+                        </button>
+                        <button class="action-icon-btn delete-btn" title="नोंद हटवा" onclick="deleteMember(${m.id})">
+                            <i class="fa-solid fa-trash-can"></i>
+                        </button>
+                    </div>
+                </div>
+            `;
+        });
+
+        html += `
+                </div>
+            </div>
+        `;
+    });
+
+    container.innerHTML = html;
+}
+
+// शासकीय नोंदवही टेबल व्ह्यू (१६ स्तंभ)
+function renderTableView(records, container) {
+    let rowsHtml = '';
+    records.forEach((r, idx) => {
+        rowsHtml += `
+            <tr>
+                <td class="col-center"><b>${idx + 1}</b></td>
+                <td><span class="family-id-tag">${r.familyId || '-'}</span></td>
+                <td class="col-center">${r.isHead === 'होय' ? '<span class="badge-tag badge-head">होय (प्रमुख)</span>' : 'नाही'}</td>
+                <td><b>${r.fullName || '-'}</b></td>
+                <td>${r.relation || '-'}</td>
+                <td class="col-center">${r.gender || '-'}</td>
+                <td class="col-center">${formatDate(r.dob)}</td>
+                <td class="col-center"><b>${r.age !== undefined && r.age !== '' ? r.age : '-'}</b></td>
+                <td>${r.category || '-'}</td>
+                <td>${r.aadhaar || '-'}</td>
+                <td>${r.mobile || '-'}</td>
+                <td>${r.education || '-'}</td>
+                <td class="col-center">${r.isSchoolGoing || '-'}</td>
+                <td>${r.currentClass || '-'}</td>
+                <td>${r.currentSchool || '-'}</td>
+                <td>${r.remark || '-'}</td>
+                <td class="col-center no-print">
+                    <div style="display: flex; gap: 4px; justify-content: center;">
+                        <button class="action-icon-btn" style="width: 28px; height: 28px;" onclick="populateFormForEdit(${r.id})">
+                            <i class="fa-solid fa-pen" style="font-size: 0.75rem;"></i>
+                        </button>
+                        <button class="action-icon-btn delete-btn" style="width: 28px; height: 28px;" onclick="deleteMember(${r.id})">
+                            <i class="fa-solid fa-trash" style="font-size: 0.75rem;"></i>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+        `;
+    });
+
+    container.innerHTML = `
+        <div class="table-responsive">
+            <table class="official-table">
+                <thead>
+                    <tr>
+                        <th style="width: 40px;">अ.क्र.</th>
+                        <th>कुटुंब क्र.</th>
+                        <th>कुटुंब प्रमुख</th>
+                        <th>सदस्याचे पूर्ण नाव</th>
+                        <th>नाते संबंध</th>
+                        <th>लिंग</th>
+                        <th>जन्म तारीख</th>
+                        <th>वय</th>
+                        <th>जात / प्रवर्ग</th>
+                        <th>आधार क्र.</th>
+                        <th>मोबाईल क्र.</th>
+                        <th>शिक्षण</th>
+                        <th>शाळेत जातो का?</th>
+                        <th>इयत्ता</th>
+                        <th>सध्याची शाळा</th>
+                        <th>शेरा</th>
+                        <th class="no-print">क्रिया</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    ${rowsHtml}
+                </tbody>
+            </table>
+        </div>
+    `;
+}
+
+function addMemberToFamily(familyId) {
+    resetFeedingForm();
+    document.getElementById('feed-is-head').value = 'नाही';
+    document.getElementById('feed-family-id').value = familyId;
+    updateFamilyIdSuggestion();
+    onExistingFamilySelected(familyId);
+    switchTab('tab-feeding');
+
+    const banner = document.getElementById('feed-family-context-banner');
+    banner.style.display = 'flex';
+    document.getElementById('context-family-id').textContent = familyId;
+    const count = AppState.records.filter(r => r.familyId === familyId).length;
+    document.getElementById('context-member-count').textContent = count + ' सदस्य नोंदवले';
+
+    document.getElementById('feed-fullname').focus();
+}
+
+function deleteMember(id) {
+    const member = AppState.records.find(r => r.id === id);
+    if (!member) return;
+
+    if (confirm('तुम्हाला खरोखर "' + member.fullName + '" यांची नोंद हटवायची आहे का?')) {
+        AppState.records = AppState.records.filter(r => r.id !== id);
+        saveRecords();
+        showToast('नोंद यशस्वीरित्या हटवली!', 'warning');
+        updateUI();
+    }
+}
+
+// ----------------------------------------------------
+// सांख्यिकी डॅशबोर्ड (Analytics Dashboard)
+// ----------------------------------------------------
+function renderDashboard() {
+    const records = AppState.records;
+    const totalPopulation = records.length;
+
+    // Unique families
+    const familiesSet = new Set(records.map(r => r.familyId));
+    const totalFamilies = familiesSet.size;
+
+    // Males, Females, Others
+    const males = records.filter(r => r.gender === 'पुरुष').length;
+    const females = records.filter(r => r.gender === 'स्त्री').length;
+    const others = records.filter(r => r.gender === 'इतर').length;
+
+    // Age groups
+    const balwadi = records.filter(r => {
+        const age = typeof r.age === 'number' ? r.age : parseInt(r.age);
+        return age >= 0 && age <= 6;
+    }).length;
+
+    const schoolAge = records.filter(r => {
+        const age = typeof r.age === 'number' ? r.age : parseInt(r.age);
+        return age >= 6 && age <= 14;
+    }).length;
+
+    const adolescents = records.filter(r => {
+        const age = typeof r.age === 'number' ? r.age : parseInt(r.age);
+        return age >= 15 && age <= 18;
+    }).length;
+
+    const voters = records.filter(r => {
+        const age = typeof r.age === 'number' ? r.age : parseInt(r.age);
+        return age >= 18;
+    }).length;
+
+    const seniorCitizens = records.filter(r => {
+        const age = typeof r.age === 'number' ? r.age : parseInt(r.age);
+        return age >= 60;
+    }).length;
+
+    // Out of school children (6-14 years and not going to school)
+    const outOfSchool = records.filter(r => {
+        const age = typeof r.age === 'number' ? r.age : parseInt(r.age);
+        return age >= 6 && age <= 14 && r.isSchoolGoing === 'नाही';
+    }).length;
+
+    // In school
+    const inSchool = records.filter(r => r.isSchoolGoing === 'होय').length;
+
+    // Update stat numbers
+    setStatVal('stat-total-families', totalFamilies);
+    setStatVal('stat-total-population', totalPopulation);
+    setStatVal('stat-males', males);
+    setStatVal('stat-females', females);
+    setStatVal('stat-balwadi', balwadi);
+    setStatVal('stat-school-age', schoolAge);
+    setStatVal('stat-out-school', outOfSchool);
+    setStatVal('stat-voters', voters);
+
+    // Render Category Distribution
+    renderCategoryBreakdown(records, totalPopulation);
+
+    // Render Age Distribution
+    renderAgeBreakdown(records, totalPopulation);
+
+    // Render School Attendance
+    renderSchoolBreakdown(records, schoolAge);
+}
+
+function setStatVal(id, val) {
+    const el = document.getElementById(id);
+    if (el) el.textContent = val;
+}
+
+function renderCategoryBreakdown(records, total) {
+    const container = document.getElementById('dash-category-bars');
+    if (!container) return;
+
+    const catCounts = {};
+    MASTER_DATA.categories.forEach(c => catCounts[c] = 0);
+    records.forEach(r => {
+        const c = r.category || 'खुला (General)';
+        catCounts[c] = (catCounts[c] || 0) + 1;
+    });
+
+    let html = '';
+    const colors = ['#2563eb', '#059669', '#d97706', '#7c3aed', '#dc2626', '#0d9488', '#e11d48'];
+    let idx = 0;
+
+    for (const [cat, count] of Object.entries(catCounts)) {
+        if (count === 0 && total > 0) continue;
+        const pct = total > 0 ? Math.round((count / total) * 100) : 0;
+        const col = colors[idx % colors.length];
+        idx++;
+
+        html += `
+            <div class="progress-item">
+                <div class="progress-label-row">
+                    <span>${cat}</span>
+                    <span><b>${count}</b> (${pct}%)</span>
+                </div>
+                <div class="progress-bar-bg">
+                    <div class="progress-bar-fill" style="width: ${pct}%; background: ${col};"></div>
+                </div>
+            </div>
+        `;
+    }
+
+    container.innerHTML = html;
+}
+
+function renderAgeBreakdown(records, total) {
+    const container = document.getElementById('dash-age-bars');
+    if (!container) return;
+
+    const groups = [
+        { label: '० ते ६ वर्षे (बालवाडी/अंगणवाडी)', count: records.filter(r => r.age >= 0 && r.age <= 6).length, col: '#ec4899' },
+        { label: '६ ते १४ वर्षे (शालेय वयोगट)', count: records.filter(r => r.age >= 6 && r.age <= 14).length, col: '#2563eb' },
+        { label: '१५ ते १८ वर्षे (माध्यमिक/उच्च माध्य.)', count: records.filter(r => r.age >= 15 && r.age <= 18).length, col: '#7c3aed' },
+        { label: '१९ ते ५९ वर्षे (कार्यरत प्रौढ)', count: records.filter(r => r.age >= 19 && r.age <= 59).length, col: '#059669' },
+        { label: '६०+ वर्षे (ज्येष्ठ नागरिक)', count: records.filter(r => r.age >= 60).length, col: '#d97706' }
+    ];
+
+    let html = '';
+    groups.forEach(g => {
+        const pct = total > 0 ? Math.round((g.count / total) * 100) : 0;
+        html += `
+            <div class="progress-item">
+                <div class="progress-label-row">
+                    <span>${g.label}</span>
+                    <span><b>${g.count}</b> (${pct}%)</span>
+                </div>
+                <div class="progress-bar-bg">
+                    <div class="progress-bar-fill" style="width: ${pct}%; background: ${g.col};"></div>
+                </div>
+            </div>
+        `;
+    });
+
+    container.innerHTML = html;
+}
+
+function renderSchoolBreakdown(records, schoolAgeTotal) {
+    const container = document.getElementById('dash-school-bars');
+    if (!container) return;
+
+    const inSchool = records.filter(r => r.isSchoolGoing === 'होय').length;
+    const completed = records.filter(r => r.isSchoolGoing === 'शिक्षण पूर्ण').length;
+    const outSchool = records.filter(r => r.age >= 6 && r.age <= 14 && r.isSchoolGoing === 'नाही').length;
+    const illiterate = records.filter(r => r.education === 'निरक्षर').length;
+
+    const total = records.length;
+
+    const items = [
+        { label: 'सध्या शाळेत/कॉलेजमध्ये शिकणारे', count: inSchool, col: '#059669' },
+        { label: 'शिक्षण पूर्ण झालेले नागरिक', count: completed, col: '#2563eb' },
+        { label: 'शाळाबाह्य बालके (६-१४ वयोगट)', count: outSchool, col: '#dc2626' },
+        { label: 'निरक्षर नागरिक', count: illiterate, col: '#d97706' }
+    ];
+
+    let html = '';
+    items.forEach(it => {
+        const pct = total > 0 ? Math.round((it.count / total) * 100) : 0;
+        html += `
+            <div class="progress-item">
+                <div class="progress-label-row">
+                    <span>${it.label}</span>
+                    <span><b>${it.count}</b> (${pct}%)</span>
+                </div>
+                <div class="progress-bar-bg">
+                    <div class="progress-bar-fill" style="width: ${pct}%; background: ${it.col};"></div>
+                </div>
+            </div>
+        `;
+    });
+
+    container.innerHTML = html;
+}
+
+// ----------------------------------------------------
+// A4 प्रिंट व अहवाल निर्मिती
+// ----------------------------------------------------
+function renderPrintPreview() {
+    const container = document.getElementById('print-table-rows');
+    if (!container) return;
+
+    // Header metadata
+    document.getElementById('print-school-name').textContent = AppState.config.schoolName || '';
+    document.getElementById('print-center').textContent = AppState.config.center || '';
+    document.getElementById('print-beat').textContent = AppState.config.beat || '';
+    document.getElementById('print-taluka').textContent = AppState.config.taluka || '';
+    document.getElementById('print-district').textContent = AppState.config.district || '';
+    document.getElementById('print-udise').textContent = AppState.config.udise || '';
+    document.getElementById('print-village').textContent = AppState.config.village || '';
+    document.getElementById('print-gp').textContent = AppState.config.gramPanchayat || '';
+    document.getElementById('print-ward').textContent = AppState.config.ward || '';
+    document.getElementById('print-surveyor').textContent = AppState.config.surveyorName || '';
+    document.getElementById('print-year').textContent = AppState.config.surveyYear || '';
+
+    let rowsHtml = '';
+    AppState.records.forEach((r, idx) => {
+        rowsHtml += `
+            <tr>
+                <td class="col-center">${idx + 1}</td>
+                <td>${r.familyId || ''}</td>
+                <td class="col-center">${r.isHead || 'नाही'}</td>
+                <td>${r.fullName || ''}</td>
+                <td>${r.relation || ''}</td>
+                <td class="col-center">${r.gender || ''}</td>
+                <td class="col-center">${formatDate(r.dob)}</td>
+                <td class="col-center">${r.age !== undefined && r.age !== '' ? r.age : ''}</td>
+                <td>${r.category || ''}</td>
+                <td>${r.aadhaar || ''}</td>
+                <td>${r.mobile || ''}</td>
+                <td>${r.education || ''}</td>
+                <td class="col-center">${r.isSchoolGoing || ''}</td>
+                <td>${r.currentClass || ''}</td>
+                <td>${r.currentSchool || ''}</td>
+                <td>${r.remark || ''}</td>
+            </tr>
+        `;
+    });
+
+    container.innerHTML = rowsHtml;
+}
+
+// ----------------------------------------------------
+// इव्हेंट लिसनर्स व ॲक्शन्स
+// ----------------------------------------------------
+function setupEventListeners() {
+    // Nav tabs
+    document.querySelectorAll('.nav-tab-btn, .bottom-nav-item').forEach(btn => {
+        btn.addEventListener('click', function() {
+            const tabId = this.getAttribute('data-tab');
+            if (tabId) switchTab(tabId);
+        });
+    });
+
+    // Feeding form triggers
+    document.getElementById('feed-is-head').addEventListener('change', updateFamilyIdSuggestion);
+    document.getElementById('feed-existing-family-select').addEventListener('change', function() {
+        onExistingFamilySelected(this.value);
+    });
+    document.getElementById('feed-dob').addEventListener('input', onDobChanged);
+
+    // Save buttons
+    document.getElementById('btn-save-next').addEventListener('click', function() {
+        handleFormSave(true);
+    });
+
+    document.getElementById('btn-save-finish').addEventListener('click', function() {
+        handleFormSave(false);
+    });
+
+    document.getElementById('btn-cancel-edit').addEventListener('click', function() {
+        resetFeedingForm();
+        switchTab('tab-register');
+    });
+
+    // Search input
+    const searchInp = document.getElementById('search-input');
+    if (searchInp) {
+        searchInp.addEventListener('input', function() {
+            AppState.searchQuery = this.value.trim();
+            renderRegister();
+        });
+    }
+
+    // Filter pills
+    document.querySelectorAll('.filter-pill').forEach(pill => {
+        pill.addEventListener('click', function() {
+            document.querySelectorAll('.filter-pill').forEach(p => p.classList.remove('active'));
+            this.classList.add('active');
+
+            const filterType = this.getAttribute('data-filter');
+            if (filterType === 'all') {
+                AppState.filterAgeGroup = 'all';
+                AppState.filterSchoolStatus = 'all';
+            } else if (filterType === 'head') {
+                AppState.filterAgeGroup = 'head';
+                AppState.filterSchoolStatus = 'all';
+            } else if (filterType === 'balwadi') {
+                AppState.filterAgeGroup = '0-6';
+                AppState.filterSchoolStatus = 'all';
+            } else if (filterType === 'school_age') {
+                AppState.filterAgeGroup = '6-14';
+                AppState.filterSchoolStatus = 'all';
+            } else if (filterType === 'out_school') {
+                AppState.filterAgeGroup = 'all';
+                AppState.filterSchoolStatus = 'out_of_school';
+            } else if (filterType === 'voters') {
+                AppState.filterAgeGroup = '18+';
+                AppState.filterSchoolStatus = 'all';
+            } else if (filterType === 'seniors') {
+                AppState.filterAgeGroup = '60+';
+                AppState.filterSchoolStatus = 'all';
+            }
+            renderRegister();
+        });
+    });
+
+    // Filter Category select
+    const catSel = document.getElementById('filter-category-select');
+    if (catSel) {
+        catSel.addEventListener('change', function() {
+            AppState.filterCategory = this.value;
+            renderRegister();
+        });
+    }
+
+    // View Mode Toggle (Cards vs Table)
+    document.getElementById('btn-view-cards').addEventListener('click', function() {
+        AppState.viewMode = 'cards';
+        this.classList.add('active');
+        document.getElementById('btn-view-table').classList.remove('active');
+        renderRegister();
+    });
+
+    document.getElementById('btn-view-table').addEventListener('click', function() {
+        AppState.viewMode = 'table';
+        this.classList.add('active');
+        document.getElementById('btn-view-cards').classList.remove('active');
+        renderRegister();
+    });
+
+    // Excel Export
+    document.getElementById('btn-export-excel').addEventListener('click', function() {
+        ExcelHandler.exportToExcel(AppState.records, AppState.config);
+        showToast('एक्सेल नोंदवही यशस्वीरित्या डाउनलोड झाली!', 'success');
+    });
+
+    // Excel Import
+    const excelFileInput = document.getElementById('excel-file-input');
+    if (excelFileInput) {
+        excelFileInput.addEventListener('change', function(e) {
+            const file = e.target.files[0];
+            if (!file) return;
+
+            ExcelHandler.importFromExcel(file, function(imported) {
+                if (imported && imported.length > 0) {
+                    const append = confirm(imported.length + ' नोंदी सापडल्या!\n\nविद्यमान नोंदींमध्ये नवीन नोंदी जोडायच्या का?\n(OK = जोडा, Cancel = आधीचा डेटा बदलून नवीन डेटा ठेवा)');
+                    if (append) {
+                        AppState.records = [...AppState.records, ...imported];
+                    } else {
+                        AppState.records = imported;
+                    }
+                    saveRecords();
+                    showToast(imported.length + ' नोंदी यशस्वीरित्या आयात झाल्या!', 'success');
+                    updateUI();
+                } else {
+                    alert('फाइलमध्ये कोणतीही वैध नोंद आढळली नाही.');
+                }
+            }, function(errMsg) {
+                alert('त्रुटी: ' + errMsg);
+            });
+            e.target.value = '';
+        });
+    }
+
+    // Settings Form Save
+    document.getElementById('settings-form').addEventListener('submit', function(e) {
+        e.preventDefault();
+        AppState.config.schoolName = document.getElementById('setting-school-name').value.trim();
+        AppState.config.center = document.getElementById('setting-center').value.trim();
+        AppState.config.beat = document.getElementById('setting-beat').value.trim();
+        AppState.config.taluka = document.getElementById('setting-taluka').value.trim();
+        AppState.config.district = document.getElementById('setting-district').value.trim();
+        AppState.config.udise = document.getElementById('setting-udise').value.trim();
+        AppState.config.village = document.getElementById('setting-village').value.trim();
+        AppState.config.gramPanchayat = document.getElementById('setting-gp').value.trim();
+        AppState.config.ward = document.getElementById('setting-ward').value.trim();
+        AppState.config.surveyorName = document.getElementById('setting-surveyor-name').value.trim();
+        AppState.config.surveyorMobile = document.getElementById('setting-surveyor-mobile').value.trim();
+        AppState.config.surveyYear = document.getElementById('setting-year').value.trim();
+
+        saveConfig();
+        renderConfigInfo();
+        showToast('शाळा व गाव माहिती जतन केली!', 'success');
+    });
+}
+
+function resetAllFilters() {
+    AppState.searchQuery = '';
+    AppState.filterCategory = 'all';
+    AppState.filterGender = 'all';
+    AppState.filterAgeGroup = 'all';
+    AppState.filterSchoolStatus = 'all';
+    AppState.filterFamilyId = 'all';
+
+    const sInp = document.getElementById('search-input');
+    if (sInp) sInp.value = '';
+
+    const catSel = document.getElementById('filter-category-select');
+    if (catSel) catSel.value = 'all';
+
+    document.querySelectorAll('.filter-pill').forEach(p => {
+        p.classList.toggle('active', p.getAttribute('data-filter') === 'all');
+    });
+
+    renderRegister();
+}
+
+function updateUI() {
+    renderConfigInfo();
+    renderDashboard();
+    renderRegister();
+    renderPrintPreview();
+}
+
+// ----------------------------------------------------
+// बॅकअप व रिस्टोर
+// ----------------------------------------------------
+function exportJsonBackup() {
+    const backupObj = {
+        app: 'गाव सर्वेक्षण सॉफ्टवेअर',
+        creator: 'श्री गणेश विलास पष्टे',
+        exportedAt: new Date().toISOString(),
+        config: AppState.config,
+        records: AppState.records
+    };
+    const jsonStr = JSON.stringify(backupObj, null, 2);
+    const blob = new Blob([jsonStr], { type: 'application/json' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = 'Gav_Sarve_Backup_' + (AppState.config.village || 'गाव') + '_' + new Date().toISOString().slice(0,10) + '.json';
+    a.click();
+    URL.revokeObjectURL(url);
+    showToast('सुरक्षित बॅकअप फाईल डाउनलोड झाली!', 'success');
+}
+
+function importJsonBackup(fileInput) {
+    const file = fileInput.files[0];
+    if (!file) return;
+
+    const reader = new FileReader();
+    reader.onload = function(e) {
+        try {
+            const data = JSON.parse(e.target.result);
+            if (data && Array.isArray(data.records)) {
+                if (confirm('या बॅकअप फाईलमधील ' + data.records.length + ' नोंदी रिस्टोर करायच्या का?')) {
+                    AppState.records = data.records;
+                    if (data.config) AppState.config = Object.assign({}, AppState.config, data.config);
+                    saveRecords();
+                    saveConfig();
+                    updateUI();
+                    showToast('डेटा यशस्वीरित्या रिस्टोर झाला!', 'success');
+                }
+            } else {
+                alert('अवैध बॅकअप फाईल!');
+            }
+        } catch(err) {
+            alert('फाईल वाचण्यात त्रुटी: ' + err.message);
+        }
+    };
+    reader.readAsText(file);
+    fileInput.value = '';
+}
+
+function resetToDefaultRecords() {
+    if (confirm('तुम्हाला खरोखर सर्व नोंदी हटवून मूळ नमुना डेटा आणायचा आहे का?')) {
+        AppState.records = [...INITIAL_RECORDS];
+        saveRecords();
+        updateUI();
+        showToast('मूळ नमुना नोंदी लोड केल्या!', 'warning');
+    }
+}
+
+// ----------------------------------------------------
+// टोस्ट सूचना (Toast Notifications)
+// ----------------------------------------------------
+function showToast(message, type = 'success') {
+    let container = document.getElementById('toast-container');
+    if (!container) {
+        container = document.createElement('div');
+        container.id = 'toast-container';
+        container.className = 'toast-container';
+        document.body.appendChild(container);
+    }
+
+    const toast = document.createElement('div');
+    toast.className = 'toast ' + type;
+    const icon = type === 'success' ? 'fa-circle-check' : (type === 'danger' ? 'fa-circle-xmark' : 'fa-triangle-exclamation');
+    toast.innerHTML = '<i class="fa-solid ' + icon + '"></i> <span>' + message + '</span>';
+
+    container.appendChild(toast);
+
+    setTimeout(() => {
+        toast.style.opacity = '0';
+        toast.style.transform = 'translateY(-10px)';
+        toast.style.transition = 'all 0.3s ease';
+        setTimeout(() => toast.remove(), 300);
+    }, 3200);
+}
+
+  </script>
 
   <script>
     function openAboutModal() {
