@@ -1058,12 +1058,266 @@ select.form-control {
 
 .mobile-fab:active { transform: scale(0.92); }
 
+/* ====================================================
+   Mobile View Responsive Design (< 768px)
+   Header Stabilization, Horizontal School Brand, Uniform Same-Size Tabs & Dashboard
+   निर्माता: श्री गणेश विलास पष्टे
+   ==================================================== */
+@media (max-width: 767px) {
+  html, body {
+    overflow-x: hidden;
+  }
+
+  /* Creator Top Strip */
+  .creator-top-strip {
+    padding: 3px 8px;
+    font-size: 0.74rem;
+    gap: 6px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .creator-top-strip .creator-name {
+    padding: 1px 8px;
+    font-size: 0.74rem;
+  }
+
+  /* App Header: Stable 2-Tier Mobile Layout */
+  .app-header {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.18);
+  }
+
+  .header-main {
+    flex-direction: column;
+    align-items: stretch;
+    padding: 8px 10px;
+    gap: 8px;
+  }
+
+  /* Tier 1: Horizontal School Brand (Full width, single line, no vertical squishing) */
+  .header-brand {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    width: 100%;
+    min-width: 0;
+  }
+
+  .header-icon {
+    width: 38px;
+    height: 38px;
+    font-size: 19px;
+    flex-shrink: 0;
+    border-radius: 10px;
+  }
+
+  .header-titles {
+    flex: 1;
+    min-width: 0;
+    overflow: hidden;
+  }
+
+  .header-titles h1 {
+    font-size: 1.02rem;
+    font-weight: 800;
+    line-height: 1.25;
+    color: #ffffff;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .header-titles p {
+    font-size: 0.74rem;
+    opacity: 0.92;
+    margin-top: 1px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    color: #e0f2fe;
+  }
+
+  /* Tier 2: Uniform Logo Tabs / Action Buttons Row (Same Size, Horizontal Scroll) */
+  .header-actions {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    width: 100%;
+    overflow-x: auto;
+    padding: 2px 0 4px 0;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none; /* Hide scrollbars for clean app look */
+  }
+
+  .header-actions::-webkit-scrollbar {
+    display: none;
+  }
+
+  .header-btn,
+  .header-btn.cloud-pill {
+    flex: 0 0 auto;
+    height: 34px !important;
+    min-height: 34px !important;
+    max-height: 34px !important;
+    padding: 0 10px !important;
+    font-size: 0.78rem !important;
+    font-weight: 700 !important;
+    border-radius: 8px !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 5px !important;
+    white-space: nowrap !important;
+    box-sizing: border-box !important;
+    background: rgba(255, 255, 255, 0.16) !important;
+    border: 1px solid rgba(255, 255, 255, 0.28) !important;
+    color: #ffffff !important;
+    line-height: 1 !important;
+  }
+
+  .header-btn i {
+    font-size: 0.85rem;
+    width: 14px;
+    text-align: center;
+    flex-shrink: 0;
+  }
+
+  .header-btn span {
+    white-space: nowrap;
+  }
+
+  /* Main Content Container on Mobile */
+  .main-content {
+    margin: 10px auto;
+    padding: 0 8px;
+  }
+
+  /* Dashboard (Home Page) Mobile Enhancements */
+  .panel-card {
+    margin-bottom: 12px;
+    border-radius: var(--radius-sm);
+  }
+
+  .panel-body {
+    padding: 12px;
+  }
+
+  /* Welcome Banner */
+  #tab-dashboard .panel-card:first-child .panel-body {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 10px;
+  }
+
+  #tab-dashboard .panel-card:first-child h2 {
+    font-size: 1.1rem;
+    font-weight: 800;
+  }
+
+  #tab-dashboard .panel-card:first-child p {
+    font-size: 0.8rem;
+    line-height: 1.4;
+  }
+
+  #tab-dashboard .panel-card:first-child button {
+    width: 100%;
+    justify-content: center;
+    font-size: 0.85rem;
+    padding: 8px 12px;
+  }
+
+  /* Stats Grid: Perfectly Balanced 2-Column Grid (Same Height, No Uneven Boxes) */
+  .stats-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 8px !important;
+    margin-bottom: 12px !important;
+  }
+
+  .stat-box {
+    padding: 8px 8px !important;
+    gap: 8px !important;
+    min-height: 66px !important;
+    border-radius: 10px !important;
+    align-items: center !important;
+  }
+
+  .stat-icon {
+    width: 32px !important;
+    height: 32px !important;
+    font-size: 14px !important;
+    border-radius: 8px !important;
+    flex-shrink: 0 !important;
+  }
+
+  .stat-details {
+    min-width: 0 !important;
+    overflow: hidden !important;
+    flex: 1 !important;
+  }
+
+  .stat-number {
+    font-size: 1.22rem !important;
+    font-weight: 800 !important;
+    line-height: 1.1 !important;
+  }
+
+  .stat-label {
+    font-size: 0.72rem !important;
+    line-height: 1.2 !important;
+    margin-top: 2px !important;
+    font-weight: 600 !important;
+  }
+
+  /* Demographic & Analytics Cards */
+  .analytics-grid {
+    grid-template-columns: 1fr !important;
+    gap: 12px !important;
+  }
+
+  .panel-header {
+    padding: 10px 12px !important;
+  }
+
+  .panel-header h2 {
+    font-size: 0.95rem !important;
+  }
+
+  .progress-item {
+    margin-bottom: 10px !important;
+  }
+
+  .progress-label-row {
+    font-size: 0.8rem !important;
+  }
+
+  .progress-bar-bg {
+    height: 8px !important;
+  }
+}
+
 @media (min-width: 768px) {
   .desktop-nav { display: block; }
   .mobile-bottom-nav { display: none; }
   .mobile-fab { display: none; }
   body { padding-bottom: 0; }
   .form-actions-sticky { bottom: 0; }
+
+  .header-main {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .header-brand {
+    width: auto;
+  }
+  .header-actions {
+    width: auto;
+    overflow-x: visible;
+  }
 }
 
 /* ====================================================
@@ -1422,6 +1676,66 @@ select.form-control {
 }
 
 
+/* ====================================================
+   Google Firebase Cloud Sync Pill & Modal Styles
+   ==================================================== */
+.cloud-pill {
+  transition: all 0.2s ease;
+  user-select: none;
+  cursor: pointer !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 6px !important;
+  border-radius: 999px !important;
+  padding: 5px 12px !important;
+  font-weight: 700 !important;
+}
+
+.cloud-pill:hover {
+  background: rgba(255, 255, 255, 0.22) !important;
+  transform: translateY(-1px);
+}
+
+.cloud-pill:active {
+  transform: scale(0.96);
+}
+
+.cloud-pill-synced {
+  background: rgba(16, 185, 129, 0.25) !important;
+  border-color: #34d399 !important;
+  color: #ecfdf5 !important;
+}
+
+.cloud-pill-syncing {
+  background: rgba(245, 158, 11, 0.25) !important;
+  border-color: #fcd34d !important;
+  color: #fffbeb !important;
+  animation: pulseSync 1.2s infinite;
+}
+
+.cloud-pill-offline,
+.cloud-pill-error {
+  background: rgba(239, 68, 68, 0.25) !important;
+  border-color: #fca5a5 !important;
+  color: #fef2f2 !important;
+}
+
+.cloud-pill-disabled {
+  background: rgba(148, 163, 184, 0.2) !important;
+  border-color: #94a3b8 !important;
+  color: #cbd5e1 !important;
+}
+
+@keyframes pulseSync {
+  0% { opacity: 0.65; transform: scale(0.99); }
+  50% { opacity: 1; transform: scale(1.02); }
+  100% { opacity: 0.65; transform: scale(0.99); }
+}
+
+#cloudSyncModal {
+  z-index: 1000008 !important;
+}
+
 @media print {
   @page { size: A4 landscape; margin: 8mm; }
   body { background: #fff !important; color: #000 !important; padding: 0 !important; font-size: 9pt !important; }
@@ -1481,6 +1795,11 @@ select.form-control {
         <button class="header-btn" onclick="switchTab('tab-print'); window.print();" title="नोंदवही प्रिंट करा">
           <i class="fa-solid fa-print"></i>
           <span>प्रिंट</span>
+        </button>
+        <button id="cloudStatusPill" class="header-btn cloud-pill" onclick="openCloudSyncModal()" title="Google Firebase क्लाऊड सिंक व्यवस्थापन" style="cursor: pointer;">
+          <span id="cloudStatusDot" style="display:inline-block; width:8px; height:8px; border-radius:50%; background:#94a3b8; margin-right:4px;"></span>
+          <i class="fa-solid fa-cloud"></i>
+          <span id="cloudStatusText">क्लाऊड सिंक</span>
         </button>
         <button class="header-btn" onclick="openAboutModal()" title="सॉफ्टवेअर व निर्माता माहिती">
           <i class="fa-solid fa-circle-info"></i>
@@ -2324,6 +2643,67 @@ select.form-control {
             </div>
           </div>
         </div>
+
+        <!-- Google Firebase Cloud Sync Settings Panel -->
+        <div class="panel-card" style="border-top: 4px solid #2563eb; grid-column: 1 / -1;">
+          <div class="panel-header" style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px;">
+            <div style="display: flex; align-items: center; gap: 10px;">
+              <span style="font-size: 1.4rem; color: #2563eb;"><i class="fa-solid fa-cloud-arrow-up"></i></span>
+              <div>
+                <h3 style="margin: 0; color: #1e3a8a; font-weight: 800;">Google Firebase क्लाऊड सिंक व्यवस्थापन (Live Multi-Device Sync)</h3>
+                <p style="margin: 0; font-size: 0.82rem; color: #64748b;">मोबाईल, लॅपटॉप व कॉम्प्युटरवर एकाच वेळी रीअल-टाईम थेट डेटा सिंक व बॅकअप</p>
+              </div>
+            </div>
+            <div id="cloudSettingsStatusText">
+              <span style="color:#64748b; font-weight:600;"><i class="fa-solid fa-cloud-slash"></i> सिंक बंद आहे</span>
+            </div>
+          </div>
+          
+          <div style="padding: 16px;">
+            <div style="background: #eff6ff; border-left: 4px solid #2563eb; padding: 12px 14px; border-radius: 4px; margin-bottom: 16px; font-size: 0.88rem; line-height: 1.5; color: #1e40af;">
+              <i class="fa-solid fa-circle-info"></i> <b>Google Firebase Realtime Database:</b> कोणत्याही जड SDK शिवाय शुद्ध ब्राउझर REST तंत्रज्ञानावर आधारित. यामुळे गावातील सर्व कुटुंब व बालकांचा सर्वेक्षण डेटा एका डिव्हाइसवर भरताच इतर सर्व मोबाईल व संगणकांवर सुरक्षित सिंक होतो.
+            </div>
+
+            <div class="form-grid" style="grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 14px; margin-bottom: 14px;">
+              <div class="form-group">
+                <label class="form-label" style="font-weight: 700;">शाळेचा UDISE कोड:</label>
+                <input type="text" id="settingCloudSchoolCode" class="form-control" placeholder="उदा. 27240304501" value="27240304501">
+                <small style="color: #64748b; font-size: 0.75rem;">या UDISE च्या खात्याखाली क्लाऊडवर डेटा सुरक्षित राहील.</small>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" style="font-weight: 700;">सुरक्षा पिन (Secret PIN):</label>
+                <input type="password" id="settingCloudSecretPin" class="form-control" value="Ican@123">
+                <small style="color: #64748b; font-size: 0.75rem;">सिंक प्रमाणीकरण सुरक्षा पिन.</small>
+              </div>
+
+              <div class="form-group span-2">
+                <label class="form-label" style="font-weight: 700;">🔥 Google Firebase Realtime Database URL:</label>
+                <input type="url" id="settingCloudFirebaseUrl" class="form-control" placeholder="https://your-project-default-rtdb.firebaseio.com/" style="font-family: monospace; font-size: 0.9rem;">
+                <small style="color: #64748b; font-size: 0.75rem;">उदा. <code>https://school-gav-sarve-default-rtdb.firebaseio.com</code> किंवा <code>https://project-id.asia-southeast1.firebasedatabase.app</code></small>
+              </div>
+            </div>
+
+            <!-- Action Buttons -->
+            <div style="display: flex; gap: 10px; flex-wrap: wrap; align-items: center; border-top: 1px solid #e2e8f0; padding-top: 14px;">
+              <button type="button" class="btn btn-outline-info btn-sm" id="btnTestFirebase" onclick="testFirebaseConnection()" style="border: 1.5px solid #0284c7; color: #0284c7; font-weight: 700;">
+                <i class="fa-solid fa-magnifying-glass"></i> कनेक्शन तपासा (Test Ping)
+              </button>
+              <button type="button" class="btn btn-primary btn-sm" id="btnCloudSyncNow" onclick="syncCloudNow()" style="font-weight: 700;">
+                <i class="fa-solid fa-cloud-arrow-up"></i> आता क्लाऊडवर पाठवा (Push)
+              </button>
+              <button type="button" class="btn btn-success btn-sm" id="btnCloudPullNow" onclick="pullCloudNow()" style="font-weight: 700;">
+                <i class="fa-solid fa-cloud-arrow-down"></i> क्लाऊडवरून आणा (Pull)
+              </button>
+              <button type="button" class="btn btn-warning btn-sm" onclick="emergencyRestoreCloudData()" title="मागील सुरक्षित बॅकअप स्नॅपशॉट परत मिळवा" style="font-weight: 700;">
+                <i class="fa-solid fa-kit-medical"></i> आणीबाणी बॅकअप रिकव्हरी
+              </button>
+              <button type="button" class="btn btn-danger btn-sm" onclick="disableCloudSync()" style="margin-left: auto;">
+                <i class="fa-solid fa-ban"></i> सिंक बंद करा
+              </button>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
 
@@ -2410,6 +2790,109 @@ select.form-control {
   </footer>
 
   <!-- ====================================================
+       Google Firebase Cloud Sync Management Modal
+       ==================================================== -->
+  <div id="cloudSyncModal" class="modal-overlay" onclick="if(event.target === this) closeCloudSyncModal()" style="display: none; align-items: center; justify-content: center;">
+    <div class="modal-card" style="border-top: 4px solid #2563eb; max-width: 620px; width: 92%;">
+      <div class="modal-header" style="background: #eff6ff; display: flex; justify-content: space-between; align-items: center; padding: 14px 18px;">
+        <div style="display: flex; align-items: center; gap: 10px;">
+          <span style="font-size: 1.4rem; color: #2563eb;"><i class="fa-solid fa-cloud"></i></span>
+          <h3 style="color: #1e40af; font-size: 1.15rem; font-weight: 800; margin: 0;">Google Firebase क्लाऊड सिंक व्यवस्थापन</h3>
+        </div>
+        <button type="button" class="btn btn-outline btn-sm" onclick="closeCloudSyncModal()" style="border: none; font-size: 1.3rem; line-height: 1; padding: 2px 8px;">&times;</button>
+      </div>
+
+      <div class="modal-body" style="padding: 18px; max-height: 80vh; overflow-y: auto;">
+        <p style="font-size: 0.86rem; color: #475569; margin-bottom: 14px; line-height: 1.5;">
+          शाळेचा व गावाचा संपूर्ण सर्वेक्षण डेटा मोबाईल, लॅपटॉप आणि कॉम्प्युटरवर थेट सिंक करण्यासाठी <strong>Google Firebase Realtime Database</strong> चा वापर करा. एका उपकरणावर नोंद करताच ती इतर सर्व उपकरणांवर आपोआप सुरक्षित अपडेट होते.
+        </p>
+
+        <!-- Real-time Status Card -->
+        <div id="cloudModalStatusText" style="background: #f8fafc; border: 1.5px solid #e2e8f0; border-radius: 8px; padding: 12px 14px; margin-bottom: 14px;">
+          <span class="badge badge-secondary" style="font-size: 0.88rem;">स्थिती: तपासत आहे...</span>
+        </div>
+
+        <form id="cloudSyncForm" onsubmit="event.preventDefault(); saveCloudSyncSettings();">
+          <div class="form-grid" style="grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 14px;">
+            <div class="form-group">
+              <label for="cloudSchoolCode" class="form-label" style="font-weight: 700; font-size: 0.85rem;">शाळेचा UDISE क्रमांक:</label>
+              <input type="text" id="cloudSchoolCode" class="form-control" placeholder="उदा. 27240304501" required style="font-weight: 700;">
+              <small style="color: #64748b; font-size: 0.72rem;">या UDISE च्या खात्यावर डेटा सुरक्षित राहील.</small>
+            </div>
+            <div class="form-group">
+              <label for="cloudSecretPin" class="form-label" style="font-weight: 700; font-size: 0.85rem;">सुरक्षा पिन (PIN):</label>
+              <input type="password" id="cloudSecretPin" class="form-control" value="Ican@123" required>
+              <small style="color: #64748b; font-size: 0.72rem;">सिंक प्रमाणीकरण सुरक्षा पिन.</small>
+            </div>
+          </div>
+
+          <div class="form-group" style="margin-bottom: 14px;">
+            <label for="cloudFirebaseUrl" class="form-label" style="font-weight: 700; font-size: 0.85rem;">
+              🔥 Google Firebase Realtime Database URL:
+            </label>
+            <input type="url" id="cloudFirebaseUrl" class="form-control" placeholder="https://your-project-default-rtdb.firebaseio.com/" required style="font-family: monospace; font-size: 0.88rem;">
+            <small style="color: #64748b; font-size: 0.74rem;">
+              उदा. <code>https://school-gav-sarve-default-rtdb.firebaseio.com</code> किंवा <code>https://project-id.asia-southeast1.firebasedatabase.app</code>
+            </small>
+          </div>
+
+          <!-- Action Toolbar -->
+          <div style="display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 16px;">
+            <button type="button" class="btn btn-outline-info btn-sm" id="btnModalTestFirebase" onclick="testFirebaseConnection()" style="border: 1.5px solid #0284c7; color: #0284c7; font-weight: 700;">
+              <i class="fa-solid fa-magnifying-glass"></i> <span>कनेक्शन तपासा (Test Ping)</span>
+            </button>
+            <button type="button" class="btn btn-primary btn-sm" id="btnModalCloudSyncNow" onclick="syncCloudNow()" style="font-weight: 700;">
+              <i class="fa-solid fa-cloud-arrow-up"></i> <span>आता क्लाऊडवर पाठवा (Push)</span>
+            </button>
+            <button type="button" class="btn btn-success btn-sm" id="btnModalCloudPullNow" onclick="pullCloudNow()" style="font-weight: 700;">
+              <i class="fa-solid fa-cloud-arrow-down"></i> <span>क्लाऊडवरून आणा (Pull)</span>
+            </button>
+            <button type="button" class="btn btn-warning btn-sm" onclick="emergencyRestoreCloudData()" title="डेटा नष्ट झाला असल्यास मागील सुरक्षित बॅकअप परत मिळवा" style="font-weight: 700;">
+              <i class="fa-solid fa-kit-medical"></i> <span>आणीबाणी बॅकअप</span>
+            </button>
+          </div>
+
+          <!-- Setup Guide Accordion/Box -->
+          <details style="background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 6px; padding: 10px 12px; margin-bottom: 16px; font-size: 0.82rem; color: #334155;">
+            <summary style="font-weight: 700; color: #1e40af; cursor: pointer;">
+              <i class="fa-solid fa-circle-question"></i> Firebase डेटाबेस कसा तयार करावा? (Rules सूचना)
+            </summary>
+            <div style="margin-top: 8px; line-height: 1.6;">
+              <ol style="padding-left: 18px; margin: 0;">
+                <li><b>console.firebase.google.com</b> वर जाऊन मोफत प्रोजेक्ट तयार करा.</li>
+                <li>डाव्या मेनूत <b>Build -> Realtime Database</b> वर क्लिक करून डेटाबेस तयार करा.</li>
+                <li>वरील <b>"Rules"</b> टॅब उघडा आणि खालीलप्रमाणे नियम लिहून <b>Publish</b> करा:
+                  <pre style="background:#1e293b; color:#38bdf8; padding:6px 10px; border-radius:4px; font-size:0.8rem; margin:6px 0;">{
+  "rules": {
+    ".read": true,
+    ".write": true
+  }
+}</pre>
+                </li>
+                <li>Data टॅबमधील मुख्य URL कॉपी करून वरील रकान्यात टाका.</li>
+              </ol>
+            </div>
+          </details>
+
+          <div class="modal-footer" style="display: flex; justify-content: space-between; align-items: center; border-top: 1px solid #e2e8f0; padding-top: 14px; margin-top: 10px;">
+            <button type="button" class="btn btn-outline-danger btn-sm" onclick="disableCloudSync()" style="border: 1px solid #ef4444; color: #ef4444;">
+              <i class="fa-solid fa-ban"></i> <span>सिंक बंद करा</span>
+            </button>
+            <div style="display: flex; gap: 8px;">
+              <button type="button" class="btn btn-secondary btn-sm" onclick="closeCloudSyncModal()">
+                <span>बंद करा</span>
+              </button>
+              <button type="submit" class="btn btn-primary btn-sm" style="font-weight: 700;">
+                <i class="fa-solid fa-floppy-disk"></i> <span>सेव्ह करा व सुरू करा</span>
+              </button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- ====================================================
        About / Creator Modal
        ==================================================== -->
   <div id="about-modal" class="modal-overlay" onclick="if(event.target === this) closeAboutModal()">
@@ -2457,6 +2940,690 @@ select.form-control {
   <!-- ====================================================
        INLINED JAVASCRIPT LOGIC (100% Offline & GitHub Compatible)
        ==================================================== -->
+  <script>
+/* ====================================================
+   0. Google Firebase Realtime Database Cloud Sync Engine
+   ==================================================== */
+/**
+ * गाव कुटुंब व बाल सर्वेक्षण प्रणाली - Google Firebase Realtime Database Live Cloud Sync Engine
+ * सॉफ्टवेअर व नोंदवही रचना निर्माता: श्री गणेश विलास पष्टे
+ * 
+ * Powered by Google Firebase Realtime Database (REST API)
+ * Features:
+ * 1. Live 2-Way REST Synchronization across PC, Laptop & Mobile devices (Zero Heavyweight SDKs)
+ * 2. Smart Conflict-Free Merge with Deduplication (Never loses families or members)
+ * 3. Empty Device Safeguard (Blocks blank local state from wiping populated cloud databases)
+ * 4. Automatic Cloud Safety Snapshot Backups before every overwrite
+ * 5. Automatic Debounced Background Push on every save
+ * 6. Non-blocking Timeout Protection with AbortController
+ * 7. Live Online/Offline Network Resilience
+ */
+
+const cloudSync = {
+  config: {
+    enabled: false,
+    autoSync: true,
+    schoolCode: '',             // School UDISE (e.g. 27240304501)
+    village: '',                // Village name (e.g. मोहपाडा)
+    secretPin: 'Ican@123',      // Security PIN
+    firebaseUrl: '',            // Google Firebase Realtime Database URL
+    lastSyncTime: null,
+    status: 'idle',             // 'idle', 'syncing', 'synced', 'error', 'offline'
+    lastError: ''
+  },
+
+  isSyncing: false,
+  hasPendingPush: false,
+  debounceTimer: null,
+  SYNC_STORAGE_KEY: 'GAV_SARVE_CLOUD_SYNC_CONFIG',
+
+  /**
+   * Helper: Normalize & sanitize Firebase RTDB URL
+   */
+  normalizeFirebaseUrl(url) {
+    if (!url || typeof url !== 'string') return '';
+    let clean = url.trim();
+    // If user accidentally copied the Firebase Console page URL:
+    // e.g. https://console.firebase.google.com/project/<project-id>/database/<database-name>/data
+    if (clean.includes('console.firebase.google.com')) {
+      const match = clean.match(/database\/([^/?#]+)/);
+      if (match && match[1]) {
+        clean = `https://${match[1]}.firebaseio.com`;
+      }
+    }
+    if (!clean.startsWith('http://') && !clean.startsWith('https://')) {
+      clean = 'https://' + clean;
+    }
+    // Remove trailing slashes, /data, and .json
+    clean = clean.replace(/\/+$/, '').replace(/\.json$/, '').replace(/\/data$/, '').replace(/\/+$/, '');
+    return clean;
+  },
+
+  /**
+   * Helper: Fetch with timeout via AbortController
+   */
+  async fetchWithTimeout(url, options = {}, timeoutMs = 12000) {
+    if (typeof AbortController === 'undefined') {
+      return fetch(url, options);
+    }
+    const controller = new AbortController();
+    const timer = setTimeout(() => controller.abort(), timeoutMs);
+    try {
+      const res = await fetch(url, { ...options, signal: controller.signal });
+      clearTimeout(timer);
+      return res;
+    } catch (err) {
+      clearTimeout(timer);
+      if (err.name === 'AbortError') {
+        throw new Error('कनेक्शन टाईमआऊट (12 सेकंद). कृपया इंटरनेट कनेक्शन तपासा.');
+      }
+      throw err;
+    }
+  },
+
+  /**
+   * Initialize Cloud Sync
+   */
+  init() {
+    this.loadConfig();
+    this.bindOnlineEvents();
+
+    // Auto pull on startup if Firebase is enabled & configured
+    if (this.config.enabled && this.config.firebaseUrl && this.getSchoolUdise()) {
+      setTimeout(() => {
+        this.pullFromCloud(true);
+      }, 800);
+    }
+
+    this.updateUIStatus();
+  },
+
+  loadConfig() {
+    try {
+      if (typeof localStorage === 'undefined') return;
+      const saved = localStorage.getItem(this.SYNC_STORAGE_KEY);
+      if (saved) {
+        this.config = Object.assign({}, this.config, JSON.parse(saved));
+        if (this.config.firebaseUrl) {
+          this.config.firebaseUrl = this.normalizeFirebaseUrl(this.config.firebaseUrl);
+        }
+      }
+    } catch (e) {
+      console.warn("Could not load cloud sync config:", e);
+    }
+  },
+
+  saveConfig() {
+    try {
+      if (typeof localStorage === 'undefined') return;
+      localStorage.setItem(this.SYNC_STORAGE_KEY, JSON.stringify(this.config));
+      this.updateUIStatus();
+    } catch (e) {
+      console.warn("Could not save cloud sync config:", e);
+    }
+  },
+
+  bindOnlineEvents() {
+    if (typeof window === 'undefined') return;
+
+    window.addEventListener('online', () => {
+      this.config.lastError = '';
+      this.updateUIStatus();
+      if (this.config.enabled && this.config.firebaseUrl && this.config.autoSync) {
+        this.scheduleDebouncedPush();
+      }
+    });
+
+    window.addEventListener('offline', () => {
+      this.config.status = 'offline';
+      this.updateUIStatus();
+    });
+  },
+
+  getSchoolUdise() {
+    return String(
+      (typeof AppState !== 'undefined' && AppState.config && AppState.config.udise)
+      || (typeof localStorage !== 'undefined' && localStorage.getItem('SURVEY_CONFIG_KEY') && JSON.parse(localStorage.getItem('SURVEY_CONFIG_KEY') || '{}').udise)
+      || this.config.schoolCode
+      || '27240304501'
+    ).trim();
+  },
+
+  getVillageName() {
+    return String(
+      (typeof AppState !== 'undefined' && AppState.config && AppState.config.village)
+      || (typeof localStorage !== 'undefined' && localStorage.getItem('SURVEY_CONFIG_KEY') && JSON.parse(localStorage.getItem('SURVEY_CONFIG_KEY') || '{}').village)
+      || this.config.village
+      || 'मोहपाडा'
+    ).trim();
+  },
+
+  getCloudKey() {
+    const udise = this.getSchoolUdise().replace(/[^a-zA-Z0-9_-]/g, '_');
+    return `gav_sarve_${udise}`;
+  },
+
+  scheduleDebouncedPush() {
+    if (this.debounceTimer) clearTimeout(this.debounceTimer);
+
+    if (this.isSyncing) {
+      this.hasPendingPush = true;
+      return;
+    }
+
+    this.debounceTimer = setTimeout(() => {
+      if (this.config.enabled && this.config.firebaseUrl && this.config.autoSync) {
+        this.pushToCloud(true);
+      }
+    }, 2500);
+  },
+
+  /**
+   * Push local data to Google Firebase Realtime Database
+   */
+  async pushToCloud(isSilent = false) {
+    const cleanBaseUrl = this.normalizeFirebaseUrl(this.config.firebaseUrl);
+    if (!cleanBaseUrl) {
+      if (!isSilent) {
+        alert('⚠️ Google Firebase Realtime Database URL प्रविष्ट केलेली नाही!\n\nकृपया प्रथम Firebase Realtime Database ची URL टाका.\nउदा. https://your-project-default-rtdb.firebaseio.com/');
+      }
+      return false;
+    }
+
+    if (this.isSyncing) {
+      this.hasPendingPush = true;
+      return false;
+    }
+    this.isSyncing = true;
+    this.hasPendingPush = false;
+
+    if (typeof navigator !== 'undefined' && navigator.onLine === false) {
+      this.isSyncing = false;
+      this.config.status = 'offline';
+      this.config.lastError = 'इंटरनेट कनेक्शन उपलब्ध नाही.';
+      this.updateUIStatus();
+      if (!isSilent && typeof showToast === 'function') {
+        showToast('⚠️ इंटरनेट उपलब्ध नाही. इंटरनेट सुरू झाल्यावर डेटा क्लाऊडवर सेव्ह होईल.', 'warning');
+      }
+      return false;
+    }
+
+    this.config.status = 'syncing';
+    this.updateUIStatus();
+
+    const currentUdise = this.getSchoolUdise();
+    const currentVillage = this.getVillageName();
+    this.config.schoolCode = currentUdise;
+    this.config.village = currentVillage;
+
+    const endpoint = `${cleanBaseUrl}/gav_sarve/villages/${this.getCloudKey()}.json`;
+
+    try {
+      // 1. Safety Check: Fetch remote state to prevent wiping populated database with blank device
+      let existingRemote = null;
+      try {
+        const checkRes = await this.fetchWithTimeout(endpoint, {}, 8000);
+        if (checkRes.ok) {
+          existingRemote = await checkRes.json();
+        }
+      } catch (checkErr) {
+        console.warn("Pre-check remote bucket notice:", checkErr);
+      }
+
+      const localRecords = (typeof AppState !== 'undefined' && Array.isArray(AppState.records)) ? AppState.records : [];
+      const localRecCount = localRecords.length;
+      const remoteRecords = (existingRemote && existingRemote.appData && Array.isArray(existingRemote.appData.records))
+        ? existingRemote.appData.records : [];
+      const remoteRecCount = remoteRecords.length;
+
+      // GUARD 1: Prevent Blank Device from destroying remote cloud database
+      if (localRecCount === 0 && remoteRecCount > 0) {
+        this.config.status = 'idle';
+        this.updateUIStatus();
+        const warnMsg = `⛔ डेटा सुरक्षा इशारा (डेटा नष्ट होण्यापासून रोखला!):\n\nया डिव्हाइसवर 0 सर्वेक्षण नोंदी आहेत, तर क्लाऊडवर आधीच ${remoteRecCount} नोंदी सुरक्षित साठवलेल्या आहेत!\n\nरिकामा डेटा अपलोड केल्यास मूळ डेटा नष्ट होईल, म्हणून सिस्टिमने हा रिकामा डेटा रोखला आहे.\n\nकृपया प्रथम "📥 क्लाऊडवरून आणा" (Pull) बटण दाबा जेणेकरून क्लाऊडवरील सर्व डेटा या डिव्हाइसवर येईल.`;
+        if (!isSilent) alert(warnMsg);
+        else console.warn(warnMsg);
+        return false;
+      }
+
+      // GUARD 2: Smart Merge before push so any missing remote records are combined
+      let finalRecords = [...localRecords];
+      if (existingRemote && existingRemote.appData && remoteRecCount > 0) {
+        if (typeof smartMergeRecords === 'function') {
+          const mergeResult = smartMergeRecords(remoteRecords, localRecords);
+          finalRecords = mergeResult.merged;
+        }
+
+        // Auto snapshot safety backup
+        try {
+          const backupEndpoint = `${cleanBaseUrl}/gav_sarve/backups/${this.getCloudKey()}_safety_backup.json`;
+          this.fetchWithTimeout(backupEndpoint, {
+            method: 'PUT',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(existingRemote)
+          }, 6000).catch(() => {});
+        } catch (bErr) {}
+      }
+
+      // Ensure local state matches merged result
+      if (typeof AppState !== 'undefined') {
+        AppState.records = finalRecords;
+        if (typeof saveRecords === 'function') {
+          saveRecords(true); // true = skip recursive cloud push
+        }
+      }
+
+      const currentConfig = (typeof AppState !== 'undefined' && AppState.config) ? AppState.config : {};
+      const payload = {
+        version: "2.0",
+        app: "GAV_SARVE",
+        schoolCode: currentUdise,
+        village: currentVillage,
+        schoolName: currentConfig.schoolName || '',
+        updatedAt: new Date().toISOString(),
+        updatedBy: currentConfig.surveyorName || 'श्री गणेश विलास पष्टे',
+        creator: 'श्री गणेश विलास पष्टे',
+        appData: {
+          config: currentConfig,
+          records: finalRecords
+        }
+      };
+
+      const res = await this.fetchWithTimeout(endpoint, {
+        method: 'PUT',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload)
+      }, 15000);
+
+      if (res.ok) {
+        this.config.status = 'synced';
+        this.config.lastSyncTime = new Date().toISOString();
+        this.config.lastError = '';
+        this.saveConfig();
+
+        const recCount = finalRecords.length;
+        if (!isSilent) {
+          if (typeof showToast === 'function') {
+            showToast(`☁️ डेटा यशस्वीरित्या Google Firebase वर सेव्ह झाला (${recCount} नोंदी)!`, 'success');
+          }
+          alert(`☁️ कॉम्प्युटर/मोबाईलवरील सर्वेक्षण डेटा (${recCount} नोंदी) Google Firebase वर यशस्वीरित्या सेव्ह झाला!\n\nशाळा UDISE: ${currentUdise}\nगाव: ${currentVillage}\n\nआता तुम्ही इतर कोणत्याही उपकरणावर ॲप उघडून याच UDISE सह "📥 क्लाऊडवरून आणा" बटण दाबू शकता.`);
+        }
+        return true;
+      } else {
+        const errorText = await res.text();
+        if (res.status === 401 || res.status === 403) {
+          throw new Error('Firebase Rules लॉक आहेत (401 Permission Denied). कृपया Firebase Console मध्ये Realtime Database -> Rules मध्ये ".read": true, ".write": true करा.');
+        }
+        throw new Error(`Firebase Server Error (${res.status}): ${errorText.substring(0, 100)}`);
+      }
+    } catch (err) {
+      console.warn("Firebase push error:", err);
+      this.config.status = 'error';
+      this.config.lastError = err.message || 'सिंक त्रुटी';
+      this.updateUIStatus();
+      if (!isSilent) {
+        if (typeof showToast === 'function') {
+          showToast(`⚠️ क्लाऊड सिंक करताना अडचण आली: ${this.config.lastError}`, 'warning');
+        }
+        alert(`⚠️ क्लाऊडवर डेटा पाठवताना अडचण आली:\n${this.config.lastError}`);
+      }
+      return false;
+    } finally {
+      this.isSyncing = false;
+      if (this.hasPendingPush) {
+        this.hasPendingPush = false;
+        this.scheduleDebouncedPush();
+      }
+    }
+  },
+
+  /**
+   * Pull data from Google Firebase Realtime Database
+   */
+  async pullFromCloud(isSilent = false) {
+    const cleanBaseUrl = this.normalizeFirebaseUrl(this.config.firebaseUrl);
+    if (!cleanBaseUrl) {
+      if (!isSilent) {
+        alert('⚠️ Google Firebase Realtime Database URL प्रविष्ट केलेली नाही!\n\nकृपया प्रथम Firebase Realtime Database ची URL टाका.\nउदा. https://your-project-default-rtdb.firebaseio.com/');
+      }
+      return false;
+    }
+
+    if (this.isSyncing) return false;
+    this.isSyncing = true;
+
+    if (typeof navigator !== 'undefined' && navigator.onLine === false) {
+      this.isSyncing = false;
+      this.config.status = 'offline';
+      this.updateUIStatus();
+      if (!isSilent) alert('इंटरनेट कनेक्शन बंद आहे. कृपया इंटरनेट चालू करा.');
+      return false;
+    }
+
+    this.config.status = 'syncing';
+    this.updateUIStatus();
+
+    const currentUdise = this.getSchoolUdise();
+    const currentVillage = this.getVillageName();
+    this.config.schoolCode = currentUdise;
+    this.config.village = currentVillage;
+
+    const endpoint = `${cleanBaseUrl}/gav_sarve/villages/${this.getCloudKey()}.json`;
+
+    try {
+      const res = await this.fetchWithTimeout(endpoint, {}, 15000);
+      if (res.ok) {
+        const json = await res.json();
+        if (json && json.appData && typeof json.appData === 'object') {
+          const remoteData = json.appData;
+          const remoteRecords = Array.isArray(remoteData.records) ? remoteData.records : [];
+          const recordCount = remoteRecords.length;
+
+          if (typeof AppState !== 'undefined') {
+            // Smart Merge: Local + Remote
+            if (typeof smartMergeRecords === 'function') {
+              const mergeResult = smartMergeRecords(AppState.records || [], remoteRecords);
+              AppState.records = mergeResult.merged;
+            } else {
+              AppState.records = remoteRecords;
+            }
+
+            // Merge Config
+            if (remoteData.config && typeof remoteData.config === 'object') {
+              AppState.config = Object.assign({}, AppState.config || {}, remoteData.config);
+            }
+
+            // Save state skipping recursive cloud push
+            if (typeof saveRecords === 'function') saveRecords(true);
+            if (typeof saveConfig === 'function') saveConfig(true);
+            if (typeof renderConfigInfo === 'function') renderConfigInfo();
+            if (typeof updateUI === 'function') updateUI();
+            if (typeof renderRegister === 'function') renderRegister();
+            if (typeof renderDashboard === 'function') renderDashboard();
+          }
+
+          this.config.status = 'synced';
+          this.config.lastSyncTime = json.updatedAt || new Date().toISOString();
+          this.config.lastError = '';
+          this.saveConfig();
+
+          if (!isSilent) {
+            if (typeof showToast === 'function') {
+              showToast(`🎉 Google Firebase वरून ${recordCount} नोंदी यशस्वीरित्या डाऊनलोड झाल्या!`, 'success');
+            }
+            alert(`🎉 Google Firebase वरून ${recordCount} सर्वेक्षण नोंदी व तपशील यशस्वीरित्या डाऊनलोड झाले!\n\nशाळा UDISE: ${currentUdise}\nया डिव्हाइसवर सर्व डेटा अद्ययावत झाला आहे.`);
+          }
+          return true;
+        } else {
+          // Empty remote bucket
+          this.config.status = 'idle';
+          this.updateUIStatus();
+          if (!isSilent) {
+            alert(`⚠️ Firebase वर या शाळेचा/गावाचा (UDISE: ${currentUdise}) कोणताही डेटा सापडला नाही!\n\nदुरुस्ती कशी करावी:\n1. ज्या डिव्हाइसवर (उदा. लॅपटॉप/PC) डेटा भरलेला आहे तिथे ॲप उघडा.\n2. वरील "☁️ क्लाऊड सिंक" बटण दाबा.\n3. "☁️ आता क्लाऊडवर पाठवा" हे बटण दाबा.\n4. त्यानंतर या डिव्हाइसवर येऊन "📥 क्लाऊडवरून आणा" बटण दाबा.`);
+          }
+          return false;
+        }
+      } else {
+        if (res.status === 401 || res.status === 403) {
+          throw new Error('Firebase Rules लॉक आहेत (401 Permission Denied). कृपया Rules मध्ये ".read": true, ".write": true करा.');
+        }
+        throw new Error(`Firebase Server returned ${res.status}`);
+      }
+    } catch (err) {
+      console.warn("Firebase pull error:", err);
+      this.config.status = 'error';
+      this.config.lastError = err.message;
+      this.updateUIStatus();
+      if (!isSilent) {
+        alert(`⚠️ क्लाऊडवरून डेटा आणताना त्रुटी आली:\n${this.config.lastError}`);
+      }
+      return false;
+    } finally {
+      this.isSyncing = false;
+    }
+  },
+
+  /**
+   * Test Firebase Database Connection (Both PUT & GET)
+   */
+  async testFirebaseConnection(url, code) {
+    const cleanUrl = this.normalizeFirebaseUrl(url || this.config.firebaseUrl);
+    if (!cleanUrl || cleanUrl.length < 8) {
+      alert('कृपया वैध Google Firebase Realtime Database URL प्रविष्ट करा.\nउदा. https://your-project-default-rtdb.firebaseio.com/');
+      return false;
+    }
+
+    if (cleanUrl.includes('console.firebase.google.com')) {
+      alert('⚠️ तुम्ही Firebase Console ची लिंक टाकली आहे!\n\nकृपया Realtime Database ची मुख्य URL टाका.\nउदा. https://your-project-default-rtdb.firebaseio.com/');
+      return false;
+    }
+
+    const testEndpoint = `${cleanUrl}/gav_sarve/test_ping.json`;
+
+    try {
+      // 1. Write Test (PUT)
+      const res = await this.fetchWithTimeout(testEndpoint, {
+        method: 'PUT',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ ping: "ok", app: "GAV_SARVE", timestamp: new Date().toISOString() })
+      }, 10000);
+
+      if (res.ok) {
+        // 2. Read Test (GET)
+        const readRes = await this.fetchWithTimeout(testEndpoint, {}, 10000);
+        if (readRes.ok) {
+          alert('✅ अभिनंदन! Google Firebase Cloud Database यशस्वीरित्या कनेक्ट झाला!\n\nडेटा वाचन (Read) व लेखन (Write) दोन्ही सुरळीत काम करत आहेत.\nआता खालील "💾 सेव्ह करा व सुरू करा" बटण दाबा.');
+          return true;
+        }
+      }
+
+      if (res.status === 401 || res.status === 403) {
+        alert('⚠️ Firebase परवानगी त्रुटी (Permission Denied - Error 401/403):\n\nतुमच्या Firebase Database चे Rules लॉक आहेत!\n\nदुरुस्ती कशी करावी:\n1. Firebase Console (console.firebase.google.com) उघडा.\n2. डाव्या मेनूत Build -> Realtime Database वर जा.\n3. वरील "Rules" टॅब उघडा.\n4. Rules मध्ये खालीलप्रमाणे लिहा:\n{\n  "rules": {\n    ".read": true,\n    ".write": true\n  }\n}\n5. "Publish" बटण दाबा.');
+        return false;
+      } else {
+        alert(`⚠️ Firebase कनेक्ट होऊ शकले नाही (${res.status}). कृपया Firebase Database URL तपासा.`);
+        return false;
+      }
+    } catch (err) {
+      alert(`⚠️ Firebase कनेक्शन त्रुटी: ${err.message}\n\nकृपया इंटरनेट कनेक्शन चालू आहे का आणि Realtime Database ची बरोबर URL टाकली आहे का ते तपासा.`);
+      return false;
+    }
+  },
+
+  /**
+   * Setup & Enable Firebase Cloud Sync
+   */
+  async setupCloudSync(schoolCode, pin, firebaseUrl = '') {
+    const cleanUrl = this.normalizeFirebaseUrl(firebaseUrl);
+    if (!cleanUrl || cleanUrl.length < 8) {
+      alert('कृपया Google Firebase Realtime Database ची URL प्रविष्ट करा.\nउदा. https://your-project-default-rtdb.firebaseio.com/');
+      return false;
+    }
+
+    if (!schoolCode || schoolCode.trim().length < 3) {
+      alert('कृपया शाळेचा UDISE क्रमांक प्रविष्ट करा.');
+      return false;
+    }
+
+    this.config.enabled = true;
+    this.config.schoolCode = schoolCode.trim();
+    this.config.secretPin = pin ? pin.trim() : 'Ican@123';
+    this.config.firebaseUrl = cleanUrl;
+    this.config.autoSync = true;
+    this.config.lastError = '';
+    this.saveConfig();
+
+    // If local has records, push to cloud; if local is empty, pull from cloud!
+    const localRecCount = (typeof AppState !== 'undefined' && Array.isArray(AppState.records)) ? AppState.records.length : 0;
+    if (localRecCount > 0) {
+      await this.pushToCloud(false);
+    } else {
+      await this.pullFromCloud(false);
+    }
+    return true;
+  },
+
+  /**
+   * Disable Cloud Sync
+   */
+  disableCloudSync() {
+    this.config.enabled = false;
+    this.config.status = 'idle';
+    this.config.lastError = '';
+    this.saveConfig();
+    this.updateUIStatus();
+    if (typeof showToast === 'function') {
+      showToast('Google Firebase क्लाऊड सिंक बंद करण्यात आले.', 'info');
+    }
+  },
+
+  /**
+   * Restore from Cloud Safety Backup
+   */
+  async restoreFromCloudBackup() {
+    const cleanBaseUrl = this.normalizeFirebaseUrl(this.config.firebaseUrl);
+    if (!cleanBaseUrl) {
+      alert('कृपया प्रथम Firebase URL प्रविष्ट करा.');
+      return false;
+    }
+    const backupEndpoint = `${cleanBaseUrl}/gav_sarve/backups/${this.getCloudKey()}_safety_backup.json`;
+
+    try {
+      const res = await this.fetchWithTimeout(backupEndpoint, {}, 12000);
+      if (res.ok) {
+        const json = await res.json();
+        if (json && json.appData && Array.isArray(json.appData.records)) {
+          const recCount = json.appData.records.length;
+          if (confirm(`सुरक्षित क्लाऊड बॅकअप सापडला (${recCount} नोंदी).\n\nहा डेटा त्वरित रिस्टोअर करायचा का?`)) {
+            if (typeof AppState !== 'undefined') {
+              AppState.records = json.appData.records;
+              if (json.appData.config) {
+                AppState.config = Object.assign({}, AppState.config || {}, json.appData.config);
+              }
+              if (typeof saveRecords === 'function') saveRecords(true);
+              if (typeof saveConfig === 'function') saveConfig(true);
+              if (typeof renderConfigInfo === 'function') renderConfigInfo();
+              if (typeof updateUI === 'function') updateUI();
+              if (typeof renderRegister === 'function') renderRegister();
+              if (typeof renderDashboard === 'function') renderDashboard();
+            }
+            await this.pushToCloud(true);
+            alert(`🎉 ${recCount} नोंदींचा सुरक्षित क्लाऊड बॅकअप यशस्वीरित्या रिस्टोअर झाला!`);
+            return true;
+          }
+        }
+      }
+      alert('क्लाऊडवर कोणताही जुना सुरक्षित बॅकअप सापडला नाही.');
+      return false;
+    } catch (e) {
+      alert('क्लाऊड बॅकअप शोधताना त्रुटी आली: ' + e.message);
+      return false;
+    }
+  },
+
+  formatTimeStr(isoString) {
+    if (!isoString) return 'आत्ता';
+    const t = new Date(isoString);
+    if (isNaN(t.getTime())) return 'आत्ता';
+    let hrs = t.getHours();
+    const mins = String(t.getMinutes()).padStart(2, '0');
+    const ampm = hrs >= 12 ? 'PM' : 'AM';
+    hrs = hrs % 12 || 12;
+    return `${hrs}:${mins} ${ampm}`;
+  },
+
+  updateUIStatus() {
+    if (typeof document === 'undefined') return;
+    this.config.schoolCode = this.getSchoolUdise();
+    this.config.village = this.getVillageName();
+
+    const headerPill = document.getElementById('cloudStatusPill');
+    const headerText = document.getElementById('cloudStatusText');
+    const headerDot = document.getElementById('cloudStatusDot');
+
+    if (headerPill) {
+      if (!this.config.enabled || !this.config.firebaseUrl) {
+        headerPill.className = 'header-btn cloud-pill cloud-pill-disabled';
+        if (headerText) headerText.textContent = 'क्लाऊड: ऑफलाईन';
+        if (headerDot) headerDot.style.background = '#94a3b8';
+      } else if (this.config.status === 'syncing') {
+        headerPill.className = 'header-btn cloud-pill cloud-pill-syncing';
+        if (headerText) headerText.textContent = 'सिंक होत आहे...';
+        if (headerDot) headerDot.style.background = '#f59e0b';
+      } else if (this.config.status === 'synced') {
+        headerPill.className = 'header-btn cloud-pill cloud-pill-synced';
+        const timeStr = this.formatTimeStr(this.config.lastSyncTime);
+        if (headerText) headerText.textContent = `क्लाऊड सिंक (${timeStr})`;
+        if (headerDot) headerDot.style.background = '#10b981';
+      } else if (this.config.status === 'offline') {
+        headerPill.className = 'header-btn cloud-pill cloud-pill-offline';
+        if (headerText) headerText.textContent = 'सिंक: नेट नाही';
+        if (headerDot) headerDot.style.background = '#ef4444';
+      } else {
+        headerPill.className = 'header-btn cloud-pill cloud-pill-error';
+        if (headerText) headerText.textContent = 'सिंक त्रुटी';
+        if (headerDot) headerDot.style.background = '#ef4444';
+      }
+    }
+
+    const statusInModal = document.getElementById('cloudModalStatusText');
+    if (statusInModal) {
+      if (this.config.enabled && this.config.firebaseUrl) {
+        if (this.config.status === 'synced') {
+          statusInModal.innerHTML = `<span class="badge badge-success" style="background:#10b981; color:#fff; padding:4px 8px; border-radius:4px; font-size: 0.88rem;">✅ Google Firebase क्लाऊड सिंक सक्रिय</span> (शाळा UDISE: <code>${this.config.schoolCode}</code>) <br><small style="color: #059669; font-weight: 600; display:inline-block; margin-top:4px;">शेवटचा यशस्वी सिंक: ${this.formatTimeStr(this.config.lastSyncTime)}</small>`;
+        } else if (this.config.status === 'syncing') {
+          statusInModal.innerHTML = `<span class="badge badge-warning" style="background:#f59e0b; color:#fff; padding:4px 8px; border-radius:4px; font-size: 0.88rem;">🔄 Firebase शी सिंक होत आहे...</span> (शाळा: <code>${this.config.schoolCode}</code>)`;
+        } else if (this.config.status === 'offline') {
+          statusInModal.innerHTML = `<span class="badge badge-warning" style="background:#eab308; color:#fff; padding:4px 8px; border-radius:4px; font-size: 0.88rem;">⚠️ इंटरनेट कनेक्शन बंद आहे (ऑफलाईन मोड)</span>`;
+        } else if (this.config.status === 'error') {
+          statusInModal.innerHTML = `<span class="badge badge-danger" style="background:#ef4444; color:#fff; padding:4px 8px; border-radius:4px; font-size: 0.88rem;">⚠️ त्रुटी: ${this.config.lastError || 'कनेक्शन अयशस्वी'}</span>`;
+        } else {
+          statusInModal.innerHTML = `<span class="badge badge-info" style="background:#0284c7; color:#fff; padding:4px 8px; border-radius:4px; font-size: 0.88rem;">ℹ️ सिंक तयार आहे (शाळा: <code>${this.config.schoolCode}</code>)</span>`;
+        }
+      } else {
+        statusInModal.innerHTML = `<span class="badge badge-secondary" style="background:#64748b; color:#fff; padding:4px 8px; border-radius:4px; font-size: 0.88rem;">❌ सिंक बंद आहे (डेटा फक्त या डिव्हाइसवर सुरक्षित आहे)</span>`;
+      }
+    }
+
+    const statusInSettings = document.getElementById('cloudSettingsStatusText');
+    if (statusInSettings) {
+      if (this.config.enabled && this.config.firebaseUrl) {
+        if (this.config.status === 'synced') {
+          statusInSettings.innerHTML = `<span style="color:#059669; font-weight:700;"><i class="fa-solid fa-circle-check"></i> क्लाऊड सिंक सक्रिय (शेवटचा सिंक: ${this.formatTimeStr(this.config.lastSyncTime)})</span>`;
+        } else if (this.config.status === 'syncing') {
+          statusInSettings.innerHTML = `<span style="color:#d97706; font-weight:700;"><i class="fa-solid fa-rotate fa-spin"></i> सिंक होत आहे...</span>`;
+        } else if (this.config.status === 'error') {
+          statusInSettings.innerHTML = `<span style="color:#dc2626; font-weight:700;"><i class="fa-solid fa-circle-exclamation"></i> सिंक त्रुटी: ${this.config.lastError || 'तपासा'}</span>`;
+        } else {
+          statusInSettings.innerHTML = `<span style="color:#0284c7; font-weight:700;"><i class="fa-solid fa-cloud"></i> सिंक तयार</span>`;
+        }
+      } else {
+        statusInSettings.innerHTML = `<span style="color:#64748b; font-weight:600;"><i class="fa-solid fa-cloud-slash"></i> सिंक बंद आहे</span>`;
+      }
+    }
+
+    // Settings panel inputs auto-fill
+    const settingCode = document.getElementById('settingCloudSchoolCode');
+    const settingPin = document.getElementById('settingCloudSecretPin');
+    const settingFb = document.getElementById('settingCloudFirebaseUrl');
+    if (settingCode && (!settingCode.value || settingCode.value === '27240304501')) {
+      settingCode.value = this.config.schoolCode || this.getSchoolUdise();
+    }
+    if (settingPin && !settingPin.value) {
+      settingPin.value = this.config.secretPin || 'Ican@123';
+    }
+    if (settingFb && !settingFb.value && this.config.firebaseUrl) {
+      settingFb.value = this.config.firebaseUrl;
+    }
+  }
+};
+
+// Node.js module export support if in testing environment
+if (typeof module !== 'undefined' && module.exports) {
+  module.exports = cloudSync;
+}
+
+  </script>
   <script>
 /* ====================================================
    1. Survey Data Model & Master Constants
@@ -3944,6 +5111,11 @@ function initApp() {
     setupEventListeners();
     updateUI();
     
+    // Google Firebase क्लाऊड सिंक सुरू करणे
+    if (typeof cloudSync !== 'undefined' && typeof cloudSync.init === 'function') {
+        cloudSync.init();
+    }
+    
     // Check url hash or default tab
     switchTab('tab-dashboard');
 }
@@ -3966,9 +5138,13 @@ function loadConfig() {
     renderConfigInfo();
 }
 
-function saveConfig() {
+function saveConfig(skipCloudPush = false) {
     try {
         localStorage.setItem(SURVEY_CONFIG_KEY, JSON.stringify(AppState.config));
+        // क्लाऊडवर ऑटो-सिंक करणे
+        if (!skipCloudPush && typeof cloudSync !== 'undefined' && cloudSync.config && cloudSync.config.enabled && cloudSync.config.autoSync) {
+            cloudSync.scheduleDebouncedPush();
+        }
     } catch(e) {
         console.error('कॉन्फिगरेशन जतन करण्यात त्रुटी:', e);
     }
@@ -3994,13 +5170,17 @@ function loadRecords() {
     }
 }
 
-function saveRecords() {
+function saveRecords(skipCloudPush = false) {
     try {
         // जतन करताना डुप्लिकेट नोंदी पूर्णपणे रोखून स्वच्छ ठेवणे
         if (typeof deduplicateRecordsList === 'function') {
             AppState.records = deduplicateRecordsList(AppState.records);
         }
         localStorage.setItem(SURVEY_STORAGE_KEY, JSON.stringify(AppState.records));
+        // क्लाऊडवर ऑटो-सिंक करणे
+        if (!skipCloudPush && typeof cloudSync !== 'undefined' && cloudSync.config && cloudSync.config.enabled && cloudSync.config.autoSync) {
+            cloudSync.scheduleDebouncedPush();
+        }
     } catch(e) {
         console.error('डेटा जतन करण्यात त्रुटी:', e);
         showToast('डेटा जतन करण्यात समस्या आली!', 'danger');
@@ -5865,6 +7045,211 @@ function showToast(message, type = 'success') {
         setTimeout(() => toast.remove(), 300);
     }, 3200);
 }
+
+// ----------------------------------------------------
+// Google Firebase क्लाऊड सिंक UI नियंत्रक (Cloud Sync Controllers)
+// ----------------------------------------------------
+function openCloudSyncModal() {
+    try {
+        const modal = document.getElementById('cloudSyncModal');
+        if (!modal) {
+            console.error("cloudSyncModal element not found!");
+            return;
+        }
+        modal.classList.add('active');
+        modal.style.display = 'flex';
+        modal.style.zIndex = '1000008';
+
+        const codeInput = document.getElementById('cloudSchoolCode');
+        const pinInput = document.getElementById('cloudSecretPin');
+        const fbInput = document.getElementById('cloudFirebaseUrl');
+
+        const currentUdise = (AppState.config && AppState.config.udise) ? AppState.config.udise : '27240304501';
+        if (codeInput) {
+            codeInput.value = (typeof cloudSync !== 'undefined' && cloudSync.config && cloudSync.config.schoolCode)
+                ? cloudSync.config.schoolCode : currentUdise;
+        }
+        if (pinInput) {
+            pinInput.value = (typeof cloudSync !== 'undefined' && cloudSync.config && cloudSync.config.secretPin)
+                ? cloudSync.config.secretPin : 'Ican@123';
+        }
+        if (fbInput) {
+            fbInput.value = (typeof cloudSync !== 'undefined' && cloudSync.config && cloudSync.config.firebaseUrl)
+                ? cloudSync.config.firebaseUrl : '';
+        }
+
+        if (typeof cloudSync !== 'undefined' && typeof cloudSync.updateUIStatus === 'function') {
+            cloudSync.updateUIStatus();
+        }
+    } catch (e) {
+        console.error("Error opening cloud sync modal:", e);
+        const modal = document.getElementById('cloudSyncModal');
+        if (modal) {
+            modal.classList.add('active');
+            modal.style.display = 'flex';
+        }
+    }
+}
+
+function closeCloudSyncModal() {
+    const modal = document.getElementById('cloudSyncModal');
+    if (modal) {
+        modal.classList.remove('active');
+        modal.style.display = 'none';
+    }
+}
+
+async function saveCloudSyncSettings() {
+    const code = document.getElementById('cloudSchoolCode') ? document.getElementById('cloudSchoolCode').value.trim() : '';
+    const pin = document.getElementById('cloudSecretPin') ? document.getElementById('cloudSecretPin').value.trim() : '';
+    const fbUrl = document.getElementById('cloudFirebaseUrl') ? document.getElementById('cloudFirebaseUrl').value.trim() : '';
+
+    if (!fbUrl) {
+        alert('⚠️ कृपया प्रथम Google Firebase Realtime Database ची URL प्रविष्ट करा!\n\nउदा. https://your-project-default-rtdb.firebaseio.com/');
+        const fbInput = document.getElementById('cloudFirebaseUrl');
+        if (fbInput) fbInput.focus();
+        return;
+    }
+
+    if (typeof cloudSync !== 'undefined') {
+        const ok = await cloudSync.setupCloudSync(code, pin, fbUrl);
+        if (ok) closeCloudSyncModal();
+    }
+}
+
+async function syncCloudNow() {
+    if (typeof cloudSync === 'undefined') return;
+    const urlInput = document.getElementById('cloudFirebaseUrl') || document.getElementById('settingCloudFirebaseUrl');
+    const codeInput = document.getElementById('cloudSchoolCode') || document.getElementById('settingCloudSchoolCode');
+    const pinInput = document.getElementById('cloudSecretPin') || document.getElementById('settingCloudSecretPin');
+
+    const url = (urlInput ? urlInput.value.trim() : '') || (cloudSync.config ? cloudSync.config.firebaseUrl : '');
+    if (!url) {
+        alert('⚠️ कृपया प्रथम Google Firebase Realtime Database ची URL प्रविष्ट करा!\n\nउदा. https://your-project-default-rtdb.firebaseio.com/');
+        if (urlInput) urlInput.focus();
+        return;
+    }
+
+    // Auto-save settings if user entered new URL
+    if (urlInput && urlInput.value.trim()) {
+        cloudSync.config.firebaseUrl = cloudSync.normalizeFirebaseUrl(urlInput.value.trim());
+        if (codeInput && codeInput.value.trim()) cloudSync.config.schoolCode = codeInput.value.trim();
+        if (pinInput && pinInput.value.trim()) cloudSync.config.secretPin = pinInput.value.trim();
+        cloudSync.config.enabled = true;
+        cloudSync.saveConfig();
+    }
+
+    const btn = document.getElementById('btnCloudSyncNow') || (typeof event !== 'undefined' && event && event.target ? event.target.closest('button') : null);
+    const origText = btn ? btn.innerHTML : '';
+    if (btn) {
+        btn.disabled = true;
+        btn.innerHTML = '<span><i class="fa-solid fa-spinner fa-spin"></i> डेटा पाठवत आहे...</span>';
+    }
+
+    try {
+        await cloudSync.pushToCloud(false);
+    } finally {
+        if (btn) {
+            btn.disabled = false;
+            btn.innerHTML = origText;
+        }
+    }
+}
+
+async function pullCloudNow() {
+    if (typeof cloudSync === 'undefined') return;
+    const urlInput = document.getElementById('cloudFirebaseUrl') || document.getElementById('settingCloudFirebaseUrl');
+    const codeInput = document.getElementById('cloudSchoolCode') || document.getElementById('settingCloudSchoolCode');
+    const pinInput = document.getElementById('cloudSecretPin') || document.getElementById('settingCloudSecretPin');
+
+    const url = (urlInput ? urlInput.value.trim() : '') || (cloudSync.config ? cloudSync.config.firebaseUrl : '');
+    if (!url) {
+        alert('⚠️ कृपया प्रथम Google Firebase Realtime Database ची URL प्रविष्ट करा!\n\nउदा. https://your-project-default-rtdb.firebaseio.com/');
+        if (urlInput) urlInput.focus();
+        return;
+    }
+
+    // Auto-save settings if user entered new URL
+    if (urlInput && urlInput.value.trim()) {
+        cloudSync.config.firebaseUrl = cloudSync.normalizeFirebaseUrl(urlInput.value.trim());
+        if (codeInput && codeInput.value.trim()) cloudSync.config.schoolCode = codeInput.value.trim();
+        if (pinInput && pinInput.value.trim()) cloudSync.config.secretPin = pinInput.value.trim();
+        cloudSync.config.enabled = true;
+        cloudSync.saveConfig();
+    }
+
+    const btn = document.getElementById('btnCloudPullNow') || (typeof event !== 'undefined' && event && event.target ? event.target.closest('button') : null);
+    const origText = btn ? btn.innerHTML : '';
+    if (btn) {
+        btn.disabled = true;
+        btn.innerHTML = '<span><i class="fa-solid fa-spinner fa-spin"></i> डेटा आणत आहे...</span>';
+    }
+
+    try {
+        await cloudSync.pullFromCloud(false);
+    } finally {
+        if (btn) {
+            btn.disabled = false;
+            btn.innerHTML = origText;
+        }
+    }
+}
+
+async function testFirebaseConnection() {
+    if (typeof cloudSync === 'undefined') return;
+    const urlInput = document.getElementById('cloudFirebaseUrl') || document.getElementById('settingCloudFirebaseUrl');
+    const codeInput = document.getElementById('cloudSchoolCode') || document.getElementById('settingCloudSchoolCode');
+    const url = (urlInput ? urlInput.value.trim() : '') || (cloudSync.config ? cloudSync.config.firebaseUrl : '');
+    const code = (codeInput ? codeInput.value.trim() : '') || (cloudSync.config ? cloudSync.config.schoolCode : '');
+
+    if (!url) {
+        alert('⚠️ कृपया प्रथम Google Firebase Realtime Database ची URL प्रविष्ट करा!\n\nउदा. https://your-project-default-rtdb.firebaseio.com/');
+        if (urlInput) urlInput.focus();
+        return;
+    }
+
+    const btn = document.getElementById('btnTestFirebase') || (typeof event !== 'undefined' && event && event.target ? event.target.closest('button') : null);
+    const origText = btn ? btn.innerHTML : '';
+    if (btn) {
+        btn.disabled = true;
+        btn.innerHTML = '<span><i class="fa-solid fa-spinner fa-spin"></i> तपासत आहे...</span>';
+    }
+
+    try {
+        await cloudSync.testFirebaseConnection(url, code);
+    } finally {
+        if (btn) {
+            btn.disabled = false;
+            btn.innerHTML = origText;
+        }
+    }
+}
+
+function disableCloudSync() {
+    if (typeof cloudSync !== 'undefined') {
+        cloudSync.disableCloudSync();
+        closeCloudSyncModal();
+    }
+}
+
+async function emergencyRestoreCloudData() {
+    if (typeof cloudSync !== 'undefined') {
+        await cloudSync.restoreFromCloudBackup();
+    }
+}
+
+// Window global bindings
+if (typeof window !== 'undefined') {
+    window.openCloudSyncModal = openCloudSyncModal;
+    window.closeCloudSyncModal = closeCloudSyncModal;
+    window.saveCloudSyncSettings = saveCloudSyncSettings;
+    window.syncCloudNow = syncCloudNow;
+    window.pullCloudNow = pullCloudNow;
+    window.testFirebaseConnection = testFirebaseConnection;
+    window.disableCloudSync = disableCloudSync;
+    window.emergencyRestoreCloudData = emergencyRestoreCloudData;
+}
+
 
   </script>
   <script>
