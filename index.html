@@ -1059,6 +1059,57 @@ select.form-control {
 .mobile-fab:active { transform: scale(0.92); }
 
 /* ====================================================
+   Settings Grid Layout (Balanced Proportions Desktop & Mobile)
+   निर्माता: श्री गणेश विलास पष्टे
+   ==================================================== */
+.settings-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px;
+  align-items: start;
+}
+
+.settings-col-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  min-width: 0;
+}
+
+.settings-card {
+  margin-bottom: 0 !important;
+}
+
+#settings-form .form-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+}
+
+.span-2 {
+  grid-column: 1 / -1;
+}
+
+.settings-cloud-actions {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  align-items: center;
+  border-top: 1px solid #e2e8f0;
+  padding-top: 12px;
+}
+
+@media (max-width: 900px) {
+  .settings-grid {
+    grid-template-columns: 1fr !important;
+    gap: 14px !important;
+  }
+  .settings-col-stack {
+    gap: 14px !important;
+  }
+}
+
+/* ====================================================
    Mobile View Responsive Design (< 768px)
    Header Stabilization, Horizontal School Brand, Uniform Same-Size Tabs & Dashboard
    निर्माता: श्री गणेश विलास पष्टे
@@ -1296,6 +1347,35 @@ select.form-control {
 
   .progress-bar-bg {
     height: 8px !important;
+  }
+
+  /* Settings & Backup Mobile View */
+  .settings-grid {
+    grid-template-columns: 1fr !important;
+    gap: 14px !important;
+  }
+
+  .settings-col-stack {
+    gap: 14px !important;
+  }
+
+  #settings-form .form-grid {
+    grid-template-columns: 1fr !important;
+    gap: 10px !important;
+  }
+
+  .settings-cloud-actions {
+    justify-content: flex-start;
+  }
+
+  .settings-cloud-actions button {
+    flex: 1 1 calc(50% - 6px);
+    min-height: 36px;
+  }
+
+  .settings-cloud-actions button:last-child {
+    flex: 1 1 100%;
+    margin-left: 0 !important;
   }
 }
 
@@ -2512,9 +2592,9 @@ select.form-control {
          TAB 6: शाळा व गाव सेटिंग्स (Settings & Backup)
          ================================================ -->
     <section id="tab-settings" class="tab-pane">
-      <div class="analytics-grid">
-        <!-- School & Village Details Form -->
-        <div class="panel-card">
+      <div class="settings-grid">
+        <!-- Left Column: School & Village Details Form (50% desktop, 100% mobile) -->
+        <div class="panel-card settings-card">
           <div class="panel-header">
             <h3><i class="fa-solid fa-school text-primary"></i> शाळा व गाव अधिकृत तपशील</h3>
           </div>
@@ -2581,7 +2661,7 @@ select.form-control {
               </div>
 
               <div class="form-group span-2" style="margin-top: 10px;">
-                <button type="submit" class="btn btn-primary">
+                <button type="submit" class="btn btn-primary" style="width: 100%;">
                   <i class="fa-solid fa-floppy-disk"></i> शाळा तपशील सेव्ह करा
                 </button>
               </div>
@@ -2589,118 +2669,121 @@ select.form-control {
           </form>
         </div>
 
-        <!-- Excel / JSON Backup & Restore -->
-        <div class="panel-card">
-          <div class="panel-header">
-            <h3><i class="fa-solid fa-cloud-arrow-up text-primary"></i> डेटा बॅकअप, एक्सेल व रिस्टोर</h3>
-          </div>
-          
-          <div style="display: flex; flex-direction: column; gap: 14px;">
-            <div style="background: #f8fafc; padding: 14px; border-radius: var(--radius-sm); border: 1px solid #e2e8f0;">
-              <h4 style="font-size: 0.95rem; font-weight: 700; color: #1e3a8a; margin-bottom: 4px;">
-                <i class="fa-solid fa-file-excel text-success"></i> अधिकृत Excel नोंदवही डाऊनलोड
-              </h4>
-              <p style="font-size: 0.85rem; color: #64748b; margin-bottom: 10px;">
-                सर्व सदस्यांच्या नोंदी अधिकृत १६ स्तंभांच्या फॉरमॅटमध्ये थेट एक्सेल शीट म्हणून डाउनलोड करा.
-              </p>
-              <button class="btn btn-success btn-sm" onclick="ExcelHandler.exportToExcel(AppState.records, AppState.config)">
-                <i class="fa-solid fa-download"></i> Excel नोंदवही डाऊनलोड करा
-              </button>
+        <!-- Right Column Stack: Firebase Sync + Backup & Restore (50% desktop, 100% mobile) -->
+        <div class="settings-col-stack">
+          <!-- Google Firebase Cloud Sync Settings Panel -->
+          <div class="panel-card settings-card" style="border-top: 4px solid #2563eb;">
+            <div class="panel-header" style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 8px;">
+              <div style="display: flex; align-items: center; gap: 8px;">
+                <span style="font-size: 1.25rem; color: #2563eb;"><i class="fa-solid fa-cloud-arrow-up"></i></span>
+                <div>
+                  <h3 style="margin: 0; color: #1e3a8a; font-weight: 800; font-size: 1.05rem;">Google Firebase क्लाऊड सिंक</h3>
+                  <p style="margin: 0; font-size: 0.78rem; color: #64748b;">मोबाईल व संगणकावर रीअल-टाईम थेट डेटा सिंक</p>
+                </div>
+              </div>
+              <div id="cloudSettingsStatusText">
+                <span style="color:#64748b; font-weight:600; font-size: 0.82rem;"><i class="fa-solid fa-cloud-slash"></i> सिंक बंद आहे</span>
+              </div>
             </div>
+            
+            <div style="padding: 16px;">
+              <div style="background: #eff6ff; border-left: 4px solid #2563eb; padding: 10px 12px; border-radius: 4px; margin-bottom: 14px; font-size: 0.84rem; line-height: 1.45; color: #1e40af;">
+                <i class="fa-solid fa-circle-info"></i> <b>Google Firebase Realtime Database:</b> कोणत्याही जड SDK शिवाय शुद्ध ब्राउझर REST तंत्रज्ञानावर आधारित. एका डिव्हाइसवर डेटा भरताच इतर सर्व मोबाईल व संगणकांवर सुरक्षित सिंक होतो.
+              </div>
 
-            <div style="background: #f8fafc; padding: 14px; border-radius: var(--radius-sm); border: 1px solid #e2e8f0;">
-              <h4 style="font-size: 0.95rem; font-weight: 700; color: #1e3a8a; margin-bottom: 4px;">
-                <i class="fa-solid fa-file-import text-primary"></i> Excel फाईलमधून डेटा अपलोड करा (Smart Merge)
-              </h4>
-              <p style="font-size: 0.85rem; color: #64748b; margin-bottom: 10px;">
-                आधी डाऊनलोड केलेली एक्सेल नोंदवही येथे अपलोड करा. <b>डुप्लिकेट नोंदी पूर्ण रोखून जुन्या नोंदी स्मार्ट पद्धतीने अपडेट केल्या जातात.</b>
-              </p>
-              <input type="file" id="excel-file-input" accept=".xlsx, .xls" style="font-size: 0.85rem;">
-            </div>
+              <div class="form-grid" style="grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 12px; margin-bottom: 14px;">
+                <div class="form-group">
+                  <label class="form-label" style="font-weight: 700;">शाळेचा UDISE कोड:</label>
+                  <input type="text" id="settingCloudSchoolCode" class="form-control" placeholder="उदा. 27240304501" value="27240304501">
+                  <small style="color: #64748b; font-size: 0.72rem;">या UDISE च्या खात्याखाली क्लाऊडवर डेटा सुरक्षित राहील.</small>
+                </div>
 
-            <div style="background: #f8fafc; padding: 14px; border-radius: var(--radius-sm); border: 1px solid #e2e8f0;">
-              <h4 style="font-size: 0.95rem; font-weight: 700; color: #1e3a8a; margin-bottom: 4px;">
-                <i class="fa-solid fa-shield-halved text-warning"></i> संपूर्ण सॉफ्टवेअर डेटा सुरक्षित JSON बॅकअप
-              </h4>
-              <p style="font-size: 0.85rem; color: #64748b; margin-bottom: 10px;">
-                सर्व नोंदी व शाळा सेटिंग्ज सुरक्षित ठेवण्यासाठी बॅकअप डाऊनलोड करा.
-              </p>
-              <div style="display: flex; gap: 8px; flex-wrap: wrap;">
-                <button class="btn btn-secondary btn-sm" onclick="exportJsonBackup()">
-                  <i class="fa-solid fa-download"></i> JSON बॅकअप डाऊनलोड
+                <div class="form-group">
+                  <label class="form-label" style="font-weight: 700;">सुरक्षा पिन (Secret PIN):</label>
+                  <input type="password" id="settingCloudSecretPin" class="form-control" value="Ican@123">
+                  <small style="color: #64748b; font-size: 0.72rem;">सिंक प्रमाणीकरण सुरक्षा पिन.</small>
+                </div>
+
+                <div class="form-group span-2">
+                  <label class="form-label" style="font-weight: 700;">🔥 Firebase Realtime Database URL:</label>
+                  <input type="url" id="settingCloudFirebaseUrl" class="form-control" placeholder="https://your-project-default-rtdb.firebaseio.com/" style="font-family: monospace; font-size: 0.88rem;">
+                  <small style="color: #64748b; font-size: 0.72rem;">उदा. <code>https://school-gav-sarve-default-rtdb.firebaseio.com</code></small>
+                </div>
+              </div>
+
+              <!-- Action Buttons -->
+              <div class="settings-cloud-actions">
+                <button type="button" class="btn btn-outline-info btn-sm" id="btnTestFirebase" onclick="testFirebaseConnection()" style="border: 1.5px solid #0284c7; color: #0284c7; font-weight: 700;">
+                  <i class="fa-solid fa-magnifying-glass"></i> टेस्ट (Test Ping)
                 </button>
-                <label class="btn btn-outline btn-sm" style="margin: 0; cursor: pointer;">
-                  <i class="fa-solid fa-upload"></i> JSON बॅकअप रिस्टोर
-                  <input type="file" id="json-restore-input" accept=".json" style="display: none;" onchange="importJsonBackup(this)">
-                </label>
+                <button type="button" class="btn btn-primary btn-sm" id="btnCloudSyncNow" onclick="syncCloudNow()" style="font-weight: 700;">
+                  <i class="fa-solid fa-cloud-arrow-up"></i> पाठवा (Push)
+                </button>
+                <button type="button" class="btn btn-success btn-sm" id="btnCloudPullNow" onclick="pullCloudNow()" style="font-weight: 700;">
+                  <i class="fa-solid fa-cloud-arrow-down"></i> आणा (Pull)
+                </button>
+                <button type="button" class="btn btn-warning btn-sm" onclick="emergencyRestoreCloudData()" title="मागील सुरक्षित बॅकअप स्नॅपशॉट परत मिळवा" style="font-weight: 700;">
+                  <i class="fa-solid fa-kit-medical"></i> रिकव्हरी
+                </button>
+                <button type="button" class="btn btn-danger btn-sm" onclick="disableCloudSync()" style="margin-left: auto;">
+                  <i class="fa-solid fa-ban"></i> सिंक बंद
+                </button>
               </div>
-            </div>
-
-            <div style="margin-top: 10px;">
-              <button class="btn btn-danger btn-sm" onclick="resetToDefaultRecords()">
-                <i class="fa-solid fa-rotate-left"></i> मूळ नमुना नोंदीवर रिसेट करा
-              </button>
             </div>
           </div>
-        </div>
 
-        <!-- Google Firebase Cloud Sync Settings Panel -->
-        <div class="panel-card" style="border-top: 4px solid #2563eb; grid-column: 1 / -1;">
-          <div class="panel-header" style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px;">
-            <div style="display: flex; align-items: center; gap: 10px;">
-              <span style="font-size: 1.4rem; color: #2563eb;"><i class="fa-solid fa-cloud-arrow-up"></i></span>
-              <div>
-                <h3 style="margin: 0; color: #1e3a8a; font-weight: 800;">Google Firebase क्लाऊड सिंक व्यवस्थापन (Live Multi-Device Sync)</h3>
-                <p style="margin: 0; font-size: 0.82rem; color: #64748b;">मोबाईल, लॅपटॉप व कॉम्प्युटरवर एकाच वेळी रीअल-टाईम थेट डेटा सिंक व बॅकअप</p>
-              </div>
+          <!-- Excel / JSON Backup & Restore -->
+          <div class="panel-card settings-card">
+            <div class="panel-header">
+              <h3><i class="fa-solid fa-cloud-arrow-up text-primary"></i> ऑफलाइन डेटा बॅकअप, एक्सेल व रिस्टोर</h3>
             </div>
-            <div id="cloudSettingsStatusText">
-              <span style="color:#64748b; font-weight:600;"><i class="fa-solid fa-cloud-slash"></i> सिंक बंद आहे</span>
-            </div>
-          </div>
-          
-          <div style="padding: 16px;">
-            <div style="background: #eff6ff; border-left: 4px solid #2563eb; padding: 12px 14px; border-radius: 4px; margin-bottom: 16px; font-size: 0.88rem; line-height: 1.5; color: #1e40af;">
-              <i class="fa-solid fa-circle-info"></i> <b>Google Firebase Realtime Database:</b> कोणत्याही जड SDK शिवाय शुद्ध ब्राउझर REST तंत्रज्ञानावर आधारित. यामुळे गावातील सर्व कुटुंब व बालकांचा सर्वेक्षण डेटा एका डिव्हाइसवर भरताच इतर सर्व मोबाईल व संगणकांवर सुरक्षित सिंक होतो.
-            </div>
-
-            <div class="form-grid" style="grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 14px; margin-bottom: 14px;">
-              <div class="form-group">
-                <label class="form-label" style="font-weight: 700;">शाळेचा UDISE कोड:</label>
-                <input type="text" id="settingCloudSchoolCode" class="form-control" placeholder="उदा. 27240304501" value="27240304501">
-                <small style="color: #64748b; font-size: 0.75rem;">या UDISE च्या खात्याखाली क्लाऊडवर डेटा सुरक्षित राहील.</small>
+            
+            <div style="padding: 16px; display: flex; flex-direction: column; gap: 12px;">
+              <div style="background: #f8fafc; padding: 12px 14px; border-radius: var(--radius-sm); border: 1px solid #e2e8f0;">
+                <h4 style="font-size: 0.92rem; font-weight: 700; color: #1e3a8a; margin-bottom: 3px;">
+                  <i class="fa-solid fa-file-excel text-success"></i> अधिकृत Excel नोंदवही डाऊनलोड
+                </h4>
+                <p style="font-size: 0.82rem; color: #64748b; margin-bottom: 8px;">
+                  सर्व सदस्यांच्या नोंदी अधिकृत १६ स्तंभांच्या फॉरमॅटमध्ये थेट एक्सेल शीट म्हणून डाउनलोड करा.
+                </p>
+                <button class="btn btn-success btn-sm" onclick="ExcelHandler.exportToExcel(AppState.records, AppState.config)">
+                  <i class="fa-solid fa-download"></i> Excel नोंदवही डाऊनलोड करा
+                </button>
               </div>
 
-              <div class="form-group">
-                <label class="form-label" style="font-weight: 700;">सुरक्षा पिन (Secret PIN):</label>
-                <input type="password" id="settingCloudSecretPin" class="form-control" value="Ican@123">
-                <small style="color: #64748b; font-size: 0.75rem;">सिंक प्रमाणीकरण सुरक्षा पिन.</small>
+              <div style="background: #f8fafc; padding: 12px 14px; border-radius: var(--radius-sm); border: 1px solid #e2e8f0;">
+                <h4 style="font-size: 0.92rem; font-weight: 700; color: #1e3a8a; margin-bottom: 3px;">
+                  <i class="fa-solid fa-file-import text-primary"></i> Excel फाईलमधून डेटा अपलोड करा (Smart Merge)
+                </h4>
+                <p style="font-size: 0.82rem; color: #64748b; margin-bottom: 8px;">
+                  आधी डाऊनलोड केलेली एक्सेल नोंदवही येथे अपलोड करा. <b>डुप्लिकेट नोंदी पूर्ण रोखून जुन्या नोंदी स्मार्ट पद्धतीने अपडेट केल्या जातात.</b>
+                </p>
+                <input type="file" id="excel-file-input" accept=".xlsx, .xls" style="font-size: 0.85rem; width: 100%;">
               </div>
 
-              <div class="form-group span-2">
-                <label class="form-label" style="font-weight: 700;">🔥 Google Firebase Realtime Database URL:</label>
-                <input type="url" id="settingCloudFirebaseUrl" class="form-control" placeholder="https://your-project-default-rtdb.firebaseio.com/" style="font-family: monospace; font-size: 0.9rem;">
-                <small style="color: #64748b; font-size: 0.75rem;">उदा. <code>https://school-gav-sarve-default-rtdb.firebaseio.com</code> किंवा <code>https://project-id.asia-southeast1.firebasedatabase.app</code></small>
+              <div style="background: #f8fafc; padding: 12px 14px; border-radius: var(--radius-sm); border: 1px solid #e2e8f0;">
+                <h4 style="font-size: 0.92rem; font-weight: 700; color: #1e3a8a; margin-bottom: 3px;">
+                  <i class="fa-solid fa-shield-halved text-warning"></i> संपूर्ण सॉफ्टवेअर डेटा सुरक्षित JSON बॅकअप
+                </h4>
+                <p style="font-size: 0.82rem; color: #64748b; margin-bottom: 8px;">
+                  सर्व नोंदी व शाळा सेटिंग्ज सुरक्षित ठेवण्यासाठी बॅकअप डाऊनलोड करा.
+                </p>
+                <div style="display: flex; gap: 8px; flex-wrap: wrap;">
+                  <button class="btn btn-secondary btn-sm" onclick="exportJsonBackup()">
+                    <i class="fa-solid fa-download"></i> JSON बॅकअप डाऊनलोड
+                  </button>
+                  <label class="btn btn-outline btn-sm" style="margin: 0; cursor: pointer;">
+                    <i class="fa-solid fa-upload"></i> JSON बॅकअप रिस्टोर
+                    <input type="file" id="json-restore-input" accept=".json" style="display: none;" onchange="importJsonBackup(this)">
+                  </label>
+                </div>
               </div>
-            </div>
 
-            <!-- Action Buttons -->
-            <div style="display: flex; gap: 10px; flex-wrap: wrap; align-items: center; border-top: 1px solid #e2e8f0; padding-top: 14px;">
-              <button type="button" class="btn btn-outline-info btn-sm" id="btnTestFirebase" onclick="testFirebaseConnection()" style="border: 1.5px solid #0284c7; color: #0284c7; font-weight: 700;">
-                <i class="fa-solid fa-magnifying-glass"></i> कनेक्शन तपासा (Test Ping)
-              </button>
-              <button type="button" class="btn btn-primary btn-sm" id="btnCloudSyncNow" onclick="syncCloudNow()" style="font-weight: 700;">
-                <i class="fa-solid fa-cloud-arrow-up"></i> आता क्लाऊडवर पाठवा (Push)
-              </button>
-              <button type="button" class="btn btn-success btn-sm" id="btnCloudPullNow" onclick="pullCloudNow()" style="font-weight: 700;">
-                <i class="fa-solid fa-cloud-arrow-down"></i> क्लाऊडवरून आणा (Pull)
-              </button>
-              <button type="button" class="btn btn-warning btn-sm" onclick="emergencyRestoreCloudData()" title="मागील सुरक्षित बॅकअप स्नॅपशॉट परत मिळवा" style="font-weight: 700;">
-                <i class="fa-solid fa-kit-medical"></i> आणीबाणी बॅकअप रिकव्हरी
-              </button>
-              <button type="button" class="btn btn-danger btn-sm" onclick="disableCloudSync()" style="margin-left: auto;">
-                <i class="fa-solid fa-ban"></i> सिंक बंद करा
-              </button>
+              <div style="margin-top: 4px;">
+                <button class="btn btn-danger btn-sm" onclick="resetToDefaultRecords()">
+                  <i class="fa-solid fa-rotate-left"></i> मूळ नमुना नोंदीवर रिसेट करा
+                </button>
+              </div>
             </div>
           </div>
         </div>
